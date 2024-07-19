@@ -2,6 +2,9 @@ class Header extends HTMLElement{
   connectedCallback(){
       this.innerHTML = `
     <header>
+        <div class="topBtn">
+            <button onclick="topBtn()"><i class="fa-solid fa-arrow-up fa-2x" style="color: #fefefe;" aria-hidden="true"></i></button>
+        </div>
         <nav class="navbar fixed-top bg-white">
             <ul class="nav-menu">
                 <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>

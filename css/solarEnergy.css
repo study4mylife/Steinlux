@@ -7,34 +7,6 @@
     text-align: center;
 }
 
-.navbar{
-    height: 76px;
-    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand{
-    background: url('../src/STEINLUX_LOGO.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    min-width: 180px;
-    height: 40px;
-}
-
-.navbar-nav{
-    margin-left: 100px;
-}
-
-.dropdown{
-    margin: 0 20px;
-    border-radius: 10px;
-}
-
-.dropdown-menu a:hover,
-.dropdown:hover {
-    background: #97a68c;
-    transition: 0.3s;
-}
-
 .topBtn button{
     position: fixed;
     right: 20px;
@@ -81,61 +53,59 @@
 
 .process{
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.process .title p{
-    line-height: 2.5;
-    margin-bottom: 30px;
-}
-
-.step{
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 50%;
+    align-items: center;
 }
 
-.step h1,
-.step h2,
-.step h3,
-.step li,
-.step ol,
-.step p{
-    letter-spacing: 2px;
-    text-align: left;
+.stepContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: auto;
+    gap: 30px;
+    width: 90%;
 }
 
-.step img{
-    width: 100%;
-    margin: 30px 0;
-}
-
-.step h1{
+.process .title h1{
+    font-size: 40px;
     font-weight: 700;
-    color: #333;
 }
 
-.step h2{
-    margin: 30px 0;
+.process .title h2{
+    font-size: 24px;
 }
 
-.step h3{
-    color: #444;
-    font-size: 28px;
-    font-weight: 500;
-    margin: 30px 0;
+.step {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.step li{
+.step:hover {
+    cursor: pointer;
+    background-color: #eee;
+    transform: translateY(-5px);
+}
+
+.step-icon {
+    font-size: 3em;
+    color: #f7bd0f;
+    margin-bottom: 20px;
+}
+
+.step h2 {
+    color: #1a3875;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.step p {
     color: #666;
-    font-size: 16px;
-}
-
-.step ol{
-    line-height: 50px;
+    font-size: 1em;
 }
 
 footer{
@@ -200,22 +170,9 @@ footer p{
 }
 
 @media (max-width: 1200px) {
-    .dropdown{
-        margin: 0;
-    }
 
-    .dropdown-toggle{
-        border: 0;
-    }
-
-    .step{
-        width: 80%;
-    }
 }
 @media (max-width: 992px) {
-    .navbar-nav{
-        margin-left: 0;
-    }
     
     .footerContainer div{
         width: 50%;
