@@ -1,0 +1,228 @@
+*{
+    font-family: "Noto Sans TC", sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    border-style: none;
+    scroll-behavior: smooth;
+    text-align: center;
+}
+
+.navbar{
+    height: 76px;
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand{
+    background: url('../src/STEINLUX_LOGO.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-width: 180px;
+    height: 40px;
+}
+
+.navbar-nav{
+    margin-left: 100px;
+}
+
+.dropdown{
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.dropdown-menu a:hover,
+.dropdown:hover {
+    background: #97a68c;
+    transition: 0.3s;
+}
+
+.topBtn button{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+    background-color: #97a68c;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.bannerContainer{
+    margin-top: 76px;
+    background-color: rgba(0, 0, 0, .6);
+    background-blend-mode: multiply;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.bannerContainer span{
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    color: #fefefe;
+    transform: translate(-50%, -50%);
+    letter-spacing: 5px;
+    z-index: 1;
+}
+
+.bannerContainer span h1{
+    font-size: 3vw;
+}
+
+.bannerContainer span h2{
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.process{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.process .title p{
+    line-height: 2.5;
+    margin-bottom: 30px;
+}
+
+.step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.step h1,
+.step h2,
+.step h3,
+.step li,
+.step ol,
+.step p{
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.step img{
+    width: 100%;
+    margin: 30px 0;
+}
+
+.step h1{
+    font-weight: 700;
+    color: #333;
+}
+
+.step h2{
+    margin: 30px 0;
+}
+
+.step h3{
+    color: #444;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.step li{
+    color: #666;
+    font-size: 16px;
+}
+
+.step ol{
+    line-height: 50px;
+}
+
+footer{
+    width: 100%;
+    letter-spacing: 2px;
+    background-color: rgb(243, 243, 242);
+}
+
+.footerContainer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 50px 0 10px 0;
+}
+
+.footerContainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 25%;
+}
+
+.footerContainer h4{
+    text-align: left;
+    font-size:16px;
+    margin: 15px 0 10px 0;
+}
+
+.footerContainer ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;  
+}
+
+.footerContainer li{
+    font-size:12px;
+}
+
+footer a{
+    text-decoration: none;
+    color: #444; 
+    line-height: 30px;
+}
+
+footer p{
+    font-size: 12px;
+    color: #888;
+    
+}
+
+.footerCopyright p{
+    display: inline-block;
+    font-size: 10px;
+    margin-right: 20px;
+}
+
+.footerCopyright h4{
+    display: inline-block;
+    font-size: 10px;
+    border-right: solid #222 1px;
+}
+
+@media (max-width: 1200px) {
+    .dropdown{
+        margin: 0;
+    }
+
+    .dropdown-toggle{
+        border: 0;
+    }
+
+    .step{
+        width: 80%;
+    }
+}
+@media (max-width: 992px) {
+    .navbar-nav{
+        margin-left: 0;
+    }
+    
+    .footerContainer div{
+        width: 50%;
+    }
+
+    .footerCopyright{
+        display: flex;
+        flex-direction: column;
+    }
+}

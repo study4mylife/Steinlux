@@ -1,0 +1,92 @@
+.bannerContainer{
+    margin-top: 76px;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.bannerContainer span{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    color: #fefefe;
+    transform: translate(-50%, -50%);
+    letter-spacing: 5px;
+    z-index: 1;
+}
+
+.bannerContainer span h1{
+    font-size: 3vw;
+}
+
+.bannerContainer span h2{
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 1px;
+}
+
+.card{
+    width: 40%;
+    margin: 20px;
+    box-shadow: 0 0 0 1px #111;
+    border-radius: 8px;
+}
+
+.content{
+    display: flex;
+    padding: 5px;
+}
+
+.content img{
+    align-self: center;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+    max-height: 120px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.title h3{
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.title p {
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+time{
+    font-size: 12px;
+    margin-left: 80%;
+}
+
+@media (max-width: 1200px) {
+    .card{
+        width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+
+}

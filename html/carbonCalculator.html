@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/carbonCalculator.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../html/index.html">
+                <img src="../src/STEINLUX_LOGO.png" alt="STEINLUX_Logo" class="steinluxLogo">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="calculatorContainer">
+            <div class="calculator">
+                <h1>碳足跡計算機</h1>
+                <div id="question-container">
+                    <div class="question" id="question1">
+                        <p>使用動物原料製品的頻率</p>
+                        <input type="range" min="0" max="100" value="50" class="slider" id="foodSlider">
+                        <p>Value: <span id="foodValue"></span></p>
+                        <button class="next-btn">下一題</button>
+                    </div>
+                    <div class="question" id="question2" style="display:none;">
+                        <p>目前使用最多的交通運輸工具</p>
+                        <select id="transportSelect">
+                            <option value="10">走路/腳踏車</option>
+                            <option value="30">大眾運輸工具</option>
+                            <option value="50">汽車</option>
+                            <option value="100">飛機</option>
+                        </select>
+                        <button class="prev-btn">上一題</button>
+                        <button class="next-btn">下一題</button>
+                    </div>
+                    <div class="question" id="question3" style="display:none;">
+                        <p>家人的節約能源觀念如何</p>
+                        <div class="radio-group">
+                            <input type="radio" id="veryEfficient" name="homeEfficiency" value="20" checked>
+                            <label for="veryEfficient">完全不了解</label><br>
+                            <input type="radio" id="somewhatEfficient" name="homeEfficiency" value="50">
+                            <label for="somewhatEfficient">略有耳聞</label><br>
+                            <input type="radio" id="notEfficient" name="homeEfficiency" value="80">
+                            <label for="notEfficient">大略了解</label><br>
+                            <input type="radio" id="notEfficient" name="homeEfficiency" value="80">
+                            <label for="notEfficient">完全了解</label>
+                        </div>
+                        <button class="prev-btn">上一題</button>
+                        <button class="next-btn">計算足跡</button>
+                    </div>
+                </div>
+                <div id="result" style="display:none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <index-Footer></index-Footer>
+
+    <script src="../js/carbonCalculator.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
