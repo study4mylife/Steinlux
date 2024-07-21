@@ -1,0 +1,62 @@
+.process{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.process .title p{
+    line-height: 2.5;
+    margin-bottom: 30px;
+}
+
+.process .title li{
+    line-height: 40px;
+}
+
+.step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.step h1,
+.step h2,
+.step h3,
+.step li,
+.step ol,
+.step p{
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.step img{
+    width: 100%;
+    margin: 30px 0;
+}
+
+.step h1{
+    font-weight: 700;
+    color: #333;
+}
+
+.step h2{
+    margin: 30px 0;
+}
+
+.step h3{
+    color: #444;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.step li{
+    color: #666;
+    font-size: 16px;
+}
+
+.step ol{
+    line-height: 50px;
+}

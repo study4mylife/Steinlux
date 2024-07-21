@@ -14,13 +14,13 @@ class Header extends HTMLElement{
                         <div class="dropdownItem">
                             <h2>供應鏈碳管理</h2>
                             <a href="../html/sbti.html">SBTi目標設定/提交</a>
-                            <a href="#">GHG Protocol Scope 3</a>
+                            <a href="../html/GHG.html">GHG Protocol Scope 3</a>
                         </div>
 
                         <div class="dropdownItem">
                             <h2>溫室氣體盤查</h2>
-                            <a href="#">ISO 14064-1組織型</a>
-                            <a href="#">ISO 14067 碳足跡</a>
+                            <a href="../html/ISO14064.html">ISO 14064-1組織型</a>
+                            <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
                         </div>
                     </div>
                 </li>
@@ -62,25 +62,50 @@ class Header extends HTMLElement{
                     </div>
                 </li>
                 <li class="nav-item">
-                    <h1><a href="">關於我們</a></h1>
+                    <h1><a href="../html/aboutUs.html">關於我們</a></h1>
                 </li>
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <div class="dropdown2">
-                        <a href="#" class="dropbtn">淨零顧問服務</a>
+                        <a href="#" class="dropbtn">淨零顧問服務<i class="fa-solid fa-caret-up"></i></a>
                         <div class="dropdown-content">
-                            <a href="#">子項目1</a>
-                            <a href="#">子項目2</a>
-                            <a href="#">子項目3</a>
+                            <h2>供應鏈碳管理</h2>
+                            <a href="../html/sbti.html">SBTi目標設定/提交</a>
+                            <a href="../html/GHG.html">GHG Protocol Scope 3</a>
+                            <h2>溫室氣體盤查</h2>
+                            <a href="../html/ISO14064.html">ISO 14064-1組織型</a>
+                            <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
                         </div>
                     </div>
                     <div class="dropdown2">
                         <a href="#" class="dropbtn">淨零解決方案</a>
                         <div class="dropdown-content">
-                            <a href="#">子項目1</a>
-                            <a href="#">子項目2</a>
-                            <a href="#">子項目3</a>
+                           <h2>綠電解決方案</h2>
+                            <a href="#">國內再生能源憑證(T-REC)</a>
+                            <a href="#">國內購電協議(CPPA)</a>
+                            <a href="#">國際再生能源憑證(I-REC/TIGR)</a>
+                            <h2>碳權解決方案</h2>
+                            <a href="#">ISO 14064-2專案開發</a>
+                            <a href="#">國內減量額度交易</a>
+                            <a href="#">國際自願性碳權採購</a>
                         </div>
+                    </div>
+                    <div class="dropdown2">
+                        <a href="#" class="dropbtn">永續服務</a>
+                        <div class="dropdown-content">
+                            <a href="../html/solarEnergy.html">太陽光電建置</a>
+                            <a href="../html/carbonCalculator.html">碳足跡計算機</a>
+                        </div>
+                    </div>
+                    <div class="dropdown2">
+                        <a href="#" class="dropbtn">INSIGHT</a>
+                        <div class="dropdown-content">
+                            <a href="../html/media.html">媒體專區</a>
+                            <a href="../html/research.html">研究報告 </a>
+                        </div>
+                    </div>
+                   <div class="dropdown2">
+                        <a href="../html/aboutUs.html" class="dropbtn">關於我們</a>
                     </div>
                 </div>
 
@@ -212,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "100%";
 }
 
 function closeNav() {

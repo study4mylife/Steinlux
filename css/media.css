@@ -1,35 +1,3 @@
-.bannerContainer{
-    margin-top: 76px;
-}
-
-.banner{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.bannerContainer span{
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    color: #fefefe;
-    transform: translate(-50%, -50%);
-    letter-spacing: 5px;
-    z-index: 1;
-}
-
-.bannerContainer span h1{
-    font-size: 3vw;
-}
-
-.bannerContainer span h2{
-    width: 100%;
-    font-size: 1.5vw;
-}
-
 .cardContainer{
     display: flex;
     flex-wrap: wrap;

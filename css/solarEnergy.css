@@ -51,6 +51,15 @@
     font-size: 1.5vw;
 }
 
+.main .title h1{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.main.title h2{
+    font-size: 24px;
+}
+
 .process{
     display: flex;
     flex-direction: column;
@@ -66,15 +75,6 @@
     width: 90%;
 }
 
-.process .title h1{
-    font-size: 40px;
-    font-weight: 700;
-}
-
-.process .title h2{
-    font-size: 24px;
-}
-
 .step {
     background-color: #ffffff;
     border-radius: 10px;
@@ -84,28 +84,80 @@
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.step:hover {
-    cursor: pointer;
-    background-color: #eee;
-    transform: translateY(-5px);
-}
-
-.step-icon {
-    font-size: 3em;
-    color: #f7bd0f;
-    margin-bottom: 20px;
-}
-
 .step h2 {
-    color: #1a3875;
+    color: #5c574b;
     font-size: 1.5em;
     font-weight: 600;
     margin-top: 0;
 }
 
+.step-icon {
+    font-size: 3em;
+    color: #809d6c;
+    margin-bottom: 20px;
+}
+
 .step p {
     color: #666;
     font-size: 1em;
+}
+
+.document{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.paperContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.paper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.paper ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.paper li{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 30px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.paper li::before{
+    font-family: "Font Awesome 5 Free";
+    content: "\f0da";
+    padding-right: 5px;
+    font-weight: 900;
+}
+
+.step:hover,
+.paper li:hover{
+    cursor: pointer;
+    background-color: #eee;
+    transform: translateY(-5px);
 }
 
 footer{
@@ -173,6 +225,9 @@ footer p{
 
 }
 @media (max-width: 992px) {
+    .paper ul{
+        width: 90%;
+    }
     
     .footerContainer div{
         width: 50%;

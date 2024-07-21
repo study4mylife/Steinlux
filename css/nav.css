@@ -213,11 +213,11 @@ g
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color:#fff;
     transition: 0.5s;
     padding-top: 60px;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: scroll;
     text-overflow: ellipsis;
   }
   
@@ -232,7 +232,6 @@ g
 
 .dropdown-content {
     display: none;
-    background-color: #262626;
     padding-left: 20px;
 }
 
@@ -240,6 +239,14 @@ g
     font-size: 18px;
 }
 
+.dropdown2 i{
+    transform: rotate(0);
+    transition: transform 0.3s;
+}
+
+.dropdown2.active i{
+    transform: rotate(180deg);
+}
 
 .dropdown2.active .dropdown-content {
     display: block;
