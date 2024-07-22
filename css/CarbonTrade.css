@@ -1,3 +1,65 @@
+.step {
+    max-width: 0;
+    max-height: 0;
+    visibility: hidden;
+    margin-bottom: 30px;
+}
+.step.active {
+    max-width: none;
+    max-height: none;
+    visibility: visible;
+}
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.button-group button {
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button-group button:hover {
+    background-color: #e0e0e0;
+}
+.button-group button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#next-button, #prev-button, #calculate {
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#prev-button {
+    background-color: #6c757d;
+}
+
+#results {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
 .svgContainer{
     display: flex;
     align-items: center;

@@ -22,41 +22,27 @@
         </span>
     </div>
 
-    <hr>
-
     <main>
-        <article class="introduce hidden-element">
-            <h1>淨零知識大補帖</h1>
-            <div class="introduceContainer  mt-5 mb-5">
-                <div class="introduceItem">
-                    <img src="../src/knowledge1.png" alt="">
-                    <span class="col-6">
-                        <h3>什麼是淨零排放</h3>
-                        <p>淨零排放指透過植樹造林、碳捕捉與封存等方式減少溫室氣體排放。企業或組織即使有排放，可透過相關技術使溫室氣體淨排放為零。其定義較淨零碳排(碳中和)廣，泛指所有溫室氣體</p>
-                    </span>
-                    <img src="../src/knowledge1.png" alt="" style="opacity: 0;">
-                </div>
-                <div class="introduceItem introduceItem2">
-                    <span>
-                        <h3>什麼是淨零碳排，和淨零排放不一樣嗎？</h3>
-                        <p>又稱為碳中和(Carbon Neutrality)，在一定時間內透過各種節能減碳策略（例如負碳技術、森林碳匯）或購買其他企業碳權，以抵消自身產生的二氧化碳排放量，實現正負抵消，達到相對「零排放」。</p>
-                    </span>
-                    <span>
-                        <h3>「碳足跡標籤」，是什麼意思呢？</h3>
-                        <p>又稱碳標籤(CarbonLabel)或碳排放標籤(Carbon Emission Label)。為顯示碳排放量之標示方式，是指一個產品從原料取得，經過工廠製造、配送銷售、消費者使用到最後廢棄回收等階段所產生的溫室氣體，經過換算成二氧化碳當量的總和。</p>
-                    </span>
-                </div>
-                <div class="introduceItem">
-                    <img src="../src/knowledge2.png" alt="" style="opacity: 0;">
-                    <span class="col-6">
-                        <h3>什麼是碳捕捉、利用與封存技術？</h3>
-                        <p>為解決來自工業產品生產、化石燃料轉換能源過程中，所產生的二氧化碳排放，透過不同的技術捕捉二氧化碳進而利用或封存。</p>
-                    </span>
-                    <img src="../src/knowledge2.png" alt="">
+        <section class="brand-nav">
+            <div class="blur-effect blur-left"></div>
+            <div class="brand-container">
+                <div class="brand-scroll">
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 1"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 2"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 3"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 4"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 5"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 1"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 2"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 3"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 4"></div>
+                    <div class="brand-item"><img src="/api/placeholder/100/60" alt="Brand 5"></div>
                 </div>
             </div>
-        </article>
-
+            <div class="blur-effect blur-right"></div>
+            <h1>合作品牌</h1>
+        </section>
+    
         <hr>
 
         <article class="solution hidden-element">
@@ -145,5 +131,18 @@
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        const scrollContainer = document.querySelector('.brand-scroll');
+            
+        scrollContainer.addEventListener('mouseenter', () => {
+            scrollContainer.style.animationPlayState = 'paused';
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            scrollContainer.style.animationPlayState = 'running';
+        });
+    });
+    </script>
 </body>
 </html>

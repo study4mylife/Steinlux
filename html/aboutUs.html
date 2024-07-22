@@ -25,7 +25,54 @@
     <hr>
 
     <main>
+        <div class="mainContainer">
+            <section class="aboutUs">
+                <h2>關於我們</h2>
+                <p>綠色未來公司致力於推動淨零排放技術的創新和應用。我們的使命是通過先進的解決方案來減少碳排放,為地球的可持續發展做出貢獻。</p>
+            </section>
 
+            <section class="advantages">
+                <div class="advantage">
+                    <h3>創新技術</h3>
+                    <p>我們擁有領先的淨零排放技術,不斷推動行業標準的提升。</p>
+                </div>
+                <div class="advantage">
+                    <h3>專業團隊</h3>
+                    <p>我們的團隊由行業頂尖專家組成,擁有豐富的經驗和專業知識。</p>
+                </div>
+                <div class="advantage">
+                    <h3>全球影響</h3>
+                    <p>我們的解決方案已在全球多個國家成功實施,產生了顯著的環境效益。</p>
+                </div>
+            </section>
+
+            <section class="timeline">
+                <div class="container left">
+                    <div class="content">
+                        <h2>2020年</h2>
+                        <p>這是2020年發生的重要事件。</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h2>2021年</h2>
+                        <p>這是2021年發生的重要事件。</p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="content">
+                        <h2>2022年</h2>
+                        <p>這是2022年發生的重要事件。</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h2>2023年</h2>
+                        <p>這是2023年發生的重要事件。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <index-Footer></index-Footer>
@@ -33,5 +80,29 @@
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/index.js"></script>
+    <script>
+               document.addEventListener('DOMContentLoaded', (event) => {
+            const containers = document.querySelectorAll('.container');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.7
+            });
+
+            containers.forEach(container => {
+                container.style.opacity = 0;
+                container.style.transform = 'translateY(50px)';
+                container.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(container);
+            });
+        });
+    </script>
+
 </body>
 </html>
