@@ -47,6 +47,7 @@ class Header extends HTMLElement{
                     <div class="dropdown">
                         <div class="dropdownItem">
                             <a href="../html/solarEnergy.html">太陽光電建置</a>
+                            <a href="../html/carbonTrade.html">太陽能建置計算機</a>
                             <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                         </div>
                     </div>
