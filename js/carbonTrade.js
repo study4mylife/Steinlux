@@ -149,7 +149,7 @@ function prevStep() {
 function calculate() {
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
-    const region = mapContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
+    const region = svgContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
     const area = parseFloat(document.getElementById('area').value);
     const areaUnit = document.querySelector('#areaUnitGroup .active')?.dataset.value;
 
