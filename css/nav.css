@@ -290,6 +290,7 @@ main{
 }
 
 footer{
+    margin-top: auto;
     text-align: center;
     width: 100%;
     letter-spacing: 2px;

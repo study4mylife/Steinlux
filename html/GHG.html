@@ -33,22 +33,102 @@
             </div>
             
             <h2>範疇3類別</h2>
+            <h1>上游</h1>
             <div class="itemContainer">
-                <div class="item">購買的商品和服務</div>
-                <div class="item">資本商品</div>
-                <div class="item">燃料和能源相關活動</div>
-                <div class="item">上游運輸和配送</div>
-                <div class="item">營運中產生的廢棄物</div>
-                <div class="item">商務差旅</div>
-                <div class="item">員工通勤</div>
-                <div class="item">上游租賃資產</div>
-                <div class="item">下游運輸和配送</div>
-                <div class="item">售出產品的加工</div>
-                <div class="item">售出產品的使用</div>
-                <div class="item">售出產品的報廢處理</div>
-                <div class="item">下游租賃資產</div>
-                <div class="item">特許經營</div>
-                <div class="item">投資</div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront">1111</div>
+                        <div class="itemBack">購買的商品和服務</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">資本商品</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">燃料和能源相關活動</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">上游運輸和配送</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">營運中產生的廢棄物</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">商務差旅</div>
+                    </div>  
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">員工通勤</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">上游租賃資產</div>
+                    </div>
+                </div>
+            </div>
+            <h1>下游</h1>
+            <div class="itemContainer">
+                
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">下游運輸和配送</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">售出產品的加工</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">售出產品的使用</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">售出產品的報廢處理</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">下游租賃資產</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">特許經營</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemInner">
+                        <div class="itemFront"></div>
+                        <div class="itemBack">投資</div>
+                    </div>
+                </div>
             </div>
             
             <h2>範疇3排放分布</h2>
@@ -65,6 +145,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/index.js"></script>
     <script>
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.classList.add('flipped');
+            });
+        });
+
         const ctx = document.getElementById('scope3-chart').getContext('2d');
         new Chart(ctx, {
             type: 'pie',

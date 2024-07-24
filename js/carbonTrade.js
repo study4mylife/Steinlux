@@ -152,10 +152,17 @@ function calculate() {
     const region = svgContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
     const area = parseFloat(document.getElementById('area').value);
     const areaUnit = document.querySelector('#areaUnitGroup .active')?.dataset.value;
+    
 
     if (!buildMode || !installationType || region === '未選擇' || isNaN(area) || !areaUnit) {
         alert('請填寫所有必要資訊');
         return;
+    }
+
+    else{
+        document.getElementById(`step${currentStep}`).style.display = 'none';
+        document.getElementById('prev-button').style.display = 'none';
+        document.getElementById('calculate').style.display = 'none';
     }
 
     let areaInPing = convertToPing(area, areaUnit);
