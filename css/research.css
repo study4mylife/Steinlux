@@ -14,69 +14,20 @@
     border-radius: 8px;
 }
 
-.research{
+.content{
     display: flex;
-}
-
-.research a{
-    align-self: center;
-}
-
-.research img{
-    
-    aspect-ratio: 4 / 3;
-    border-radius: 10px;
-    max-height: 120px;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-.title h3{
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.title p {
-    font-size: 16px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-time{
-    font-size: 12px;
-    margin-left: 80%;
-}
-
-.cardContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    padding: 1px;
+    padding: 10px
 }
 
-.card{
-    width: 40%;
-    margin: 20px;
-    box-shadow: 0 0 0 1px #111;
-    border-radius: 8px;
-}
-
-.research{
+.content a{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.research a{
-    align-self: center;
-}
-
-.research img{
-    
+.content img{
     aspect-ratio: 4 / 3;
     border-radius: 10px;
     max-height: 120px;
@@ -107,5 +58,18 @@ time{
 @media (max-width: 1200px) {
     .card{
         width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .content img{
+        width: 95%;
+        max-height: 500px;
+    }
+
+    .card .content{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
     }
 }

@@ -4,9 +4,22 @@
     align-items: center;
 }
 
-.sbti .title h1,.sbti h2,.methods h1{
+.sbti h1{
+    position: relative;
+    display: inline-block;
     font-weight: 600;
     color: #3b8e89;
+}
+
+.sbti h1::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;  /* 調整此值可以改變線條與文字的距離 */
+    width: 100%;
+    height: 2px;  /* 調整此值可以改變線條的粗細 */
+    background-color: #000;  /* 調整此值可以改變線條的顏色 */
+
 }
 
 .sbti .title p{
@@ -19,7 +32,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 90%;
 }
 
 .introduce h1,
@@ -31,15 +44,9 @@
     letter-spacing: 2px;
 }
 
-.introduce img{
-    width: 50%;
-    height: 50%;
-    margin: 30px 0;
-}
-
 .introduce h3{
     color: #444;
-    font-size: 28px;
+    font-size: 2vw;
     font-weight: 500;
     margin: 30px 0;
 }
@@ -51,4 +58,36 @@
 
 .introduce ol{
     line-height: 50px;
+}
+
+.targetSet{
+    display: flex;
+}
+
+.targetSet img{
+    width: 50%;
+    height: 50%;
+    margin: 70px 10px;
+}
+
+@media (max-width: 1200px) {
+    .sbti .title h1{
+        font-size: 24px;
+    }
+
+    .introduce h3{
+        color: #444;
+        font-size: 24px;
+    }
+
+    .targetSet{
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .targetSet img{
+        width: 80%;
+        height: 80%;
+        margin: 30px 0;
+    }
 }

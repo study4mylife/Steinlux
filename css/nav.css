@@ -73,6 +73,30 @@ g
     transform: translateY(0);
 }
 
+.hidden-element-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 20px 0
+}
+
+.hidden-element-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden-element-right{
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin: 20px 0
+}
+
+.hidden-element-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .topBtn button{
     position: fixed;
     right: 20px;
@@ -84,11 +108,16 @@ g
     border-radius: 50px;
 }
 
-.navbar{
-    top: 0;
-    height: 76px;
-    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);
-    z-index: 2000000;
+.nav-item:nth-child(1) h1 { animation-delay: 0.5s; }
+.nav-item:nth-child(2) h1 { animation-delay: 0.4s; }
+.nav-item:nth-child(3) h1 { animation-delay: 0.3s; }
+.nav-item:nth-child(4) h1 { animation-delay: 0.2s; }
+.nav-item:nth-child(5) h1 { animation-delay: 0.1s; }
+
+.nav-bar{
+    position: relative;
+    z-index: 100000;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, .1);
 }
 
 .navbar-logo{
@@ -97,74 +126,83 @@ g
     background-repeat: no-repeat;
     min-width: 180px;
     min-height: 40px;
-    margin: 10px 0 0 20px;margin-bottom: 20px;
+    margin-right: auto;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #444;
-}
-
-.nav-menu{
+.nav-list {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: start;
-    width: 100%;
+    list-style-type: none;
+    margin: auto;
 }
 
-.nav-item h1{
-    font-size: 16px;
-    color: #555;
-    opacity: 0;
-    animation: slideInFromLeft 0.5s ease-out forwards;
+.nav-item {
+    width: 15%;
+    position: relative;
+    z-index: 100000000;
+}
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    line-height: 76px;
+    padding: 0 10px;
+    display: block;
+    transition: color 0.3s;
 }
 
-.nav-item:nth-child(1) h1 { animation-delay: 0.5s; }
-.nav-item:nth-child(2) h1 { animation-delay: 0.4s; }
-.nav-item:nth-child(3) h1 { animation-delay: 0.3s; }
-.nav-item:nth-child(4) h1 { animation-delay: 0.2s; }
-.nav-item:nth-child(5) h1 { animation-delay: 0.1s; }
-
-.nav-item h2:hover{
-    cursor: default;
-}
-
-.nav-item{
-    margin: 10px 0 0px 60px;
-    text-align: center;
-    width: 10%;;
-}
-
-.nav-item :hover {
-    cursor: pointer; 
-}
-
-.nav-item .dropdown {
-    position: absolute;
+.dropdown-container {
+    position: fixed;
     top: 76px;
-    left:0;
-    background-color: #fff;
+    left: 0;
     width: 100%;
     height: 0;
+    background-color: #fff;
+    transition: height 0.3s ease-in-out;
     z-index: 10000;
+    box-shadow: 0px -5px 10px -5px rgba(0, 0, 0, .1);
+}
+
+.dropdown-content {
+    transform: translateY(10px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    transition-delay: 0.1s;
+    padding: 40px 0;
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.product-card {
+    text-align: center;
     opacity: 0;
-    transition: opacity 0.5s ease-out, height  0.5s ease
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-.show .dropdown{  
-    cursor:initial;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    opacity: 1;
-    transition: opacity 0.3s linear, height  0.5s ease
+.product-card img {
+    width: 120px;
+    height: 100px;
 }
 
-.show .dropdownItem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.product-title {
+    margin: 10px 0 0;
+    font-size: 17px;
+    font-weight: 400;
+    color: #1d1d1f;
+}
+
+.background-dimmer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s, height 0.3s;
+    z-index: 100;
 }
 
 .banner{
@@ -272,17 +310,6 @@ g
     margin:0 50px 0 auto;
 }
 
-.topBtn button{
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 1;
-    background-color: #97a68c;
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-}
-
 main{
     display: flex;
     justify-content: center;
@@ -356,7 +383,7 @@ footer p{
         margin: 0 auto 0 20px;
     }
     
-    .navbar .nav-menu li{
+    .navbar .nav-list li{
         display: none;
     }
 

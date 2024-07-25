@@ -26,23 +26,35 @@
 
     <main>
         <div class="mainContainer">
-            <section class="aboutUs">
+            <section class="aboutUs hidden-element">
                 <h2>關於我們</h2>
-                <p>綠色未來公司致力於推動淨零排放技術的創新和應用。我們的使命是通過先進的解決方案來減少碳排放,為地球的可持續發展做出貢獻。</p>
+                <h3><p>About</p> <p>Steinlux</p> <p>Green</p> <p>Capital</p></h3>
+                <span>
+                    <p>綠能產業服務提供多元化的可再生能源解決方案，致力於減少碳足跡，推動環境保護。透過專業的技術支持與創新方案，我們不僅能有效降低能源成本，還能提升企業社會責任形象。選擇綠能，不僅是對地球的承諾，更是對未來的投資。
+                    </p>
+                </span>
             </section>
 
             <section class="advantages">
-                <div class="advantage">
+                <div class="advantageItem hidden-element-left">
+                    <img src="../src/advantage1.jpg" alt="">
                     <h3>創新技術</h3>
-                    <p>我們擁有領先的淨零排放技術,不斷推動行業標準的提升。</p>
+                    <p>Technology</p>
                 </div>
-                <div class="advantage">
+                <div class="advantageItem hidden-element-left">
+                    <img src="../src/advantage1.jpg" alt="">
                     <h3>專業團隊</h3>
-                    <p>我們的團隊由行業頂尖專家組成,擁有豐富的經驗和專業知識。</p>
+                    <p>Professional Team</p>
                 </div>
-                <div class="advantage">
+                <div class="advantageItem hidden-element-right">
+                    <img src="../src/advantage1.jpg" alt="">
+                    <h3>專業團隊</h3>
+                    <p>Professional Team</p>
+                </div>
+                <div class="advantageItem hidden-element-right">
+                    <img src="../src/advantage1.jpg" alt="">
                     <h3>全球影響</h3>
-                    <p>我們的解決方案已在全球多個國家成功實施,產生了顯著的環境效益。</p>
+                    <p>Global Impact</p>
                 </div>
             </section>
 
@@ -92,7 +104,7 @@
                     }
                 });
             }, {
-                threshold: 0.7
+                threshold: 0.55
             });
 
             containers.forEach(container => {

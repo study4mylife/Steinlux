@@ -4,12 +4,12 @@
     align-items: center;
 }
 
-.process .title p{
+.process .content p{
     line-height: 2.5;
     margin-bottom: 30px;
 }
 
-.process .title li{
+.process .content li{
     line-height: 40px;
 }
 
@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 70%;
 }
 
 .step h1,

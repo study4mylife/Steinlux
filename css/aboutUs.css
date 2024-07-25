@@ -12,27 +12,68 @@ main{
 }
 
 .aboutUs{
+    width: 50%;
+    letter-spacing: 1.5px;
     text-align: center;
+}
+
+
+.aboutUs h3 p{
+    display: inline-block;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.aboutUs h3 p::first-letter{
+    color: #749a5a;
+}
+
+.aboutUs h3::first-letter{
+    text-decoration-line: underline;
+    text-underline-offset: 10px
+}
+
+.aboutUs span p{
+    margin-top: 30px;
 }
 
 .advantages {
     display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+    justify-content: space-around;
     flex-wrap: wrap;
+    margin: 30px 0;
     width: 80%;
 }
-.advantage {
-    flex-basis: 30%;
-    background-color: #f4f4f4;
+
+.advantageItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 220px;
+    margin: 20px;
     padding: 1rem;
+    border: solid 1px #555 ;
     border-radius: 5px;
-    margin-bottom: 1rem;
 }
+
+.advantageItem:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.advantageItem img{
+    width: 50%;
+    height: 50%;
+}
+
 .timeline {
     position: relative;
     margin: 0 auto;
 }
+
 .timeline::after {
     content: '';
     position: absolute;
@@ -43,12 +84,14 @@ main{
     left: 50%;
     margin-left: -3px;
 }
+
 .container {
     padding: 10px 40px;
     position: relative;
     background-color: inherit;
     width: 50%;
 }
+
 .container::after {
     content: '';
     position: absolute;
@@ -61,6 +104,7 @@ main{
     border-radius: 50%;
     z-index: 1;
 }
+
 .left {
     left: -152px;
 }
@@ -107,7 +151,13 @@ main{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-@media screen and (max-width: 600px) {
+@media(max-width: 1200px) {
+    .advantageItem {
+        width: 40%;
+    }
+}
+
+@media(max-width: 600px) {
     .container {
         width: 100%;
         padding-left: 70px;

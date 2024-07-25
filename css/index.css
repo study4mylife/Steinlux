@@ -33,6 +33,7 @@ main .title h1{
     overflow: hidden;
     padding: 20px 0 5px 0;
     background-color: white;
+    z-index: -10;
 }
 
 .brand-nav h1{
@@ -82,6 +83,71 @@ main .title h1{
 .blur-right {
     right: 0;
     background: linear-gradient(to left, white, transparent);
+}
+
+.newsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftbox{
+    width: 40%;
+}
+
+.leftbox img{
+    width: 400px;
+    height: 300px;
+}
+
+.rightbox{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.rightbox .title{
+    margin-right: auto;
+}
+
+.rightbox .title h2{
+    color: #555;
+}
+
+.rightbox .title h3::first-letter{
+    color: #749a5a;
+    text-decoration-line: underline;
+    text-underline-offset: 10px
+}
+
+.rightbox img{
+    width: 200px;
+    height: 100%;
+}
+
+.newItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+}
+
+.newsContent{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.content h2{
+    text-align: left;
+}
+
+.content i{
+    font-size: 16px;
 }
 
 .solution span h1{
@@ -190,14 +256,24 @@ main .title h1{
 }
 
 @media (max-width: 1200px) {
+    .leftbox{
+        display: none;
+    }
+
+    .rightbox{
+        width: 80%;
+    }
+
     .eventItem{
         display: flex;
         flex-direction: column;
     }
 }
+
 @media (max-width: 992px) {
     .serviceItem .item{
         width: 50%;
     }
     
 }
+

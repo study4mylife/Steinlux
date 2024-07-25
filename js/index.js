@@ -2,70 +2,31 @@ class Header extends HTMLElement{
   connectedCallback(){
       this.innerHTML = `
     <header>
-        <div class="topBtn">
-            <button onclick="topBtn()"><i class="fa-solid fa-arrow-up fa-2x" style="color: #fefefe;" aria-hidden="true"></i></button>
-        </div>
-        <nav class="navbar fixed-top bg-white">
-            <ul class="nav-menu">
-                <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>
-                <li class="nav-item">
-                    <h1>淨零顧問服務</h1>
-                    <div class="dropdown">
-                        <div class="dropdownItem">
-                            <h2>供應鏈碳管理</h2>
-                            <a href="../html/sbti.html">SBTi目標設定/提交</a>
-                            <a href="../html/GHG.html">GHG Protocol Scope 3</a>
-                        </div>
-
-                        <div class="dropdownItem">
-                            <h2>溫室氣體盤查</h2>
-                            <a href="../html/ISO14064.html">ISO 14064-1組織型</a>
-                            <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
-                        </div>
+            <div class="topBtn">
+                <button onclick="topBtn()"><i class="fa-solid fa-arrow-up fa-2x" style="color: #fefefe;" aria-hidden="true"></i></button>
+            </div>
+            <div class="nav-container">
+                <nav class="nav-bar fixed-top bg-white">
+                    <ul class="nav-list">
+                        <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>
+                        <li class="nav-item"><a href="#" class="nav-link">淨零顧問服務</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">淨零解決方案</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">永續服務</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">INSIGHT</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">關於我們</a></li>
+                    </ul>
+                </nav>
+                </div>
+                <div class="dropdown-container">
+                    <div class="dropdownContent">
                     </div>
-                </li>
-                <li class="nav-item">
-                    <h1>淨零解決方案</h1>
-                    <div class="dropdown">
-                        <div class="dropdownItem">
-                            <h2>綠電解決方案</h2>
-                            <a href="#">國內再生能源憑證(T-REC)</a>
-                            <a href="#">國內購電協議(CPPA)</a>
-                            <a href="#">國際再生能源憑證(I-REC/TIGR)</a>
-                        </div>
-
-                        <div class="dropdownItem">
-                            <h2>碳權解決方案</h2>
-                            <a href="#">ISO 14064-2專案開發</a>
-                            <a href="#">國內減量額度交易</a>
-                            <a href="#">國際自願性碳權採購</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <h1>永續服務</h1>
-                    <div class="dropdown">
-                        <div class="dropdownItem">
-                            <a href="../html/solarEnergy.html">太陽光電建置</a>
-                            <a href="../html/carbonTrade.html">太陽能建置計算機</a>
-                            <a href="../html/carbonCalculator.html">碳足跡計算機</a>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <h1>INSIGHT</h1>
-                    <div class="dropdown">
-                        <div class="dropdownItem">
-                            <a href="../html/media.html">媒體專區</a>
-                            <a href="../html/research.html">研究報告 </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <h1><a href="../html/aboutUs.html">關於我們</a></h1>
-                </li>
-                <div id="mySidenav" class="sidenav">
+                </div>
+                
+                <div class="background-dimmer">
+                </div>
+            </div>
+            </ul>
+                            <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <div class="dropdown2">
                         <a href="#" class="dropbtn">淨零顧問服務<i class="fa-solid fa-caret-up"></i></a>
@@ -111,10 +72,7 @@ class Header extends HTMLElement{
                 </div>
 
                 <span class="openbtn" onclick="openNav()">&#9776;</span>
-            </ul>
-
-        </nav>
-    </header>
+        </header>
     `;
   }
 }
@@ -194,37 +152,99 @@ function topBtn(){
     window.scrollTo(0,0)
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const navtitle = document.querySelectorAll(".nav-title");
-    const navItems = document.querySelectorAll(".nav-item");
-    
-    navItems.forEach(item => {
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const dropdownContainer = document.querySelector('.dropdown-container');
+    const dropdownContent = document.querySelector('.dropdownContent');
+    const backgroundDimmer = document.querySelector('.background-dimmer');
+    let activeNavItem = null;
+    let timeout = null;
+
+    const products = {
+        Mac: ['MacBook Air', 'MacBook Pro', 'iMac', 'Mac mini', 'Mac Studio', 'Mac Pro', 'Displays'],
+        iPad: ['iPad Pro', 'iPad Air', 'iPad', 'iPad mini', 'Apple Pencil', 'Keyboards'],
+        iPhone: ['iPhone 14 Pro', 'iPhone 14', 'iPhone 13', 'iPhone SE', 'Compare'],
+        Watch: ['Apple Watch Ultra', 'Apple Watch Series 8', 'Apple Watch SE', 'Apple Watch Nike'],
+        AirPods: ['AirPods Pro', 'AirPods', 'AirPods Max']
+    };
+
+    function createProductCards(category) {
+        return products[category].map(product => `
+            <div class="product-card">
+                <img src="/api/placeholder/120/120" alt="${product}">
+                <h3 class="product-title">${product}</h3>
+            </div>
+        `).join('');
+    }
+
+    function showDropdown(navItem) {
+        const category = navItem.querySelector('.nav-link').textContent;
+        if (products[category]) {
+            dropdownContent.innerHTML = createProductCards(category);
+        } else {
+            dropdownContent.innerHTML = `<div class="product-card"><h3 class="product-title">${category}</h3></div>`;
+        }
+
+        clearTimeout(timeout);
+        dropdownContainer.style.height = '380px';
+        backgroundDimmer.style.height = '100vh';
+        backgroundDimmer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+        
         setTimeout(() => {
-        item.addEventListener("mouseenter", () => {
-            item.classList.add("show");
+            dropdownContent.style.opacity = '1';
+            dropdownContent.style.transform = 'translateY(0)';
+            
+            document.querySelectorAll('.product-card').forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        }, 100);
+
+        activeNavItem = navItem;
+    }
+
+    function hideDropdown() {
+        timeout = setTimeout(() => {
+            dropdownContainer.style.height = '0';
+            backgroundDimmer.style.height = '0';
+            backgroundDimmer.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            dropdownContent.style.opacity = '0';
+            dropdownContent.style.transform = 'translateY(10px)';
+            activeNavItem = null;
+        }, 200);
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            if (activeNavItem !== item) {
+                showDropdown(item);
+            }
         });
-        },100)
 
-        item.addEventListener("mouseleave", () => {
-            setTimeout(() => {
-                if (!item.querySelector(".dropdown:hover")) {
-                    item.classList.remove("show");
-                }
-            }, 100); // 加入延遲以便能夠檢測到滑鼠是否在dropdown內
-        });
-
-
+        item.addEventListener('mouseleave', hideDropdown);
     });
+
+    dropdownContainer.addEventListener('mouseenter', () => {
+        clearTimeout(timeout);
+    });
+
+    dropdownContainer.addEventListener('mouseleave', hideDropdown);
 });
 
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-  const hiddenElements = document.querySelectorAll('.hidden-element');
+    const hiddenElementsAll = [
+        ...document.querySelectorAll('.hidden-element'),
+        ...document.querySelectorAll('.hidden-element-left'),
+        ...document.querySelectorAll('.hidden-element-right')
+      ];
 
   function checkScroll() {
-      const triggerPoint = window.innerHeight / 5 * 3; // 視窗高度的80%
+      const triggerPoint = window.innerHeight / 2 * 1.1; // 視窗高度的55%
 
-      hiddenElements.forEach(element => {
+      hiddenElementsAll.forEach(element => {
           const elementTop = element.getBoundingClientRect().top;
 
           if (elementTop < triggerPoint) {
