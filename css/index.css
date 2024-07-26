@@ -251,10 +251,6 @@ main .title h1{
     font-size: 20px;
 }
 
-
-@media (max-width: 1440px) {
-}
-
 @media (max-width: 1200px) {
     .leftbox{
         display: none;

@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div>
                         <h2>溫室氣體盤查</h2>
-                        <a href="../html/ISO14064.html">ISO 14064-1組織型</a>
+                        <a href="../html/ISO14064-1.html">ISO 14064-1組織型</a>
                         <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
                         </div>`],
         淨零解決方案: [`<div>
