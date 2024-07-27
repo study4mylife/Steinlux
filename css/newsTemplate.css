@@ -1,0 +1,26 @@
+.newsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.title h1{
+    font-size: 50px;
+    font-weight: 700;
+
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 576px) {
+   
+}
