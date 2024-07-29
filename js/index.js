@@ -9,11 +9,11 @@ class Header extends HTMLElement{
                 <nav class="nav-bar fixed-top bg-white">
                     <ul class="nav-list">
                         <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>
-                        <li class="nav-item"><a href="#" class="nav-link link">淨零顧問服務</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link">淨零解決方案</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link">永續服務</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link link">INSIGHT</a></li>
-                        <li class="nav-item"><a href="../html/aboutUs.html" class="link">關於我們</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">淨零顧問服務</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">淨零解決方案</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">永續服務</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">INSIGHT</a></li>
+                        <li class="nav-item"><a href="../html/aboutUs.html" class="nav-link">關於我們</a></li>
                     </ul>
                 </nav>
                 </div>
@@ -34,7 +34,7 @@ class Header extends HTMLElement{
                             <a href="../html/sbti.html">SBTi目標設定/提交</a>
                             <a href="../html/GHG.html">GHG Protocol Scope 3</a>
                             <h2>溫室氣體盤查</h2>
-                            <a href="../html/ISO14064.html">ISO 14064-1組織型</a>
+                            <a href="../html/ISO14064-1.html">ISO 14064-1組織型</a>
                             <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
                         </div>
                     </div>
@@ -42,11 +42,11 @@ class Header extends HTMLElement{
                         <a href="#" class="dropbtn">淨零解決方案</a>
                         <div class="dropdown-content">
                            <h2>綠電解決方案</h2>
-                            <a href="#">國內再生能源憑證(T-REC)</a>
-                            <a href="#">國內購電協議(CPPA)</a>
-                            <a href="#">國際再生能源憑證(I-REC/TIGR)</a>
+                            <a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
+                            <a href="../html/CPPA.html">國內購電協議(CPPA)</a>
+                            <a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
                             <h2>碳權解決方案</h2>
-                            <a href="#">ISO 14064-2專案開發</a>
+                            <a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a>
                             <a href="#">國內減量額度交易</a>
                             <a href="#">國際自願性碳權採購</a>
                         </div>
@@ -85,23 +85,23 @@ class Footer extends HTMLElement{
             <div>
                 <h4>碳淨零顧問</h4>
                 <ul>
-                    <li><a href="../html/emissionCompliance.html">CBAM合規顧問</a></li>
-                    <li><a href="../html/netZeroPath.html">淨零路徑規劃</a></li>
+                    <li><a href="../html/sbti.html">SBTi目標設定/提交</a></li>
+                    <li><a href="../html/GHG.html">GHG Protocol Scope 3</a></li>
+                    <li><a href="../html/ISO14064-1.html">ISO 14064-1組織型</a></li>
+                    <li><a href="../html/ISO14067.html">ISO 14067 碳足跡</a></li>
                 </ul>
                 <h4>永續服務</h4>
                 <ul>
-                    <li><a href="../html/solarEnergy.html">太陽能規劃/建置</a></li>
+                    <li><a href="../html/solarEnergy.html">太陽光電建置</a></li>
                     <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
-                    <li><a href="../html/carbonNeutrality.html">碳中和平台</a></li>
                 </ul>
             </div>
             <div>
                 <h4>淨零解決方案</h4>
                 <ul>
-                    <li><a href="../html/gasInventories.html">溫室氣體盤查ISO 14064-1</a></li>
-                    <li><a href="../html/carbonFootprint.html">產品碳足跡盤查ISO 14067</a></li>
-                    <li><a href="../html/greenElectricity.html">再生能源憑證申請/交易</a></li>
-                    <li><a href="../html/CarbonTrade.html">碳權專案申請/交易</a></li>
+                    <li><a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a></li>
+                    <li><a href="#">國內減量額度交易</a></li>
+                    <li><a href="#">國際自願性碳權採購</a></li>
                 </ul>
             </div>
             <div>
@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContainer = document.querySelector('.dropdown-container');
     const dropdownContent = document.querySelector('.dropdownContent');
     const backgroundDimmer = document.querySelector('.background-dimmer');
-    const main = document.querySelectorAll('main')
     let activeNavItem = null;
     let timeout = null;
 
@@ -174,13 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>`],
         淨零解決方案: [`<div>
                            <h2>綠電解決方案</h2>
-                            <a href="#">國內再生能源憑證(T-REC)</a>
-                            <a href="#">國內購電協議(CPPA)</a>
-                            <a href="#">國際再生能源憑證(I-REC/TIGR)</a>
+                            <a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
+                            <a href="../html/CPPA.html">國內購電協議(CPPA)</a>
+                            <a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
                         </div>
                         <div>
                             <h2>碳權解決方案</h2>
-                            <a href="#">ISO 14064-2專案開發</a>
+                            <a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a>
                             <a href="#">國內減量額度交易</a>
                             <a href="#">國際自願性碳權採購</a>
                         </div>`],
@@ -192,7 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="../html/media.html">媒體專區</a>
                         <a href="../html/research.html">研究報告 </a>
                     </div>`],
-        關於我們: []
+        關於我們: [`<div>
+                        <a href="../html/aboutUs.html">關於我們</a>
+                    </div>`]
     };
 
     function createProductCards(category) {
@@ -208,16 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (products[category]) {
             dropdownContent.innerHTML = createProductCards(category);
         }
-
-        else if(products[關於我們]){
-            dropdownContent.innerHTML = ''
-        }
-        else  {
+        else {
             dropdownContent.innerHTML = `<div class="product-card"><h3 class="product-title">${category}</h3></div>`;
         }
 
         clearTimeout(timeout);
-        dropdownContainer.style.height = '380px';
+        dropdownContainer.style.height = '300px';
+        dropdownContent.style.width = '100%';
         backgroundDimmer.style.height = '100vh';
         backgroundDimmer.style.backgroundColor = 'rgba(256, 256, 256, .5)';
         
@@ -241,7 +239,9 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContainer.style.height = '0';
             backgroundDimmer.style.height = '0';
             backgroundDimmer.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+            dropdownContent.style.height = '0';
             dropdownContent.style.opacity = '0';
+            dropdownContent.style.width = '0';
             dropdownContent.style.transform = 'translateY(10px)';
             activeNavItem = null;
         }, 200);

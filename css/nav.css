@@ -2,9 +2,9 @@
     font-family: "Noto Sans TC", sans-serif;
     box-sizing: border-box;
     outline: none;
-    list-style: none;
     border-style: none;
 }
+
 @keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);
@@ -107,11 +107,11 @@ g
     border-radius: 50px;
 }
 
-.nav-list .nav-item:nth-child(1) a { animation-delay: 0.5s; }
-.nav-list .nav-item:nth-child(2) a { animation-delay: 0.4s; }
-.nav-list .nav-item:nth-child(3) a { animation-delay: 0.3s; }
-.nav-list .nav-item:nth-child(4) a { animation-delay: 0.2s; }
-.nav-list .nav-item:nth-child(5) a { animation-delay: 0.1s; }
+.nav-list .nav-item:nth-child(1) a{ animation-delay: 0.5s; }
+.nav-list .nav-item:nth-child(2) a{ animation-delay: 0.4s; }
+.nav-list .nav-item:nth-child(3) a{ animation-delay: 0.3s; }
+.nav-list .nav-item:nth-child(4) a{ animation-delay: 0.2s; }
+.nav-list .nav-item:nth-child(5) a{ animation-delay: 0.1s; }
 
 .nav-bar{
     position: relative;
@@ -134,6 +134,7 @@ g
     margin: auto;
     width: 100%;
     height: 76px;
+    list-style: none;
 }
 
 .nav-list a{
@@ -151,7 +152,6 @@ g
 
 .nav-item a {
     font-weight: 500;
-    animation: slideInFromLeft 0.5s linear forwards;
     opacity: 0;
 }
 
@@ -166,11 +166,10 @@ g
     font-size: 12px;
     display: block;
     transition: color 0.3s;
-}
-
-.link {
+    animation: slideInFromLeft 0.5s linear forwards;
     letter-spacing: 3px;
 }
+
 
 .dropdown-container {
     position: fixed;
@@ -187,6 +186,7 @@ g
 .product-card {
     display: flex;
     opacity: 0;
+    height: 0;
     transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -360,18 +360,18 @@ footer{
 }
 
 .footerContainer h4{
-    text-align: left;
     font-size:16px;
     margin: 15px 0 10px 0;
 }
 
 .footerContainer ul{
     margin: 0;
-    padding: 0;  
+    padding: 0;
 }
 
 .footerContainer li{
     font-size:12px;
+    list-style: none;
 }
 
 footer a{
@@ -402,11 +402,13 @@ footer p{
     .nav-bar{
         height: 76px;
     }
+
+    .navbar-logo{
+        margin: 0 auto 0 20px;
+    }
 }
 @media (max-width: 992px) {
-    .navbar-logo{
-        margin: 19px auto 0 20px;
-    }
+
 
     .openbtn{
         display: block;
