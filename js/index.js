@@ -39,7 +39,7 @@ class Header extends HTMLElement{
                         </div>
                     </div>
                     <div class="dropdown2">
-                        <a href="#" class="dropbtn">淨零解決方案</a>
+                        <a href="#" class="dropbtn">淨零解決方案<i class="fa-solid fa-caret-up"></i></a>
                         <div class="dropdown-content">
                            <h2>綠電解決方案</h2>
                             <a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
@@ -52,22 +52,22 @@ class Header extends HTMLElement{
                         </div>
                     </div>
                     <div class="dropdown2">
-                        <a href="#" class="dropbtn">永續服務</a>
+                        <a href="#" class="dropbtn">永續服務<i class="fa-solid fa-caret-up"></i></a>
                         <div class="dropdown-content">
                             <a href="../html/solarEnergy.html">太陽光電建置</a>
+                            <a href="../html/carbonTrade.html">太陽光電計算機</a>
                             <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                         </div>
                     </div>
                     <div class="dropdown2">
-                        <a href="#" class="dropbtn">INSIGHT</a>
+                        <a href="#" class="dropbtn">INSIGHT<i class="fa-solid fa-caret-up"></i></a>
                         <div class="dropdown-content">
                             <a href="../html/media.html">媒體專區</a>
                             <a href="../html/research.html">研究報告 </a>
                         </div>
                     </div>
-                   <div class="dropdown2">
+                   
                         <a href="../html/aboutUs.html" class="dropbtn">關於我們</a>
-                    </div>
                 </div>
 
                 <span class="openbtn" onclick="openNav()">&#9776;</span>
@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>`],
         永續服務: [`<div>
                         <a href="../html/solarEnergy.html">太陽光電建置</a>
+                        <a href="../html/carbonTrade.html">太陽光電計算機</a>
                         <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                     </div>`],
         INSIGHT: [`<div>

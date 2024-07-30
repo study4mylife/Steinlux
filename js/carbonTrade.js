@@ -146,6 +146,45 @@ function prevStep() {
     }
 }
 
+function getPriceBonusRegions() {
+    return ['澎湖縣', '金門縣', '連江縣','台北市','基隆市','桃園市','新北市','新竹市','新竹縣','苗栗縣','宜蘭縣','花蓮縣','台東縣'
+    ]; // 這些地區將獲得15%的價格加成
+}
+
+const baseWholesalePrice = 4.0101; // 保留原有的基準價格
+
+function getCapacityMultiplier(capacity) {
+    const priceRanges = [
+        { max: 10, multiplier: ((5.7848 + 5.7055) / 2) / baseWholesalePrice },
+        { max: 20, multiplier: ((5.6535 + 5.5760) / 2) / baseWholesalePrice },
+        { max: 50, multiplier: ((4.4081 + 4.36945) / 2) / baseWholesalePrice },
+        { max: 100, multiplier: ((4.2320 + 4.1848) / 2) / baseWholesalePrice },
+        { max: 500, multiplier: ((3.9565 + 3.9165) / 2) / baseWholesalePrice },
+        { max: Infinity, multiplier: ((3.8856 + 3.8510) / 2) / baseWholesalePrice }
+    ];
+
+    for (let range of priceRanges) {
+        if (capacity < range.max) {
+            return range.multiplier;
+        }
+    }
+    return priceRanges[priceRanges.length - 1].multiplier; // 默認返回最後一個乘數
+}
+
+function getPriceBonusRegions() {
+    return ['澎湖縣', '金門縣', '連江縣']; // 這些地區將獲得15%的價格加成
+}
+
+function getAdjustedWholesalePrice(region, capacity) {
+    const capacityMultiplier = getCapacityMultiplier(capacity);
+    const adjustedPrice = baseWholesalePrice * capacityMultiplier;
+    const bonusRegions = getPriceBonusRegions();
+    if (bonusRegions.includes(region)) {
+        return adjustedPrice * 1.15; // 15% 加成
+    }
+    return adjustedPrice;
+}
+
 function calculate() {
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
@@ -153,17 +192,14 @@ function calculate() {
     const area = parseFloat(document.getElementById('area').value);
     const areaUnit = document.querySelector('#areaUnitGroup .active')?.dataset.value;
     
-
     if (!buildMode || !installationType || region === '未選擇' || isNaN(area) || !areaUnit) {
         alert('請填寫所有必要資訊');
         return;
     }
 
-    else{
-        document.getElementById(`step${currentStep}`).style.display = 'none';
-        document.getElementById('prev-button').style.display = 'none';
-        document.getElementById('calculate').style.display = 'none';
-    }
+    document.getElementById(`step${currentStep}`).style.display = 'none';
+    document.getElementById('prev-button').style.display = 'none';
+    document.getElementById('calculate').style.display = 'none';
 
     let areaInPing = convertToPing(area, areaUnit);
 
@@ -199,19 +235,21 @@ function calculate() {
         document.getElementById('selfUseResults').style.display = 'block';
         document.getElementById('sellElectricityResults').style.display = 'none';
         document.getElementById('rentRoofResults').style.display = 'none';
-    } else if (buildMode === 'sellElectricity') {
-        const wholesalePrice = 4.0101;
-        const annualIncome = annualOutput * wholesalePrice;
 
-        document.getElementById('wholesalePrice').textContent = wholesalePrice.toFixed(4);
+    } else if (buildMode === 'sellElectricity') {
+        const adjustedWholesalePrice = getAdjustedWholesalePrice(region, capacity);
+        const annualIncome = annualOutput * adjustedWholesalePrice;
+
+        document.getElementById('wholesalePrice').textContent = adjustedWholesalePrice.toFixed(4);
         document.getElementById('annualIncome').textContent = annualIncome.toFixed(2);
 
         document.getElementById('selfUseResults').style.display = 'none';
         document.getElementById('sellElectricityResults').style.display = 'block';
         document.getElementById('rentRoofResults').style.display = 'none';
+
     } else if (buildMode === 'rentRoof') {
-        const wholesalePrice = 4.0101;
-        const annualIncome = annualOutput * wholesalePrice;
+        const adjustedWholesalePrice = getAdjustedWholesalePrice(region, capacity);
+        const annualIncome = annualOutput * adjustedWholesalePrice;
         const rentalIncome = annualIncome * 0.12;
 
         document.getElementById('rentalIncome').textContent = rentalIncome.toFixed(2);
