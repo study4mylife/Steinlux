@@ -171,10 +171,6 @@ function getCapacityMultiplier(capacity) {
     return priceRanges[priceRanges.length - 1].multiplier; // 默認返回最後一個乘數
 }
 
-function getPriceBonusRegions() {
-    return ['澎湖縣', '金門縣', '連江縣']; // 這些地區將獲得15%的價格加成
-}
-
 function getAdjustedWholesalePrice(region, capacity) {
     const capacityMultiplier = getCapacityMultiplier(capacity);
     const adjustedPrice = baseWholesalePrice * capacityMultiplier;
@@ -222,7 +218,7 @@ function calculate() {
     document.getElementById('annualOutput').textContent = annualOutput.toFixed(2);
 
     if (buildMode === 'selfUse') {
-        const avgPrice = 3.5;
+        const avgPrice = parseFloat(document.getElementById('avgPrice').value);
         const annualSavings = annualOutput * avgPrice;
         const tRecCount = Math.floor(annualOutput / 1000);
         const greenCertificateIncome = tRecCount * 3000;
@@ -259,7 +255,8 @@ function calculate() {
         document.getElementById('rentRoofResults').style.display = 'block';
     }
 
-    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').style.display = 'flex';
+    document.getElementById('results').style.background = '#97a68c';
 }
 
 function convertToPing(value, unit) {

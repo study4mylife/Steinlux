@@ -40,7 +40,6 @@ main{
     bottom: 0;
     left: 0;
     margin: 10px;
-    background-color: #fefefe;
     border-radius: 10px;
     opacity: 0;
     transform: translateX(100%);
@@ -74,7 +73,7 @@ main{
 }
 
 .button-group button.active {
-    background-color: #007bff;
+    background-color: #6c8096;
     color: white;
 }
 
@@ -85,7 +84,7 @@ input[type="number"] {
     border: 1px solid #000;
 }
 
-#next-button, #prev-button, #calculate {
+.stepButton{
     display: inline-block;
     margin: 10px 10px 10px 0;
     width: 100px;
@@ -96,6 +95,10 @@ input[type="number"] {
     cursor: pointer;
     font-size: 16px;
     transition: 0.5s;
+}
+
+.stepButton:hover{
+    background-color: #cfb86e;
 }
 
 #prev-button {
@@ -121,21 +124,82 @@ input[type="number"] {
     right: 0;
     z-index: 10;
 }
-.navigation {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+
+#results{
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 800px;
 }
 
-#results {
-    margin-top: 100px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
+.resultContainer {
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     padding: 20px;
-    border-radius: 5px;
+}
+
+.collage-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: rotate(calc(var(--rotation) * 1deg));
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 100%;
+}
+
+.collage-item:hover {
+    cursor: pointer;
+    transform: rotate(0deg) scale(1.05);
+    z-index: 1;
+}
+
+.collage-item h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.collage-item i {
+    display: block;
+    margin: 10px 0;
+    color: #4CAF50;
+}
+
+.collage-item p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.collage-item span {
+    font-weight: bold;
+    color: #333;
+}
+
+.basicInfo {
+    --rotation: -2;
+    background-color: #e8f5e9;
+}
+
+#selfUseResults .collage-item {
+    --rotation: 1;
+    background-color: #e3f2fd;
+}
+
+#sellElectricityResults .collage-item {
+    --rotation: -1;
+    background-color: #fff3e0;
+}
+
+#rentRoofResults .collage-item {
+    --rotation: 2;
+    background-color: #fce4ec;
 }
 
 .svgContainer{
@@ -181,6 +245,13 @@ svg path:hover{
 @media (max-width: 1200px) {
 
 }
-@media (max-width: 992px) {
 
+@media (max-width: 992px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .resultContainer {
+        flex-direction: column;
+    }
 }
