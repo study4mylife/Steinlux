@@ -64,6 +64,7 @@ class Header extends HTMLElement{
                         <div class="dropdown-content">
                             <a href="../html/media.html">媒體專區</a>
                             <a href="../html/research.html">研究報告 </a>
+                            <a href="../html/newsTemplate.html">新聞模板</a>
                         </div>
                     </div>
                    
@@ -191,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         INSIGHT: [`<div>
                         <a href="../html/media.html">媒體專區</a>
                         <a href="../html/research.html">研究報告 </a>
+                        <a href="../html/newsTemplate.html">新聞模板</a>
                     </div>`],
         關於我們: [`<div>
                         <a href="../html/aboutUs.html">關於我們</a>
