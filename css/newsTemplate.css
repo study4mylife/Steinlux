@@ -49,6 +49,10 @@
     margin: 20px auto;
 }
 
+.content .imgComment{
+    text-align: center;
+}
+
 
 @media (max-width: 1200px) {
 }

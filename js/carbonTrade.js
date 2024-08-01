@@ -256,7 +256,7 @@ function calculate() {
     }
 
     document.getElementById('results').style.display = 'flex';
-    document.getElementById('results').style.background = '#97a68c';
+    document.getElementById('results').style.background = '#8a4a19';
 }
 
 function convertToPing(value, unit) {

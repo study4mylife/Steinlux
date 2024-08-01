@@ -67,8 +67,13 @@ class Header extends HTMLElement{
                             <a href="../html/newsTemplate.html">新聞模板</a>
                         </div>
                     </div>
-                   
+                   <div class="dropdown2">
+                        <a href="#" class="dropbtn">關於我們<i class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
                         <a href="../html/aboutUs.html" class="dropbtn">關於我們</a>
+                        <a href="../html/feedback.html">意見與回饋</a>
+                        </div>
+                    </div>
                 </div>
 
                 <span class="openbtn" onclick="openNav()">&#9776;</span>
@@ -196,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>`],
         關於我們: [`<div>
                         <a href="../html/aboutUs.html">關於我們</a>
+                        <a href="../html/feedback.html">意見與回饋</a>
                     </div>`]
     };
 
