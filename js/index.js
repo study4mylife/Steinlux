@@ -9,11 +9,11 @@ class Header extends HTMLElement{
                 <nav class="nav-bar fixed-top bg-white">
                     <ul class="nav-list">
                         <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>
-                        <li class="nav-item"><a href="#" class="nav-link">淨零顧問服務</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">淨零解決方案</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">永續服務</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">INSIGHT</a></li>
-                        <li class="nav-item"><a href="../html/aboutUs.html" class="nav-link">關於我們</a></li>
+                        <a href="#" class="nav-link"><li class="nav-item">淨零顧問服務</li></a>
+                        <a href="#" class="nav-link"><li class="nav-item">淨零解決方案</li></a>
+                        <a href="#" class="nav-link"><li class="nav-item">永續服務</li></a>
+                        <a href="#" class="nav-link"><li class="nav-item">INSIGHT</li></a>
+                        <a href="../html/aboutUs.html" class="nav-link"><li class="nav-item">關於我們</li></a>
                     </ul>
                 </nav>
                 </div>
@@ -159,7 +159,7 @@ function topBtn(){
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('.nav-item');
+    const navItems = document.querySelectorAll('.nav-link');
     const dropdownContainer = document.querySelector('.dropdown-container');
     const dropdownContent = document.querySelector('.dropdownContent');
     const backgroundDimmer = document.querySelector('.background-dimmer');
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showDropdown(navItem) {
-        const category = navItem.querySelector('.nav-link').textContent;
+        const category = navItem.querySelector('.nav-item').textContent;
         if (products[category]) {
             dropdownContent.innerHTML = createProductCards(category);
         }

@@ -31,13 +31,13 @@ main .title h1{
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: 20px 0 5px 0;
+    padding: 2vw 0 0.5vw 0;
     background-color: white;
     z-index: -10;
 }
 
-.brand-nav h1{
-    font-size: 32px;
+.brand-nav h1 {
+    font-size: calc(16px + 1vw);
     font-weight: 700;
 }
 
@@ -45,6 +45,9 @@ main .title h1{
     display: flex;
     overflow-x: hidden;
     width: 100%;
+    height: 12vw;
+    min-height: 60px;
+    max-height: 120px;
 }
 
 .brand-scroll {
@@ -54,17 +57,19 @@ main .title h1{
 
 .brand-item {
     flex: 0 0 auto;
-    margin: 0 20px;
-    padding: 10px;
+    margin: 0 2vw;
     background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 0.8vw;
+    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.1);
 }
 
 .brand-item img {
-    min-width: 200px;
-    min-height: 120px;
-    object-fit: contain;
+    width: 40vw;
+    max-width: 200px;
+    height: 20vw;
+    max-height: 150px;
+    min-height: 60px;
+    object-fit: cover;
 }
 
 .blur-effect {
@@ -270,6 +275,37 @@ main .title h1{
     .serviceItem .item{
         width: 50%;
     }
+
+    .brand-container {
+        height: 20vw;
+    }
+
+    .brand-item img {
+        width: 25vw;
+        height: 20vw;
+    }
     
+}
+
+@media(max-width: 768px) {
+    .brand-container {
+        height: 25vw;
+    }
+
+    .brand-item img {
+        width: 30vw;
+        height: 25vw;
+    }
+}
+
+@media(max-width: 480px) {
+    .brand-container {
+        height: 15vw;
+    }
+
+    .brand-item img {
+        width: 20vw;
+        height: 15vw;
+    }
 }
 

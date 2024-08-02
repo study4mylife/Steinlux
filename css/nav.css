@@ -20,7 +20,7 @@
     0% {
       transform: rotate(0deg);
     }
-g
+
     20% {
       transform: rotate(3deg);
     }
@@ -132,42 +132,35 @@ g
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 100%;
     height: 76px;
     list-style: none;
 }
 
-.nav-list a{
-    text-decoration: none;
-    color: #000;
-}
-
-.nav-item {
-    position: relative;
-    width: fit-content;
-    margin: auto;
+.nav-list .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #111;
     text-align: center;
-    z-index: 100000000;
-}
-
-.nav-item a {
-    font-weight: 500;
+    letter-spacing: 3px;
+    width: 100%;
+    padding: 20px 0;
+    margin: auto;
     opacity: 0;
+    animation: slideInFromLeft 0.5s linear forwards;
 }
 
-.nav-item:hover.nav-item a{
-    color: #404040;
+.nav-item{
+    font-weight: 500;
+}
+
+.nav-link:hover .nav-item{
     box-shadow: 2pt 2pt 3pt rgba(89, 89, 89, 0.6);
 }
 
-.nav-link {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 12px;
-    display: block;
+.nav-link:hover .nav-item{
+    color: #404040;
     transition: color 0.3s;
-    animation: slideInFromLeft 0.5s linear forwards;
-    letter-spacing: 3px;
 }
 
 
@@ -227,6 +220,7 @@ g
     transition: filter 0.5s, height 0.5s;
     z-index: 1;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .banner{
@@ -262,10 +256,9 @@ g
 }
 
 .sidenav {
+    position: fixed;
     height: 100%;
     width: 0;
-    position: fixed;
-    z-index: 100000;
     top: 0;
     right: 0;
     background-color:#fff;
@@ -274,6 +267,7 @@ g
     white-space: nowrap;
     overflow: scroll;
     text-overflow: ellipsis;
+    z-index: 100000;
   }
   
 .sidenav a {
@@ -398,23 +392,16 @@ footer p{
     border-right: solid #222 1px;
 }
 
-@media (max-width: 1200px) {
-    .nav-bar{
-        height: 76px;
-    }
-
-    .navbar-logo{
-        margin: 0 auto 0 20px;
-    }
-}
 @media (max-width: 992px) {
-
+    .navbar-logo{
+        margin-right: auto;
+    }
 
     .openbtn{
         display: block;
     }
 
-    .nav-bar .nav-list li{
+    .nav-bar .nav-list .nav-link{
         display: none;
     }
 
