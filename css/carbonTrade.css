@@ -1,3 +1,7 @@
+html{
+    overflow-x: hidden;
+}
+
 .logo{
     width: 100%;
     height: 80px;
@@ -15,18 +19,14 @@
 
 main{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-
 }
 
 .stepContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 10vw;
+    height: 700px;
 }
 
 .step{
@@ -35,11 +35,12 @@ main{
     justify-content: center;
     align-items: center;
     position: absolute;
+    padding-top: 200px;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: 10px;
+    margin: auto;
     border-radius: 10px;
     opacity: 0;
     transform: translateX(100%);
@@ -55,7 +56,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 200px;
 }
 
 .button-group button {
@@ -233,18 +234,55 @@ svg path:hover{
     font-size: 40px;
 }
 
-@media (max-width: 1440px) {
-
+.process{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 1200px) {
+.processStepContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: auto;
+    gap: 30px;
+    width: 90%;
+}
 
+.processStep {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.processStep:hover{
+    cursor: pointer;
+    background-color: #eee;
+    transform: translateY(-5px);
+}
+
+.processSteph2 {
+    color: #5c574b;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.step-icon {
+    font-size: 3em;
+    color: #809d6c;
+    margin-bottom: 20px;
+}
+
+.processStep p {
+    color: #666;
+    font-size: 1em;
 }
 
 @media (max-width: 992px) {
-    .text{
-        text-align: left;
-    }
 
     .svgContainer{
         margin: 150px 0 0 150px;
@@ -256,35 +294,6 @@ svg path:hover{
 
     .button-group {
         flex-direction: column;
-    }
-
-    .stepButton{
-        display: inline-block;
-        margin: 10px 10px 10px 0;
-        width: 100%;
-        height: 50px;
-        background-color: #97a68c;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: 0.5s;
-    }
-
-    #prev-button {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10;
-    }
-    
-    #next-button, #calculate {
-        position: absolute;
-        margin-top: auto;
-        left: 0;
-        right: 0;
-        z-index: 10;
     }
 
     .resultContainer {
