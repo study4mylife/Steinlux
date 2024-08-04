@@ -34,8 +34,19 @@
 }
 
 .content h2{
+    position: relative;
     font-size: 28px;
     font-weight: 600;
+}
+
+.content h2::before{
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 4px;
+    height: 100px;
+    background-color: #97a68c
 }
 
 .content em{

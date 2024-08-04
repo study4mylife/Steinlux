@@ -5,6 +5,15 @@ class Header extends HTMLElement{
             <div class="topBtn">
                 <button onclick="topBtn()"><i class="fa-solid fa-arrow-up fa-2x" style="color: #fefefe;" aria-hidden="true"></i></button>
             </div>
+
+            <div class="menu-container">
+                <div class="menu-toggle">☰</div>
+                <div class="menu-items">
+                    <a href="https://www.instagram.com" target="_blank" class="menu-item"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" class="menu-item"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
             <div class="nav-container">
                 <nav class="nav-bar fixed-top bg-white">
                     <ul class="nav-list">
@@ -158,6 +167,33 @@ function topBtn(){
     window.scrollTo(0,0)
 }
 
+const menuToggle = document.querySelector('.menu-toggle');
+        const menuItems = document.querySelector('.menu-items');
+        const items = document.querySelectorAll('.menu-item');
+        let isOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            isOpen = !isOpen;
+            if (isOpen) {
+                menuItems.style.display = 'block';
+                setTimeout(() => {
+                    items.forEach((item, index) => {
+                        const angle = (index / (items.length - 1)) * 90;
+                        const x = Math.cos(angle * Math.PI / 180) * 100;
+                        const y = Math.sin(angle * Math.PI / 180) * 100;
+                        item.style.transform = `translate(${-x}px, ${-y}px)`;
+                    });
+                }, 0);
+            } else {
+                items.forEach(item => {
+                    item.style.transform = 'translate(0, 0)';
+                });
+                setTimeout(() => {
+                    menuItems.style.display = 'none';
+                }, 300);
+            }
+        });
+
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-link');
     const dropdownContainer = document.querySelector('.dropdown-container');
@@ -225,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(timeout);
         dropdownContainer.style.height = '300px';
         dropdownContent.style.width = '100%';
+        dropdownContent.style.display = 'block';
         backgroundDimmer.style.height = '100vh';
         backgroundDimmer.style.backgroundColor = 'rgba(256, 256, 256, .5)';
         
@@ -248,9 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContainer.style.height = '0';
             backgroundDimmer.style.height = '0';
             backgroundDimmer.style.backgroundColor = 'rgba(0, 0, 0, 0)';
-            dropdownContent.style.height = '0';
-            dropdownContent.style.opacity = '0';
-            dropdownContent.style.width = '0';
+            dropdownContent.style.display = 'none';
             dropdownContent.style.transform = 'translateY(10px)';
             activeNavItem = null;
         }, 200);
@@ -314,6 +349,48 @@ document.addEventListener('DOMContentLoaded', function() {
             this.parentElement.classList.toggle('active');
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.eventItem');
+    const items = carousel.querySelectorAll('.item');
+    const controls = document.querySelector('.carousel-controls');
+    let currentIndex = 0;
+
+    // Create dot controls
+    items.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        controls.appendChild(dot);
+    });
+
+    function updateCarousel() {
+        const slideWidth = 100 / 3; // 每個項目佔用 1/3 的寬度
+        carousel.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        carousel.style.transition = `0.5s`;
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = controls.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    // Optional: Auto-play
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }, 5000);
 });
 
 
