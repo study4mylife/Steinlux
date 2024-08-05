@@ -56,7 +56,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
 }
 
 .button-group button {
@@ -67,7 +67,6 @@ main{
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
-
 
 .button-group button:hover {
     background-color: #e0e0e0;
@@ -81,13 +80,11 @@ main{
 input[type="number"] {
     width: 100px;
     padding: 5px;
-    margin-right: 10px;
+    margin-bottom: 20px;
     border: 1px solid #000;
 }
 
 .stepButton{
-    display: inline-block;
-    margin: 10px 10px 10px 0;
     width: 50px;
     height: 80px;
     margin: auto 0;
@@ -131,13 +128,12 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 800px;
+    width: 100vw;
+    height: 700px;
 }
 
 .resultContainer {
     display: flex;
-    width: 800px;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -285,11 +281,19 @@ svg path:hover{
 @media (max-width: 992px) {
 
     .svgContainer{
-        margin: 150px 0 0 150px;
+        margin: 100px 0 0 150px;
+    }
+
+    .stepContainer{
+        height: 600px;
     }
 
     #county{
         scale: 0.22;
+    }
+
+    .text{
+        margin-right: 100px;
     }
 
     .button-group {

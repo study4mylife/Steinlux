@@ -12,7 +12,7 @@ paths.forEach(path => {
     });
 });
 
- // 取得 <path> 元素的中心位置
+ // 取得 path 元素的中心位置
 function getPathCenter(path) {
     const bbox = path.getBBox();
     return {
@@ -21,7 +21,7 @@ function getPathCenter(path) {
     };
 }
 
-// 將文字放置在 <path> 元素的中心
+// 將文字放置在 path 元素的中心
 function placeText(pathId, textId) {
     const path = document.getElementById(pathId);
     const text = document.getElementById(textId);
@@ -151,21 +151,28 @@ function getPriceBonusRegions() {
     ]; // 這些地區將獲得15%的價格加成
 }
 
-const baseWholesalePrice = 4.0101; // 保留原有的基準價格
-
+const moduleRecyclePrice = 0.0656; // 模組回收費
+const highEffectPrice1to10 = 0.3423 //高效能模組
+const highEffectPrice10to20 = 0.3346
+const highEffectPrice20to50 = 0.2622
+const highEffectPrice50to100 = 0.2511
+const highEffectPrice100to500 = 0.2350
+const highEffectPrice500toInfinite = 0.2311
+const engineeringPrice50to100 = 0.0668//設備工程費
+const engineeringPrice100toinfinite = 0.0964
 function getCapacityMultiplier(capacity) {
     const priceRanges = [
-        { max: 10, multiplier: ((5.7848 + 5.7055) / 2) / baseWholesalePrice },
-        { max: 20, multiplier: ((5.6535 + 5.5760) / 2) / baseWholesalePrice },
-        { max: 50, multiplier: ((4.4081 + 4.36945) / 2) / baseWholesalePrice },
-        { max: 100, multiplier: ((4.2320 + 4.1848) / 2) / baseWholesalePrice },
-        { max: 500, multiplier: ((3.9565 + 3.9165) / 2) / baseWholesalePrice },
-        { max: Infinity, multiplier: ((3.8856 + 3.8510) / 2) / baseWholesalePrice }
+        { max: 10, multiplier: (5.7055 + highEffectPrice1to10) },
+        { max: 20, multiplier: (5.5760 + highEffectPrice10to20) },
+        { max: 50, multiplier: (4.36945 + engineeringPrice50to100 +  highEffectPrice20to50) },
+        { max: 100, multiplier: (4.1848 + engineeringPrice50to100 + highEffectPrice50to100) },
+        { max: 500, multiplier: (3.9165 + engineeringPrice100toinfinite + highEffectPrice100to500) },
+        { max: Infinity, multiplier: (3.8510 + engineeringPrice100toinfinite + highEffectPrice500toInfinite) }
     ];
 
     for (let range of priceRanges) {
         if (capacity < range.max) {
-            return range.multiplier;
+            return range.multiplier + moduleRecyclePrice;
         }
     }
     return priceRanges[priceRanges.length - 1].multiplier; // 默認返回最後一個乘數
@@ -173,7 +180,7 @@ function getCapacityMultiplier(capacity) {
 
 function getAdjustedWholesalePrice(region, capacity) {
     const capacityMultiplier = getCapacityMultiplier(capacity);
-    const adjustedPrice = baseWholesalePrice * capacityMultiplier;
+    const adjustedPrice =  capacityMultiplier;
     const bonusRegions = getPriceBonusRegions();
     if (bonusRegions.includes(region)) {
         return adjustedPrice * 1.15; // 15% 加成
@@ -205,6 +212,7 @@ function calculate() {
         'roofGround': 1/3.78,
         'roofFlat': 1/1.82
     };
+
     const capacity = areaInPing * capacityPerPing[installationType];
 
     const sunHours = getSunHours(region);
@@ -256,7 +264,6 @@ function calculate() {
     }
 
     document.getElementById('results').style.display = 'flex';
-    document.getElementById('results').style.background = '#8a4a19';
 }
 
 function convertToPing(value, unit) {

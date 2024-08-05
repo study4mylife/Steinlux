@@ -5,7 +5,6 @@
     list-style: none;
     border-style: none;
 }
-
 @keyframes scroll {
     0% {
         transform: translateX(0);
@@ -25,69 +24,6 @@ main .title h1{
     margin-top: 40px;
     text-decoration: underline;
     text-underline-offset: 8px;
-}
-
-.brand-nav {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: 2vw 0 0.5vw 0;
-    background-color: white;
-    z-index: -10;
-}
-
-.brand-nav h1 {
-    font-size: calc(16px + 1vw);
-    font-weight: 700;
-}
-
-.brand-container {
-    display: flex;
-    overflow-x: hidden;
-    width: 100%;
-    height: 12vw;
-    min-height: 60px;
-    max-height: 120px;
-}
-
-.brand-scroll {
-    display: flex;
-    animation: scroll 20s linear infinite;
-}
-
-.brand-item {
-    flex: 0 0 auto;
-    margin: 0 2vw;
-    background-color: #f9f9f9;
-    border-radius: 0.8vw;
-    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.1);
-}
-
-.brand-item img {
-    width: 40vw;
-    max-width: 200px;
-    height: 20vw;
-    max-height: 150px;
-    min-height: 60px;
-    object-fit: cover;
-}
-
-.blur-effect {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100px;
-    pointer-events: none;
-}
-
-.blur-left {
-    left: 0;
-    background: linear-gradient(to right, white, transparent);
-}
-
-.blur-right {
-    right: 0;
-    background: linear-gradient(to left, white, transparent);
 }
 
 .newsContainer{
@@ -207,25 +143,27 @@ main .title h1{
     animation: scale .3s cubic-bezier(0.47, 0.5, 0.745, 0.715);
 }
 
-.event{
-    width: 100%;
+.event-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.eventItem{
+.carousel-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: transform 0.5s ease;
 }
 
-.eventItem .item img{
-    width: 100%;
+.carouselItem {
+    flex: 0 0 33%;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+.carouselItem img {
+    max-width: 100%;
     height: auto;
-}
-
-.eventItem .item{
-    width: 350px;
-    height: 220px;
-    margin: 50px;
+    display: block;
 }
 
 .carousel-controls {
@@ -245,7 +183,65 @@ main .title h1{
     background-color: #333;
 }
 
-@media (max-width: 1200px) {
+.brand-nav {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 1vw 0;
+    background-color: white;
+    z-index: -10;
+}
+
+.brand-nav h1 {
+    font-size: calc(16px + 1vw);
+    font-weight: 700;
+}
+
+.brand-container {
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 60px;
+    max-height: 120px;
+}
+
+.brand-scroll {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.brand-item {
+    width: auto;
+    height: 100%;
+    margin: 0 2vw;
+}
+
+.brand-item img {
+    width: 200px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.blur-effect {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    pointer-events: none;
+}
+
+.blur-left {
+    left: 0;
+    background: linear-gradient(to right, white, transparent);
+}
+
+.blur-right {
+    right: 0;
+    background: linear-gradient(to left, white, transparent);
+}
+
+@media (max-width: 1024px) {
     .leftbox{
         display: none;
     }
@@ -254,47 +250,27 @@ main .title h1{
         width: 80%;
     }
 
-    .eventItem{
-        display: flex;
-        flex-direction: column;
+    .carouselItem {
+        flex: 0 0 50%;
     }
+
 }
 
 @media (max-width: 992px) {
     .serviceItem .item{
         width: 50%;
     }
-
-    .brand-container {
-        height: 20vw;
-    }
-
-    .brand-item img {
-        width: 25vw;
-        height: 20vw;
-    }
-    
 }
 
 @media(max-width: 768px) {
-    .brand-container {
-        height: 25vw;
-    }
-
-    .brand-item img {
-        width: 30vw;
-        height: 25vw;
+    .carouselItem {
+        flex: 0 0 100%;
     }
 }
 
 @media(max-width: 480px) {
-    .brand-container {
-        height: 15vw;
+    .eventItem .item{
+        flex: 0 0 calc(100%);
     }
 
-    .brand-item img {
-        width: 20vw;
-        height: 15vw;
-    }
 }
-
