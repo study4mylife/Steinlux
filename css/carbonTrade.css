@@ -1,14 +1,17 @@
 html{
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100vw;
 }
 
 .logo{
-    width: 100%;
+    position: fixed;
+    width: 100vw;
     height: 80px;
     background-color: #fefefe;
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);;
     text-align: center;
-    
+    z-index: 1000000000;
 }
 
 .steinluxLogo{
@@ -22,10 +25,10 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .stepContainer{
-    width: 10vw;
     height: 700px;
 }
 
@@ -40,16 +43,16 @@ main{
     right: 0;
     bottom: 0;
     left: 0;
+    visibility: hidden;
     margin: auto;
     border-radius: 10px;
     opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .step.active {
+    visibility: visible;
     opacity: 1;
-    transform: translateX(0);
 }
 
 .button-group {
@@ -132,6 +135,37 @@ input[type="number"] {
     height: 700px;
 }
 
+.navigation { 
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    z-index: 10000000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background-color: black;
+    transform: scale(1.1);
+}
+
+.step-dot:hover {
+    background-color: #333;
+    opacity: 0.7;
+}
+
 .resultContainer {
     display: flex;
     justify-content: center;
@@ -211,7 +245,7 @@ input[type="number"] {
 }
 
 #county{
-    scale: 0.28;
+    scale: 0.25;
 }
 
 svg path{
@@ -226,7 +260,7 @@ svg path:hover{
 
 .text{
     text-align: center;
-    width: 500px;
+    max-width: 500px;
     font-size: 40px;
 }
 
@@ -279,21 +313,12 @@ svg path:hover{
 }
 
 @media (max-width: 992px) {
-
-    .svgContainer{
-        margin: 100px 0 0 150px;
-    }
-
     .stepContainer{
         height: 600px;
     }
 
     #county{
-        scale: 0.22;
-    }
-
-    .text{
-        margin-right: 100px;
+        scale: 0.20;
     }
 
     .button-group {

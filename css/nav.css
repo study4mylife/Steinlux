@@ -166,7 +166,7 @@
 
 .nav-bar{
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 76px;
     z-index: 100000;
     box-shadow: 0 5px 6px #7f7f7f50;
@@ -314,7 +314,6 @@
     background-color:#fff;
     transition: 0.5s;
     padding-top: 60px;
-    white-space: nowrap;
     overflow: scroll;
     text-overflow: ellipsis;
     z-index: 100000;
@@ -444,7 +443,17 @@ footer p{
 
 @media (max-width: 992px) {
     .navbar-logo{
+        min-width: 140px;
+        min-height: 30px;
         margin-right: auto;
+    }
+
+    .menu-container {
+        bottom: 80px;
+    }
+
+    .topBtn button, .menu-toggle, .menu-items{
+        scale: 0.8;
     }
 
     .openbtn{

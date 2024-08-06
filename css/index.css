@@ -110,7 +110,6 @@ main .title h1{
 }
 
 .service .item{
-    background: #f8f8f8;
     width: 20%;
 }
 
@@ -120,8 +119,8 @@ main .title h1{
 }
 
 .serviceItem .item img{
-    width: 200px;
-    height: 175px;
+    width: 150px;
+    height: 150px;
 }
 
 .serviceItem .item h1{
@@ -208,7 +207,7 @@ main .title h1{
 
 .brand-scroll {
     display: flex;
-    animation: scroll 20s linear infinite;
+    animation: scroll 15s linear infinite;
 }
 
 .brand-item {
@@ -263,6 +262,10 @@ main .title h1{
 }
 
 @media(max-width: 768px) {
+    .serviceItem .item{
+        width: 80%;
+    }
+    
     .carouselItem {
         flex: 0 0 100%;
     }

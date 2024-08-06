@@ -9,8 +9,8 @@ class Header extends HTMLElement{
               <div class="menu-container">
                   <div class="menu-toggle">☰</div>
                   <div class="menu-items">
-                      <a href="https://www.instagram.com" target="_blank" class="menu-item"><i class="fab fa-instagram"></i></a>
-                      <a href="https://www.facebook.com" target="_blank" class="menu-item"><i class="fab fa-facebook"></i></a>
+                      <a href="https://www.instagram.com/steinlux.gc/" target="_blank" class="menu-item"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.facebook.com/profile.php?id=61561277428728" target="_blank" class="menu-item"><i class="fab fa-facebook"></i></a>
                   </div>
               </div>
   

@@ -93,58 +93,64 @@ placeText('hsinchu', 'text21');
 placeText('chiayi', 'text22');
 
 let currentStep = 1;
-const totalSteps = 4;
+    const totalSteps = 4;
 
-function setupButtonGroup(groupId) {
-    const group = document.getElementById(groupId);
-    group.addEventListener('click', function(e) {
-        if (e.target.tagName === 'BUTTON') {
-            group.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
-        }
+    function setupButtonGroup(groupId) {
+        const group = document.getElementById(groupId);
+        group.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                group.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+    }
+
+    setupButtonGroup('buildModeGroup');
+    setupButtonGroup('installationTypeGroup');
+    setupButtonGroup('areaUnitGroup');
+
+    const svgContainer = document.getElementById('svgContainer');
+    const regions = svgContainer.querySelectorAll('path');
+    regions.forEach(region => {
+        region.addEventListener('click', function() {
+            svgContainer.querySelector('.selected')?.classList.remove('selected');
+            this.classList.add('selected');
+            const regionName = this.getAttribute('name');
+            document.getElementById('selected-region').textContent = `選擇的地區: ${regionName}`;
+        });
     });
-}
 
-setupButtonGroup('buildModeGroup');
-setupButtonGroup('installationTypeGroup');
-setupButtonGroup('areaUnitGroup');
-
-const svgContainer = document.getElementById('svgContainer');
-const regions = svgContainer.querySelectorAll('path');
-regions.forEach(region => {
-    region.addEventListener('click', function() {
-        svgContainer.querySelector('.selected')?.classList.remove('selected');
-        this.classList.add('selected');
-        const regionName = this.getAttribute('name');
-        document.getElementById('selected-region').textContent = `選擇的地區: ${regionName}`;
-    });
-});
-
-function nextStep() {
-    if (currentStep < totalSteps) {
+    function showStep(step) {
         document.getElementById(`step${currentStep}`).classList.remove('active');
-        currentStep++;
+        document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.remove('active');
+        
+        currentStep = step;
+        
         document.getElementById(`step${currentStep}`).classList.add('active');
-        document.getElementById('prev-button').style.display = 'inline-block';
-        if (currentStep === totalSteps) {
-            document.getElementById('next-button').style.display = 'none';
-            document.getElementById('calculate').style.display = 'inline-block';
+        document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.add('active');
+        
+        updateNavigationButtons();
+    }
+
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            showStep(currentStep + 1);
         }
     }
-}
 
-function prevStep() {
-    if (currentStep > 1) {
-        document.getElementById(`step${currentStep}`).classList.remove('active');
-        currentStep--;
-        document.getElementById(`step${currentStep}`).classList.add('active');
-        document.getElementById('next-button').style.display = 'inline-block';
-        document.getElementById('calculate').style.display = 'none';
-        if (currentStep === 1) {
-            document.getElementById('prev-button').style.display = 'none';
+    function prevStep() {
+        if (currentStep > 1) {
+            showStep(currentStep - 1);
         }
     }
-}
+
+    function updateNavigationButtons() {
+        document.getElementById('prev-button').style.display = currentStep > 1 ? 'inline-block' : 'none';
+        document.getElementById('next-button').style.display = currentStep < totalSteps ? 'inline-block' : 'none';
+        document.getElementById('calculate').style.display = currentStep === totalSteps ? 'inline-block' : 'none';
+    }
+
+updateNavigationButtons();
 
 function getPriceBonusRegions() {
     return ['澎湖縣', '金門縣', '連江縣','台北市','基隆市','桃園市','新北市','新竹市','新竹縣','苗栗縣','宜蘭縣','花蓮縣','台東縣'
@@ -264,6 +270,7 @@ function calculate() {
     }
 
     document.getElementById('results').style.display = 'flex';
+    document.querySelector('.navigation').style.display = 'none'
 }
 
 function convertToPing(value, unit) {

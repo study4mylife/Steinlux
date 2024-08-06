@@ -75,7 +75,7 @@ h1, h2 {
 #scope3-chart {
     max-width: 80%;
     max-height: 300px;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 @media (max-width: 1200px) {
@@ -85,6 +85,14 @@ h1, h2 {
 }
 
 @media (max-width: 768px) {
+    .GHG{
+        width: 95%;
+    }
+
+    .GHG h1{
+        font-size: 24px;
+    }
+
     .item {
         width: 100%;
     }
