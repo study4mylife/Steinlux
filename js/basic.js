@@ -160,8 +160,8 @@ class Header extends HTMLElement{
     }
   }
   
-  customElements.define('index-header', Header);
-  customElements.define('index-footer', Footer);
+  customElements.define('index-header', Header);//定義header
+  customElements.define('index-footer', Footer);//定義footer
   
   function topBtn(){
       window.scrollTo(0,0)
@@ -179,8 +179,8 @@ class Header extends HTMLElement{
                   setTimeout(() => {
                       items.forEach((item, index) => {
                           const angle = (index / (items.length - 1)) * 90;
-                          const x = Math.cos(angle * Math.PI / 180) * 100;
-                          const y = Math.sin(angle * Math.PI / 180) * 100;
+                          const x = Math.cos(angle * Math.PI / 180) * 80;
+                          const y = Math.sin(angle * Math.PI / 180) * 80;
                           item.style.transform = `translate(${-x}px, ${-y}px)`;
                       });
                   }, 0);
