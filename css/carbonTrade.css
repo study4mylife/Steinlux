@@ -1,12 +1,6 @@
-html{
-    overflow-x: hidden;
-    max-width: 100%;
-    width: 100vw;
-}
-
 .logo{
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     background-color: #fefefe;
     box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);;
@@ -17,14 +11,7 @@ html{
 .steinluxLogo{
     width: 180px;
     height: 40px;
-    margin: 20px
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 20px 0
 }
 
 .stepContainer{
@@ -44,6 +31,7 @@ main{
     right: 0;
     bottom: 0;
     left: 0;
+    width: 100%;
     height: 700px;
     visibility: hidden;
     margin: 120px 0 auto 0;
@@ -58,14 +46,14 @@ main{
 }
 
 #step3{
-    margin: 100px 0 auto 20px;
+    padding: auto 0 20px;
 }
 
 .button-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 150px;
+    gap: 20px;
+    margin: 20px 0 200px 0;
 }
 
 .button-group button {
@@ -244,7 +232,6 @@ input[type="number"] {
     justify-content: center;
     width: 100%;
     height: 100%;
-
 }
 
 #county{
@@ -316,7 +303,11 @@ svg path:hover{
     font-size: 1em;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
+    #prev-button, #next-button, #calculate{
+        scale: 0.8;
+    }
+
     #county{
         scale: 0.2;
     }
@@ -327,5 +318,21 @@ svg path:hover{
 
     .resultContainer {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    #prev-button {
+        position: absolute;
+        bottom: -100px;
+        left: 30px;
+        z-index: 10;
+    }
+    
+    #next-button, #calculate{
+        position: absolute;
+        bottom: -100px;
+        right: 30px;
+        z-index: 10;
     }
 }
