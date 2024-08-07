@@ -63,10 +63,10 @@
 }
 
 .hidden-element {
+    overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    margin: 20px 0
 }
 
 .hidden-element.visible {
@@ -75,10 +75,10 @@
 }
 
 .hidden-element-left {
+    overflow: hidden;
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    margin: 20px 0
 }
 
 .hidden-element-left.visible {
@@ -87,10 +87,10 @@
 }
 
 .hidden-element-right{
+    overflow: hidden;
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    margin: 20px 0
 }
 
 .hidden-element-right.visible {
