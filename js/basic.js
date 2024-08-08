@@ -3,7 +3,7 @@ class Header extends HTMLElement{
         this.innerHTML = `
       <header>
               <div class="topBtn">
-                  <button onclick="topBtn()"><i class="fa-solid fa-arrow-up fa-2x" style="color: #fefefe;" aria-hidden="true"></i></button>
+                  <button onclick="topBtn()"><i class="fa-solid fa-arrow-up" style="color: #fefefe;" aria-hidden="true"></i></button>
               </div>
   
               <div class="menu-container">

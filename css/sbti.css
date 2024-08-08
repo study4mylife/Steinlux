@@ -1,29 +1,34 @@
-.sbti{
+.SBTi{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: justify;
 }
 
-.sbti h1{
+.SBTi h1{
     position: relative;
-    display: inline-block;
-    font-weight: 600;
-    color: #3b8e89;
+    width: fit-content;
+    font-weight: 500;
 }
 
-.sbti h1::after{
+.SBTi ul{
+    list-style: none;
+    margin-right: 10px;
+}
+
+.SBTi h1::first-letter{
+    color: #97a68c;
+    font-weight: 700;
+}
+
+.SBTi h1::after{
     content: '';
     position: absolute;
     left: 0;
     bottom: -5px;
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: #000;
-}
-
-.sbti .title p{
-    line-height: 2.5;
-    margin-bottom: 30px;
 }
 
 .introduce{
@@ -31,62 +36,157 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 80%;
 }
 
-.introduce h1,
-.introduce h2,
-.introduce h3,
-.introduce li,
-.introduce ol,
-.introduce p{
-    letter-spacing: 2px;
+.introduce .title strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #db8c5f;
 }
 
-.introduce h3{
-    color: #444;
-    font-size: 2vw;
-    font-weight: 500;
-    margin: 30px 0;
+.introduce span{
+    display: inline-block;
+    line-height: 2.5;
+    letter-spacing: 2.2px;
+    margin-bottom: 30px;
+    list-style: none;
 }
 
-.introduce li{
-    color: #666;
-    font-size: 16px;
+.whatContainer{
+    display: flex; 
+    justify-content: space-between;
 }
 
-.introduce ol{
-    line-height: 50px;
-}
-
-.targetSet{
-    display: flex;
-}
-
-.targetSet img{
+.whatContainer .what{
     width: 50%;
-    height: 50%;
-    margin: 70px 10px;
+}
+
+.whatContainer .scope{
+    width: 40%;
+    border: solid 5px #97a68c;
+}
+
+.content{
+    width: 100%;
+}
+
+.content strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #db8c5f;
+}
+
+.whySBTi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SBTiAdvantange{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.advantageItems{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.advantageItems .item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 20vw;
+    border: 3px solid #000;
+    border-radius: 100%;
+}
+
+.advantageItems .item .number{
+    color: #db8c5f;
+    font-size: 4.5vw;
+    font-weight: 600;
+}
+
+.advantageItems .item .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    bottom: 20%;
+    width: 22vw;
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #fefefe;
+    border: 3px solid #777;
+    transform: translateY(100%);
+}
+
+
+.howSBTi{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.howSBTi .wrapper{
+    width: 40%;
+    height: auto;
+}
+
+.howSBTi .wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+.howSBTi span{
+    width: 40%;
 }
 
 @media (max-width: 1200px) {
-    .sbti .title h1{
-        font-size: 24px;
+    .SBTi{
+        font-size: 0.9rem;
     }
 
-    .introduce h3{
-        color: #444;
-        font-size: 24px;
+    .whatContainer, .howSBTi{
+        flex-direction: column;
     }
 
-    .targetSet{
+    .whatContainer .what, .whatContainer .scope, .howSBTi .wrapper, .howSBTi span{
         width: 100%;
-        flex-direction: column-reverse;
     }
 
-    .targetSet img{
-        width: 80%;
-        height: 80%;
-        margin: 30px 0;
+}
+
+@media (max-width: 992px) {
+    .advantageItems{
+        flex-direction: column;
+    }
+
+    .advantageItems .item{
+        max-width: 350px;
+        max-height: 350px;
+        width: 70vw;
+        height: 70vw;
+        margin-bottom: 80px;
+    }
+
+    .advantageItems .item .number{
+        font-size: 7.5vw;
+        font-weight: 500;
+     }
+
+    .advantageItems .item .box{
+        width: 100%;
     }
 }
