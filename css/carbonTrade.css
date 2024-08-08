@@ -45,10 +45,6 @@
     opacity: 1;
 }
 
-#step3{
-    padding: auto 0 20px;
-}
-
 .button-group {
     display: flex;
     flex-wrap: wrap;
@@ -250,8 +246,8 @@ svg path:hover{
 
 .text{
     text-align: center;
-    max-width: 500px;
-    font-size: 40px;
+    width: fit-content;
+    font-size: 36px;
 }
 
 .process{
@@ -334,5 +330,13 @@ svg path:hover{
         bottom: -100px;
         right: 30px;
         z-index: 10;
+    }
+
+    .svgContainer{
+        padding-left: 50px;
+    }
+
+    .text{
+        font-size: 24px;
     }
 }

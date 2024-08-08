@@ -25,146 +25,38 @@
     <hr>
 
     <main>
-        <section class="GHG mt-5 mb-5">
-            <h1>什麼是GHG協議 範疇3(GHG Protocol Scope 3)</h1>
-            <p>範疇3排放指的是企業活動導致的其他間接排放，這些排放來自企業擁有或控制的資產之外。範疇3排放涵蓋了整個價值鏈，包括上游和下游活動。</p>
-            
-            <h2>範疇3排放類別</h2>
-            <p>範疇3排放被細分為下列15個不同的類別，這些類別涵蓋了企業價值鏈中的所有間接排放源：</p>
-            <h1>上游活動排放</h1>
-            <div class="itemContainer">
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">購買的商品和服務</div>
+        <article class="GHG mt-5 mb-5">
+            <div class="GHGContainer">
+                <section class="whatGHG">  
+                    <h1>What's GHG Protocol Scope 3</h1>
+                    <div class="whatContainer">
+                        <span class="what">
+                            <p>溫室氣體議定書範疇三(GHG Protocol Scope 3)  是溫室氣體排放範疇 的一部分，專門針對企業供應鏈和價值鏈中的間接排放。這些排放不直接來自企業本身的運營，而是來自企業與供應商、客戶和其他相關方的互動過程。範疇 3 排放包括上游和下游活動，例如供應商的生產過程、產品的運輸和分銷、產品使用中的排放以及廢棄物的處理等。</p>
+                            <p>由於範疇 3 涵蓋了企業整個價值鏈的所有間接排放，這往往是企業總排放量中最具挑戰性的一部分。透過瞭解和管理範疇 3 排放，企業可以更有效地減少整體碳足跡，並在市場中展示其對環境可持續性的承諾。
+                            </p>
+                        </span>
+                        <span class="categories">
+                            <span>
+                                <h2>GHG 的 15 種類別</h2>
+                                <a href="https://www.isoleader.com.tw/home/iso-coaching-detail/GHG_Protocol">了解更多</a>
+                            </span>
+                            <div class="wrapper">
+                                <img src="../src/GHG protocol.jpg" alt="">
+                            </div>
+                        </span>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">資本商品</div>
+                </section>
+                <section class="whyGHG">
+                    <h1>Why GHG Protocol Scope 3</h1>
+                    <div class="whyContainer">
+
                     </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">燃料和能源相關活動</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">上游運輸和配送</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">營運中產生的廢棄物</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">商務差旅</div>
-                    </div>  
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">員工通勤</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">上游租賃資產</div>
-                    </div>
+                </section>
+                <div class="chart">
+                    <canvas id="scope3-chart"></canvas>
                 </div>
             </div>
-            <h1>下游活動排放</h1>
-            <div class="itemContainer">
-                
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">下游運輸和配送</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">售出產品的加工</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">售出產品的使用</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">售出產品的報廢處理</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">下游租賃資產</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">特許經營</div>
-                    </div>
-                </div>
-                <div class="item" style="margin: auto;">
-                    <div class="itemInner">
-                        <div class="itemFront"></div>
-                        <div class="itemBack">投資</div>
-                    </div>
-                </div>
-            </div>
-            
-            <h2>範疇3排放分布</h2>
-            <div class="chart">
-                <canvas id="scope3-chart"></canvas>
-            </div>
-
-            <h2>範疇重要之處</h2>
-            <p>範疇3排放通常是企業溫室氣體排放的主要來源之一，可能佔企業總排放的絕大部分。理解和管理範疇3排放對於實現全面的碳管理目標至關重要，有助於企業：</p>
-
-            <ul>
-                <li>識別並降低價值鏈中的碳風險。</li>
-                <li>推動供應商和客戶的可持續性發展。</li>
-                <li>提升企業的品牌形象和市場競爭力。</li>
-                <li>應對越來越嚴格的環境法規和政策。</li>
-            </ul>
-            <h2>如何計算範疇3排放？</h2>
-            <p>計算範疇3排放涉及以下步驟：</p>
-
-            <ul>
-                <li><strong>界定邊界：</strong>確定哪些活動和類別應納入排放計算。</li>
-                <li><strong>數據收集：</strong>收集相關的活動數據，如購買商品的數量、員工通勤距離等。</li>
-                <li><strong>選擇排放因子：</strong>根據活動數據選擇適當的排放因子，用於計算排放量。</li>
-                <li><strong>計算排放：</strong>使用活動數據和排放因子計算總排放量。</li>
-                <li><strong>報告和驗證：</strong>編制排放報告，並（如有必要）通過第三方驗證。</li>
-            </ul>
-
-            <h2>範疇3排放管理最佳實踐</h2>
-
-            <ul>
-                <li><strong>供應鏈合作：</strong>與供應商和客戶合作，共同減少碳排放。</li>
-                <li><strong>員工參與：</strong>鼓勵員工採取低碳出行方式，並在工作中實施節能減排措施。</li>
-                <li><strong>技術創新：</strong>採用新技術和流程，減少生產和運營過程中的碳排放。</li>
-                <li><strong>持續改進：</strong>定期審查和更新範疇3排放數據和管理策略，持續改進碳管理績效。</li>
-            </ul>
-
-            <p>了解並有效管理範疇3排放，是企業實現全面碳管理和可持續發展的關鍵步驟。通過這些努力，企業不僅能夠減少對環境的影響，還能夠在日益重視環境可持續性的市場中保持競爭力。</p>
-        </section>
+        </article>
     </main>
 
     <index-Footer></index-Footer>
@@ -174,12 +66,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/basic.js"></script>
     <script>
-        document.querySelectorAll('.item').forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.classList.add('flipped');
-            });
-        });
-
         const ctx = document.getElementById('scope3-chart').getContext('2d');
         new Chart(ctx, {
             type: 'pie',
