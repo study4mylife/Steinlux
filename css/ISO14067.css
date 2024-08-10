@@ -1,61 +1,116 @@
-.process{
+.ISO14067{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: justify;
 }
 
-.process .content p{
-    line-height: 2.5;
-    margin-bottom: 30px;
+.ISO14067 h1{
+    position: relative;
+    width: fit-content;
+    font-weight: 500;
+    background-color: #606060;
+    color: #fefefe;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 5px #888;
 }
 
-.process .content li{
-    line-height: 40px;
+.ISO14067 h1::first-letter{
+    color: #8fc268;
+    font-weight: 700;
 }
 
-.step{
+.ISO14067 ul{
+    list-style: none;
+    margin-right: 10px;
+}
+
+.ISO14067Container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 80%;
 }
 
-.step h1,
-.step h2,
-.step h3,
-.step li,
-.step ol,
-.step p{
-    letter-spacing: 2px;
-    text-align: left;
+.ISO14067Container strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #db8c5f;
 }
 
-.step img{
+.ISO14067Container span{
+    display: inline-block;
+    line-height: 2.5;
+    letter-spacing: 2.2px;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.what{
+    padding: 50px;
+    border: 8px solid #ccc;
+    border-radius: 20px;
+}
+
+.whatContainer{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+.whatContainer .what{
+    position: relative;
+    width: 50%;
+}
+
+.whatContainer .scope{
+    width: 40%;
+    padding: 20px 10px;
+    border: solid 5px #97a68c;
+    border-radius: 20px;
+}
+
+.whyContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    margin: 30px 0;
+    margin-bottom: 100px;
 }
 
-.step h1{
-    font-weight: 700;
-    color: #333;
+.howContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.step h2{
-    margin: 30px 0;
+.howContainer span{
+    width: 40%;
 }
 
-.step h3{
-    color: #444;
-    font-size: 28px;
-    font-weight: 500;
-    margin: 30px 0;
+@media (max-width: 1200px) {
+    .ISO14067{
+        font-size: 0.9rem;
+    }
+
+    .whatContainer .what{
+        margin-right: 50px;
+    }
+
+    .whatContainer .what, .whatContainer .scope, .howSBTi .wrapper, .howSBTi span{
+        width: 100%;
+    }
+
 }
 
-.step li{
-    font-size: 16px;
+@media (max-width: 992px) {
+
 }
 
-.step ol{
-    line-height: 50px;
+@media (max-width: 768px) {
+    .ISO14067 h1{
+        font-size: 4vw;
+    }
 }

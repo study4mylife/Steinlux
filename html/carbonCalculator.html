@@ -19,46 +19,47 @@
     </header>
 
     <main>
-        <div class="calculatorContainer">
-            <div class="calculator">
+        <div class="container">
+            <section id="startPage" class="section active">
                 <h1>碳足跡計算機</h1>
-                <div id="question-container">
-                    <div class="question" id="question1">
-                        <p>使用動物原料製品的頻率</p>
-                        <input type="range" min="0" max="100" value="50" class="slider" id="foodSlider">
-                        <p>Value: <span id="foodValue"></span></p>
-                        <button class="next-btn">下一題</button>
-                    </div>
-                    <div class="question" id="question2" style="display:none;">
-                        <p>目前使用最多的交通運輸工具</p>
-                        <select id="transportSelect">
-                            <option value="10">走路/腳踏車</option>
-                            <option value="30">大眾運輸工具</option>
-                            <option value="50">汽車</option>
-                            <option value="100">飛機</option>
-                        </select>
-                        <button class="prev-btn">上一題</button>
-                        <button class="next-btn">下一題</button>
-                    </div>
-                    <div class="question" id="question3" style="display:none;">
-                        <p>家人的節約能源觀念如何</p>
-                        <div class="radio-group">
-                            <input type="radio" id="veryEfficient" name="homeEfficiency" value="20" checked>
-                            <label for="veryEfficient">完全不了解</label><br>
-                            <input type="radio" id="somewhatEfficient" name="homeEfficiency" value="50">
-                            <label for="somewhatEfficient">略有耳聞</label><br>
-                            <input type="radio" id="notEfficient" name="homeEfficiency" value="80">
-                            <label for="notEfficient">大略了解</label><br>
-                            <input type="radio" id="notEfficient" name="homeEfficiency" value="80">
-                            <label for="notEfficient">完全了解</label>
-                        </div>
-                        <button class="prev-btn">上一題</button>
-                        <button class="next-btn">計算足跡</button>
-                    </div>
+                <p>按下按鈕開始計算你的碳足跡</p>
+                <button onclick="showSection('categorySelection')">開始</button>
+            </section>
+    
+            <section id="categorySelection" class="section">
+                <h2>選擇需要計算的類別:</h2>
+                <div id="categories"></div>
+                <div class="buttonGroup">
+                    <button onclick="showSection('startPage')">上一步</button>
+                    <button onclick="startQuestionnaire()">下一步</button>
                 </div>
-                <div id="result" style="display:none;"></div>
-            </div>
-        </div>
+            </section>
+    
+            <section id="subCategorySelection" class="section">
+                <h2 id="currentCategory"></h2>
+                <div id="subCategories"></div>
+                <div class="buttonGroup">
+                    <button onclick="showSection('categorySelection')">上一步</button>
+                    <button onclick="showQuestions()">下一步</button>
+                </div>
+            </section>
+    
+            <section id="questionnaire" class="section">
+                <h2 id="currentSubCategory"></h2>
+                <div id="questions"></div>
+                <div class="buttonGroup">
+                    <button onclick="previousStep()">上一步</button>
+                    <button onclick="nextCategory()">下一步</button>
+                </div>
+            </section>
+    
+            <section id="resultPage" class="section">
+                <h2>你的碳足跡結果</h2>
+                <p>根據你的回答，你的年度碳足跡估算為：</p>
+                <h3 id="carbonFootprint"></h3>
+                <p>噸二氧化碳當量/年</p>
+                <button onclick="showSection('startPage')">重新開始</button>
+            </section>
     </main>
 
     <index-Footer></index-Footer>
