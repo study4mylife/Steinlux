@@ -64,11 +64,6 @@ main .title h1{
     text-underline-offset: 10px
 }
 
-.rightbox img{
-    width: 200px;
-    height: 100%;
-}
-
 .newItem{
     display: flex;
     flex-direction: column;
@@ -81,6 +76,23 @@ main .title h1{
     display: flex;
     justify-content: start;
     align-items: center;
+}
+
+.newsContent .content{
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.newsContent .wrapper{
+    width: 100%;
+}
+
+.newsContent .wrapper img{
+    width: 100%;
 }
 
 .content h2{
@@ -143,7 +155,7 @@ main .title h1{
 }
 
 .event-carousel {
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -178,6 +190,7 @@ main .title h1{
     background-color: #ccc;
     cursor: pointer;
 }
+
 .carousel-dot.active {
     background-color: #333;
 }
@@ -262,6 +275,10 @@ main .title h1{
 }
 
 @media(max-width: 768px) {
+    .newsContent{
+        flex-direction: column;
+    }
+
     .serviceItem .item{
         width: 80%;
     }

@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function getItemsPerView() {
         if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 768) return 2;
+        if (window.innerWidth > 480) return 2;
         return 1;
     }
 

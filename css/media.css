@@ -1,3 +1,4 @@
+/*新聞列表*/ 
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
@@ -15,18 +16,27 @@
     width: 100%;
 }
 
+#news-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
 .card{
     width: 40%;
     margin: 20px;
     box-shadow: 0 0 0 1px #111;
     border-radius: 8px;
+    padding: 10px 0;
 }
 
-.verticle.card{
-    width: 80%;
-    margin: 20px;
+.verticle .card{
+    width: 60%;
     box-shadow: 0 0 0 1px #111;
     border-radius: 8px;
+    padding: 10px 0;
 }
 
 .content{
@@ -42,12 +52,19 @@
     align-items: center;
 }
 
-.content img{
-    aspect-ratio: 4 / 3;
-    border-radius: 10px;
-    max-height: 120px;
-    -o-object-fit: cover;
+#news-container .content a{
+    width: 40%;
+    min-width: 250px;
+}
+
+#news-container .content img{
+    width: 90%;
     object-fit: cover;
+    border-radius: 10px;
+}
+
+#news-container .content .text{
+    width: 60%;
 }
 
 .title h3{
@@ -71,26 +88,118 @@ time{
     margin-left: 80%;
 }
 
+#pagination button{
+    margin: 0 5px;
+    padding: 10px 20px;
+}
+
+#pagination button:hover{
+    background-color: #ccc;
+    transition: 0.3s;
+}
+
+@media (max-width: 1200px) {
+    .verticle .card, .card{
+    width: 80%;
+}
+}
+
 @media (max-width: 1200px) {
     #layoutToggle{
         display: none;
     }
-
-    .card{
-        width: 80%;
-    }
 }
 
-@media (max-width: 576px) {
-    .content img{
-        width: 95%;
-        max-height: 500px;
+@media (max-width: 768px) {
+    #news-container .content a{
+        width: 100%;
         margin-bottom: 20px;
+    }
+
+    .content img{
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    #news-container .content .text{
+        width: 100%;
     }
 
     .card .content{
         display: flex;
         flex-direction: column;
         padding: 20px;
+    }
+}
+
+/*新聞頁面*/ 
+.newsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 76px;
+}
+
+.newsContainer .news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.newsContainer .title{
+    width: 100%;
+    border-bottom: solid 1px #333;
+}
+
+.newsContainer .title h1{
+    font-size: 50px;
+    font-weight: 700;
+    color: #333;
+}
+
+.newsContainer .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    letter-spacing: 1.5px;
+    line-height: 30px;
+}
+
+.newsContainer .content h2{
+    position: relative;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.newsContainer .content h2::before{
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 4px;
+    height: 100px;
+    background-color: #97a68c
+}
+
+.newsContainer .content em{
+    text-align: center;
+    margin: 20px;
+}
+
+.newsContainer .news .content img{
+    width: 90%;
+}
+
+.newsContainer .content .imgComment{
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .newsContainer .news{
+        width: 100%;
     }
 }

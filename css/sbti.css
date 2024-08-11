@@ -48,12 +48,6 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: 8px solid #ccc;
-    border-radius: 20px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: center;
@@ -61,8 +55,9 @@
 }
 
 .whatContainer .what{
-    position: relative;
     width: 50%;
+    padding-bottom: 20px;
+    border-bottom: 5px solid #333;
 }
 
 .whatContainer .scope{
@@ -127,16 +122,27 @@
     justify-content: space-around;
 }
 
-.howContainer .wrapper{
-    width: 50%;
-}
-
-.howContainer .wrapper img{
-    width: 100%;
-}
-
 .howContainer span{
-    width: 40%;
+    position: relative;
+    width: 60%;
+}
+
+.howContainer span::before{
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 64px;
+}
+
+.howContainer span::after{
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 64px;
 }
 
 @media (max-width: 1200px) {
@@ -161,6 +167,10 @@
 @media (max-width: 992px) {
     .whatContainer, .advantageItems{
         flex-direction: column;
+    }
+
+    .whatContainer .what{
+        margin: 50px 0;
     }
 
     .advantageItems .item{

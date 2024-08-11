@@ -83,9 +83,14 @@ function showSection(sectionId) {
 
 function displayCategories() {
     var categoriesHtml = '';
-    categories.forEach(category => {
+    categories.forEach((category, index) => {
         var isSelected = selectedCategories.includes(category);
-        categoriesHtml += `<div class="category-box ${isSelected ? 'selected' : ''}" onclick="toggleCategory('${category}')">${category}</div>`;
+        categoriesHtml += `<div class="category-box ${isSelected ? 'selected' : ''}" onclick="toggleCategory('${category}')">
+                             <div class="wrapper">
+                                <img src='../src/service${index+1}.png'>
+                             </div>
+                            ${category}
+                            </div>`;
     });
     document.getElementById('categories').innerHTML = categoriesHtml;
 }
@@ -123,7 +128,7 @@ function showSubCategorySelection() {
 
     subCategories.forEach(subCategory => {
         var isSelected = selectedSubCategories[category] && selectedSubCategories[category].includes(subCategory);
-        subCategoriesHtml += `<div class="subcategory-box ${isSelected ? 'selected' : ''}" onclick="toggleSubCategory('${category}', '${subCategory}')">${subCategory}</div>`;
+        subCategoriesHtml += `<div class="subcategory-box ${isSelected ? 'selected' : ''}" onclick="toggleSubCategory('${category}', '${subCategory}')">${subCategory}<div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div></div>`;
     });
 
     document.getElementById('subCategories').innerHTML = subCategoriesHtml;
@@ -169,7 +174,7 @@ function showQuestions() {
     subCategories.forEach(subCategory => {
         questionsHtml += `
             <div class="subcategory-questions">
-                <h3>${subCategory}</h3>
+                <h3>${subCategory}</h3><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div>
                 ${questions[category][subCategory].map((question, index) => {
                     var answer = answers[category] && answers[category][subCategory] && answers[category][subCategory][index] ? answers[category][subCategory][index] : '';
                     return `
