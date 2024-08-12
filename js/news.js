@@ -43,15 +43,17 @@ function renderNewsList() {
         article.className = 'card';
         article.innerHTML = `
             <div class="content">
-                <a href="media.html?id=${item.id}">
-                    <img src="${item.mainImage || '../src/background1.jpg'}" alt="${item.mainImageAlt || ''}">
-                </a>
-                <div class="text mx-3">
-                    <div class="title">
-                        <h3>${item.title || ''}</h3>
-                        <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 100) + '...' : ''}</p>
+                <h3>${item.title || ''}</h3>
+                <div class="content-container">
+                    <a href="media.html?id=${item.id}">
+                        <img src="${item.mainImage || '../src/background1.jpg'}" alt="${item.mainImageAlt || ''}">
+                    </a>
+                    <div class="text mx-3">
+                        <div class="title">
+                            <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 100) + '...' : ''}</p>
+                        </div>
+                        <time>${item.date || ''}</time>
                     </div>
-                    <time>${item.date || ''}</time>
                 </div>
             </div>
         `;
@@ -61,6 +63,7 @@ function renderNewsList() {
 
 function setupPagination() {
     const paginationContainer = document.getElementById('pagination');
+    const itemsPerPage = 10
     paginationContainer.innerHTML = '';
 
     const pageCount = Math.ceil(allNews.length / itemsPerPage);
@@ -87,10 +90,8 @@ function updateLayout() {
 
     if (cardContainer.classList.contains('verticle')) {
         layoutToggle.textContent = '切換到橫向布局';
-        itemsPerPage = 5;
     } else {
         layoutToggle.textContent = '切換到縱向布局';
-        itemsPerPage = 10;
     }
 
     currentPage = 1; // 重置到第一頁
@@ -109,6 +110,7 @@ async function generateNewsPage() {
     }
 
     // 隱藏新聞列表和分頁
+    document.getElementById('bannerContainer').style.display = 'none';
     document.getElementById('news-container').style.display = 'none';
     document.getElementById('pagination').style.display = 'none';
 
@@ -123,9 +125,9 @@ async function generateNewsPage() {
             <div class="title">
                 <h1>${newsData.title}</h1>
                 <time>${newsData.date}</time>
+                <img src="${newsData.mainImage}" alt="${newsData.mainImageAlt}">
             </div>
             <div class="content">
-                <img src="${newsData.mainImage}" alt="${newsData.mainImageAlt}">
                 ${renderContent(newsData.content)}
             </div>
             <a href="media.html" class="back-link">返回新聞列表</a>
@@ -144,6 +146,8 @@ function renderContent(contentArray) {
                 return `<h2>${item.text}</h2>`;
             case 'paragraph':
                 return `<p>${item.text}</p>`;
+            case 'em':
+                return `<em>${item.text}</em>`
             case 'image':
                 return `<img src="${item.url}" alt="${item.alt}">`
             default:

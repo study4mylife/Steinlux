@@ -27,7 +27,7 @@
     <main>
         <article class="GHG mt-5 mb-5">
             <div class="GHGContainer">
-                <section class="whatGHG">  
+                <section class="whatGHG hidden-element">  
                     <h1>What's GHG Protocol Scope 3</h1>
                     <div class="whatContainer">
                         <span class="what">
@@ -38,15 +38,15 @@
                         <span class="categories">
                             <span>
                                 <h2>GHG Protocol Scope 3</h2>
-                                <a href="https://ghgprotocol.org/corporate-value-chain-scope-3-standard">了解更多</a>
                             </span>
                             <div class="wrapper">
                                 <img src="../src/GHG protocol.jpg" alt="">
                             </div>
+                            <a href="https://ghgprotocol.org/corporate-value-chain-scope-3-standard">了解更多</a>
                         </span>
                     </div>
                 </section>
-                <section class="whyGHG">
+                <section class="whyGHG hidden-element-left">
                     <h1>Why GHG Protocol Scope 3</h1>
                     <div class="whyContainer">
                         <span>
@@ -87,14 +87,11 @@
                     </div>
                 </section>
 
-                <section class="howGHG hidden-element">
+                <section class="howGHG hidden-element-right">
                     <h1>How GHG</h1>
                     <div class="howContainer">
                     </div>
                 </section>
-                <div class="chart">
-                    <canvas id="scope3-chart"></canvas>
-                </div>
             </div>
         </article>
     </main>
@@ -105,27 +102,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/basic.js"></script>
-    <script>
-        const ctx = document.getElementById('scope3-chart').getContext('2d');
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['上游活動', '公司營運', '下游活動'],
-                datasets: [{
-                    data: [40, 10, 50],
-                    backgroundColor: ['#3498db', '#2ecc71', '#e74c3c']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '範疇3排放典型分布'
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>

@@ -75,15 +75,27 @@ section{
 
 #startPage p{
     font-size: 32px;
-    font-weight: 500;
-    margin: 48px 0;
+    font-weight: 600;
+    color: #333;
 }
 
-.startButton{
-    margin: 96px 0;
+#startPage button{
+    margin: 48px 0;
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    scale: 1;
+    rotate: 0deg;
+    color: #333;
+    transition: scale 0.5s;
+}
+
+#startPage button:hover{
+    scale: 1.1;
+    rotate: -20deg;
+    color: #fefefe;
+    background-color: #909f5a;
+    transition: 0.5s;
 }
 
 .startButton:hover{
@@ -126,13 +138,21 @@ section{
 .category-box.selected, .subcategory-box.selected { 
     background-color: #a9c693;
     border: 5px solid#e9e9e9;
+    transition: 0.5s;
 }
+
 .subcategory-box .wrapper,
 .category-box .wrapper,
 .subcategory-questions .wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.subcategory-box p{
+    font-size: 20px;
+    font-weight: 550;
+    color: #30342d;
 }
 
 .subcategory-box .wrapper{
@@ -161,7 +181,7 @@ section{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     background-color: #ccd192;
     padding: 15px;
     border: 5px solid#e9e9e9;
@@ -171,10 +191,12 @@ section{
 
 .subcategory-questions{
     flex-grow: 1;
-    width: 25%;
-    padding: 20px;
-    margin: 20px;
-    border: 5px solid#e9e9e9;
+    background-color: #c2bead95;
+    width: 40%;
+    height: 100%;
+    padding: 30px 50px;
+    margin: 30px;
+    border: 5px solid #eee;
     border-radius: 20px;
 }
 
@@ -183,14 +205,14 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #questions .question input{
     width: 120px;
     height: 30px;
+    margin-bottom: 30px;
     padding: 15px 10px;
-    border-radius: 20px;
+    border-radius: 8px;
 }
 
 #questions .question input:focus{

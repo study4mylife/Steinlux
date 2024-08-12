@@ -32,7 +32,7 @@ var questions = {
         ]
     },
     '水資源': {
-        '自來水': [
+        '水資源': [
             '年水費（元）？',
             '年用水度數？'
         ]
@@ -128,7 +128,7 @@ function showSubCategorySelection() {
 
     subCategories.forEach(subCategory => {
         var isSelected = selectedSubCategories[category] && selectedSubCategories[category].includes(subCategory);
-        subCategoriesHtml += `<div class="subcategory-box ${isSelected ? 'selected' : ''}" onclick="toggleSubCategory('${category}', '${subCategory}')">${subCategory}<div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div></div>`;
+        subCategoriesHtml += `<div class="subcategory-box ${isSelected ? 'selected' : ''}" onclick="toggleSubCategory('${category}', '${subCategory}')"><p>${subCategory}</p><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div></div>`;
     });
 
     document.getElementById('subCategories').innerHTML = subCategoriesHtml;
