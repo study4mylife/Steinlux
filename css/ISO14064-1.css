@@ -50,7 +50,7 @@
 
 .what{
     padding: 50px;
-    border: solid 12px #97a68c;
+    border: solid 8px #97a68c;
     border-radius: 20px 80px 20px 80px;
 }
 
@@ -68,7 +68,7 @@
 .whatContainer .scope{
     width: 40%;
     padding: 40px;
-    border: solid 12px #97a68c;
+    border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
 }
 
