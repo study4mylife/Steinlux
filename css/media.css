@@ -163,11 +163,17 @@ time{
 .newsContainer .title h1{
     font-size: 50px;
     font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 2px;
     color: #333;
 }
 
 .newsContainer .title img{
     margin-bottom: 50px;
+}
+
+.newsContainer .title time{
+    font-size: 16px;
 }
 
 .newsContainer .content{
@@ -206,6 +212,18 @@ time{
 
 .newsContainer .content .imgComment{
     text-align: center;
+}
+
+.back-link{
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 3px solid #666;
+}
+
+.back-link:hover{
+    background-color: #ddd;
 }
 
 @media (max-width: 576px) {

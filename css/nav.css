@@ -205,16 +205,25 @@
 }
 
 .nav-item{
-    font-weight: 500;
+    position: relative;
+    font-weight: 450;
+    text-shadow: 2px 2px 3px #40404060;;
 }
 
-.nav-link:hover .nav-item{
-    box-shadow: 2pt 2pt 3pt rgba(89, 89, 89, 0.6);
+.nav-item::after{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: ' ';
+    width: 0;
+    height: 2px;
+    background-color: #333;
+    transition: 0.2s;
 }
 
-.nav-link:hover .nav-item{
-    color: #404040;
-    transition: color 0.3s;
+.nav-item:hover::after{
+    width: 100%;
+    left: 0;
 }
 
 .dropdown-container {
@@ -226,7 +235,7 @@
     background-color: #fff;
     transition: height 0.3s ease;
     z-index: 10000;
-    box-shadow: 0px -5px 10px -5px #7f7f7f50;;
+    box-shadow: 0px -5px 10px -5px #7f7f7f50;
 }
 
 .product-card {
@@ -246,23 +255,45 @@
 }
 
 .product-card div a{
+    text-align: left;
     text-decoration: none;
     font-size: 20px;
-    color: #222;
+    color: #111;
     margin: 10px;
+    text-shadow: 2px 2px 3px #40404060;;
+}
+
+.product-card div a:hover{
+    color: #555;
 }
 
 .product-card div h2{
     text-decoration: none;
     width: fit-content;
+    transform: translateX(8px);
     font-size: 28px;
     font-weight: 700;
-    
+    text-shadow: 2px 2px 3px #7f7f7f50;;
+}
+
+.product-card div h2::after{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    content: ' ';
+    width: 0;
+    height: 3px;
+    background-color: #333;
+    transition: 0.2s;
+}
+
+.product-card div h2:hover::after{
+    width: 100%;
+    left: 0;
 }
 
 .product-card div h2:hover{
     cursor: pointer;
-    box-shadow: 3pt 3pt 4pt #40404060;
 }
 
 .background-dimmer {

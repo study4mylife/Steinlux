@@ -47,25 +47,23 @@
 }
 
 .what{
+    width: 45%;
     padding: 50px;
     border: solid 8px #8ca6a1;
     border-radius: 120px 75px 20px 180px;
 }
 
 .whatContainer{
-    display: flex; 
+    display: flex;
+    align-items: start;
     justify-content: space-between;
-}
-
-.whatContainer .what{
-    width: 50%;
 }
 
 .whatContainer .categories{
     text-align: center;
-    width: 40%;
     height: fit-content;
-    padding: 30px;
+    width: 50%;
+    padding: 50px;
     border: solid 8px #8ca6a1;
     border-radius: 20px 90px 180px 20px;
 }
@@ -79,10 +77,12 @@
     width: 100%;
 }
 
-.whatContainer .categories img{
-    width: 80%;
-    height: auto;
-    object-fit: contain;
+.whyContainer .wrapper img{
+    width: 100%;
+}
+
+.wrapper img{
+    width: 50%;
 }
 
 .whatContainer .categories h2{
@@ -90,28 +90,74 @@
     color: #804a04;  
 }
 
-.whatContainer .categories a{
-    display: inline-block;
-    text-align: left;
-    text-decoration: none;
-    color: #97a68c;
-    margin-top: 20px;
-    padding: 0px 20px;
-    border: 3px solid #bdbdbd;
-    border-radius: 20px;
-    transition: transform 0.3s;
+.collapseItem{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-around;
 }
 
-.whatContainer .categories a:hover{
-    background-color: #e0e0e0;
-    transform: translateY(-5px);
-    transition: 0.3s;
+.collapseItem article {
+    overflow: hidden;
+}
+  
+.collapseItem article p {
+    margin: 10px;
+}
+  
+.collapseItem a {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    color: #fefefe;
+    transition: 400ms transform ease;
 }
 
-.whyContainer .wrapper img{
-    width: 80%;
-    height: auto;
-    object-fit: contain;
+.collapseItem span{
+    margin-bottom: 0;
+}
+  
+.collapseItem input[type="checkbox"] {
+    position: absolute;
+    margin: 0;
+    width: 20px;
+    height: 100%;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.collapseItem input[type="checkbox"]:checked ~ .portlet-header a {
+    transform: rotate(180deg);
+}
+  
+.collapseItem input[type="checkbox"]:checked ~ .portlet-content {
+    grid-template-rows: 1fr;
+}
+  
+.portlet {
+    position: relative;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+  
+.portlet-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #97a68c;
+    padding: 10px 20px;
+    color: #fff;
+}
+  
+.portlet-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 400ms grid-template-rows ease;
 }
 
 .whyContainer .listContainer ol{
