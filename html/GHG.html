@@ -39,9 +39,9 @@
                             <span>
                                 <h2>GHG Protocol Scope 3</h2>
                                 <p>GHG Protocol 將排放分為三個範疇，這些範疇為組織提供了一個全面的框架，以瞭解其環境影響並制定應對策略。除了為企業提供一個標準化的工具來進行溫室氣體盤查外，GHG Protocol還為政府和非政府組織制定氣候政策和目標提供了基礎。此外，這一框架也是許多國際碳標準和氣候行動倡議（如科學基礎目標倡議，SBTi）的基石。</p>
-                                <section class="collapseItem mb-3">
+                                <article class="collapseItem mb-3">
                                     <div class="portlet">
-                                        <input type="checkbox">
+                                        <input type="checkbox" name="checkbox">
                                         <div class="portlet-header">
                                           <span>Scope 1 Emission 範疇一排放（直接排放）</span>
                                           <a href="javascript:;"
@@ -57,7 +57,7 @@
                                         </div>
                                       </div>
                                       <div class="portlet">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="checkbox">
                                         <div class="portlet-header">
                                           <span> Scope 2 Emission 範疇二排放（外購能源）</span>
                                           <a href="javascript:;"
@@ -73,7 +73,7 @@
                                         </div>
                                       </div>
                                       <div class="portlet">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="checkbox">
                                         <div class="portlet-header">
                                           <span>Scope 3 Emission 範疇三排放（價值鏈）</span>
                                           <a href="javascript:;"
@@ -88,7 +88,7 @@
                                           </article>
                                         </div>
                                       </div>
-                                </section>
+                                </article>
 
                             </span>
                         </span>
@@ -154,5 +154,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="../js/basic.js"></script>
+    <script>
+      document.querySelectorAll('input[type="checkbox"][name="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            document.querySelectorAll('input[type="checkbox"][name="checkbox"]').forEach((otherCheckbox) => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+    </script>
 </body>
 </html>

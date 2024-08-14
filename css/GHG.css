@@ -23,6 +23,17 @@
 }
 
 .GHGContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.GHGContainer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 80%;
 }
 
@@ -93,7 +104,6 @@
 .collapseItem{
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
     justify-content: space-around;
 }
 
@@ -108,7 +118,7 @@
 .collapseItem a {
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 10px;
     color: #fefefe;
     transition: 400ms transform ease;
 }
@@ -139,7 +149,7 @@
   
 .portlet {
     position: relative;
-    width: 100%;
+    width: fit-content;
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
@@ -150,7 +160,7 @@
     align-items: center;
     justify-content: center;
     background-color: #97a68c;
-    padding: 10px 20px;
+    padding: 10px 30px;
     color: #fff;
 }
   
@@ -158,28 +168,6 @@
     display: grid;
     grid-template-rows: 0fr;
     transition: 400ms grid-template-rows ease;
-}
-
-.whyContainer .listContainer ol{
-    width: 100%;
-}
-
-.whyContainer .listContainer p{
-    color: #4a8592;
-    font-weight: 500;
-    margin: 10px 0 0 0;
-}
-
-.chart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#scope3-chart {
-    max-width: 80%;
-    max-height: 300px;
-    margin: 20px 0;
 }
 
 @media (max-width: 1200px) {
@@ -191,6 +179,20 @@
     }
 }
 
+@media (max-width: 992px) {
+    .GHGContainer section{
+        width: 90%;
+    }
+
+    .whatContainer{
+        flex-direction: column;
+    }
+
+    .whatContainer .what, .whatContainer .categories{
+        margin: 0;
+        border: none;
+    }
+}
 @media (max-width: 768px) {
     .GHG{
         width: 95%;

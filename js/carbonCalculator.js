@@ -1,6 +1,7 @@
 var categories = ['飲食習慣', '能源', '水資源', '旅行', '交通', '垃圾'];
 var selectedCategories = [];
 var currentCategoryIndex = 0;
+var currentSubCategoryIndex = 0;
 var selectedSubCategories = {};
 var answers = {};
 
@@ -170,25 +171,25 @@ function showQuestions() {
         return;
     }
 
-    var questionsHtml = '';
-    subCategories.forEach(subCategory => {
-        questionsHtml += `
-            <div class="subcategory-questions">
-                <h3>${subCategory}</h3><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div>
-                ${questions[category][subCategory].map((question, index) => {
-                    var answer = answers[category] && answers[category][subCategory] && answers[category][subCategory][index] ? answers[category][subCategory][index] : '';
-                    return `
-                        <div class="question">
-                            <p>${question}</p>
-                            <input type="text" id="${category}-${subCategory}-${index}" value="${answer}">
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
-    });
+    // 獲取當前顯示的子類別
+    var subCategory = subCategories[currentSubCategoryIndex];
+    
+    var questionsHtml = `
+        <div class="subcategory-questions">
+            <h3>${subCategory}</h3><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div>
+            ${questions[category][subCategory].map((question, index) => {
+                var answer = answers[category] && answers[category][subCategory] && answers[category][subCategory][index] ? answers[category][subCategory][index] : '';
+                return `
+                    <div class="question">
+                        <p>${question}</p>
+                        <input type="text" id="${category}-${subCategory}-${index}" value="${answer}">
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
 
-    document.getElementById('currentSubCategory').textContent = category;
+    document.getElementById('currentSubCategory').textContent = category + ' - ' + subCategory;
     document.getElementById('questions').innerHTML = questionsHtml;
     showSection('questionnaire');
 }
@@ -199,14 +200,22 @@ function saveAnswers() {
 
     subCategories.forEach(subCategory => {
         if (!answers[category]) answers[category] = {};
-        answers[category][subCategory] = [];
+        if (!answers[category][subCategory]) answers[category][subCategory] = [];
 
         questions[category][subCategory].forEach((_, index) => {
             var input = document.getElementById(`${category}-${subCategory}-${index}`);
-            answers[category][subCategory][index] = input.value;
+            
+            if (input && input.closest('.subcategory-questions').style.display !== 'none') {
+                // 僅保存當前顯示的問題的答案
+                answers[category][subCategory][index] = input.value;
+            } else {
+                console.warn(`未能找到ID為 ${category}-${subCategory}-${index} 的元素，或該元素不可見`);
+            }
         });
     });
 }
+
+
 
 function previousStep() {
     var category = selectedCategories[currentCategoryIndex];
@@ -221,9 +230,33 @@ function nextCategory() {
     saveAnswers();
     if (currentCategoryIndex < selectedCategories.length - 1) {
         currentCategoryIndex++;
+        currentSubCategoryIndex = 0; // 重置子類別索引
         showSubCategorySelection();
     } else {
         showResults();
+    }
+}
+
+function nextSubCategory() {
+    saveAnswers();
+
+    var category = selectedCategories[currentCategoryIndex];
+    var subCategories = selectedSubCategories[category] || Object.keys(questions[category]);
+
+    if (currentSubCategoryIndex < subCategories.length - 1) {
+        currentSubCategoryIndex++;
+        showQuestions();
+    } else {
+        nextCategory(); // 如果已經是最後一個子類別，則進入下一個主類別
+    }
+}
+
+function previousSubCategory() {
+    if (currentSubCategoryIndex > 0) {
+        currentSubCategoryIndex--;
+        showQuestions();
+    } else {
+        previousStep(); // 如果是第一個子類別，則返回到子類別選擇
     }
 }
 
