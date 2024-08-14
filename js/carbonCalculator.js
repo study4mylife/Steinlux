@@ -171,27 +171,38 @@ function showQuestions() {
         return;
     }
 
-    // 獲取當前顯示的子類別
-    var subCategory = subCategories[currentSubCategoryIndex];
-    
-    var questionsHtml = `
-        <div class="subcategory-questions">
-            <h3>${subCategory}</h3><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div>
-            ${questions[category][subCategory].map((question, index) => {
-                var answer = answers[category] && answers[category][subCategory] && answers[category][subCategory][index] ? answers[category][subCategory][index] : '';
-                return `
-                    <div class="question">
-                        <p>${question}</p>
-                        <input type="text" id="${category}-${subCategory}-${index}" value="${answer}">
-                    </div>
-                `;
-            }).join('')}
-        </div>
-    `;
+    var questionsHtml = '';
+    var navigationDotsHtml = '';
 
-    document.getElementById('currentSubCategory').textContent = category + ' - ' + subCategory;
+    subCategories.forEach((subCategory, index) => {
+        questionsHtml += `
+            <div class="subcategory-questions" id="subcategory-${index}" style="display: ${index === currentSubCategoryIndex ? 'block' : 'none'}">
+                <h3>${subCategory}</h3><div class= "wrapper"><img src="../src/carbonCalculator/${subCategory}.png"></div>
+                ${questions[category][subCategory].map((question, qIndex) => {
+                    var answer = answers[category] && answers[category][subCategory] && answers[category][subCategory][qIndex] ? answers[category][subCategory][qIndex] : '';
+                    return `
+                        <div class="question">
+                            <p>${question}</p>
+                            <input type="text" id="${category}-${subCategory}-${qIndex}" value="${answer}">
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+
+        navigationDotsHtml += `<span class="nav-dot ${index === currentSubCategoryIndex ? 'active' : ''}" onclick="jumpToSubCategory(${index})"></span>`;
+    });
+
+    document.getElementById('currentSubCategory').textContent = category + ' - ' + subCategories[currentSubCategoryIndex];
     document.getElementById('questions').innerHTML = questionsHtml;
+    document.getElementById('navigationDots').innerHTML = navigationDotsHtml;
     showSection('questionnaire');
+}
+
+function jumpToSubCategory(index) {
+    saveAnswers();
+    currentSubCategoryIndex = index;
+    showQuestions();
 }
 
 function saveAnswers() {
@@ -204,18 +215,12 @@ function saveAnswers() {
 
         questions[category][subCategory].forEach((_, index) => {
             var input = document.getElementById(`${category}-${subCategory}-${index}`);
-            
-            if (input && input.closest('.subcategory-questions').style.display !== 'none') {
-                // 僅保存當前顯示的問題的答案
+            if (input) {
                 answers[category][subCategory][index] = input.value;
-            } else {
-                console.warn(`未能找到ID為 ${category}-${subCategory}-${index} 的元素，或該元素不可見`);
             }
         });
     });
 }
-
-
 
 function previousStep() {
     var category = selectedCategories[currentCategoryIndex];
@@ -230,7 +235,7 @@ function nextCategory() {
     saveAnswers();
     if (currentCategoryIndex < selectedCategories.length - 1) {
         currentCategoryIndex++;
-        currentSubCategoryIndex = 0; // 重置子類別索引
+        currentSubCategoryIndex = 0;
         showSubCategorySelection();
     } else {
         showResults();
@@ -247,7 +252,7 @@ function nextSubCategory() {
         currentSubCategoryIndex++;
         showQuestions();
     } else {
-        nextCategory(); // 如果已經是最後一個子類別，則進入下一個主類別
+        nextCategory();
     }
 }
 
@@ -256,16 +261,14 @@ function previousSubCategory() {
         currentSubCategoryIndex--;
         showQuestions();
     } else {
-        previousStep(); // 如果是第一個子類別，則返回到子類別選擇
+        previousStep();
     }
 }
 
 function showResults() {
-    // Placeholder for carbon footprint calculation
     var carbonFootprint = 10; // This should be replaced with actual calculation
     document.getElementById('carbonFootprint').textContent = carbonFootprint.toFixed(2);
     showSection('resultPage');
 }
 
-// Initialize the page
 displayCategories();

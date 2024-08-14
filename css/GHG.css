@@ -61,7 +61,7 @@
     width: 45%;
     padding: 50px;
     border: solid 8px #8ca6a1;
-    border-radius: 120px 75px 20px 180px;
+    border-radius: 120px 20px 75px 180px;
 }
 
 .whatContainer{
@@ -86,6 +86,27 @@
     align-items: center;
     text-align: center;
     width: 100%;
+}
+
+.boxContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.boxContainer .box{
+    width: 45%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 10px #5076ab;
+}
+
+.boxContainer .box span{
+    padding: 20px;
+    border-top: 10px solid #5076ab;
+    border: 3px solid #333;
+    border-radius: 10px;
 }
 
 .whyContainer .wrapper img{
