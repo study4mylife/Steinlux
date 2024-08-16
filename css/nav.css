@@ -221,7 +221,7 @@
     transition: 0.2s;
 }
 
-.nav-item:hover::after{
+.nav-link:hover .nav-item::after{
     width: 100%;
     left: 0;
 }

@@ -9,6 +9,7 @@
     position: relative;
     width: fit-content;
     text-align: center;
+    font-size: 2rem;
     font-weight: 500;
     background-color: #606060;
     color: #fefefe;
@@ -17,7 +18,7 @@
     box-shadow: 3px 3px 5px #888;
 }
 
-.GHG h1::first-letter{
+.GHG h1::first-letter,.GHG h2::first-letter{
     color: #8fc268;
     font-weight: 700;
 }
@@ -39,7 +40,7 @@
 
 .GHGContainer strong{
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 750;
     color: #db8c5f;
 }
 
@@ -51,6 +52,7 @@
 
 .GHGContainer span{
     display: inline-block;
+    font-size: 1rem;
     line-height: 2.5;
     letter-spacing: 2.2px;
     margin-bottom: 30px;
@@ -58,7 +60,8 @@
 }
 
 .what{
-    width: 45%;
+    width: 50%;
+    margin-right: 30px;
     padding: 50px;
     border: solid 8px #8ca6a1;
     border-radius: 120px 20px 75px 180px;
@@ -88,24 +91,70 @@
     width: 100%;
 }
 
-.boxContainer{
+.scope2, .scope3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scope2 .boxContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+}
+
+.scope2 .boxContainer .box{
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 10px #5076ab;
+}
+
+.scope2 .boxContainer .box span{
+    padding: 20px;
+    border-top: 10px solid #5076ab;
+    border: 3px solid #333;
+    border-radius: 10px;
+}
+
+.scope2 .boxContainer .box span h2{
+    color: #fefefe;
+    font-size: 1.5rem;
+    background-color: #333;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.scope3 .boxContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: start;
 }
 
-.boxContainer .box{
+.scope3 .boxContainer .box{
     width: 45%;
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0 10px #5076ab;
 }
 
-.boxContainer .box span{
+.scope3 .boxContainer .box span{
     padding: 20px;
     border-top: 10px solid #5076ab;
     border: 3px solid #333;
+    border-radius: 10px;
+}
+
+.scope3 .boxContainer .box span h2{
+    color: #fefefe;
+    font-size: 1.5rem;
+    background-color: #333;
+    width: fit-content;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -114,12 +163,7 @@
 }
 
 .wrapper img{
-    width: 50%;
-}
-
-.whatContainer .categories h2{
-    font-weight: 600;
-    color: #804a04;  
+    width: 100%;
 }
 
 .collapseItem{
@@ -130,6 +174,11 @@
 
 .collapseItem article {
     overflow: hidden;
+}
+
+.collapseItem .article2 {
+    overflow-y: scroll;
+    max-height: 250px;
 }
   
 .collapseItem article p {
@@ -191,12 +240,52 @@
     transition: 400ms grid-template-rows ease;
 }
 
+.howContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.howContainer span{
+    position: relative;
+    width: 80%;
+    padding: 10px;
+    border: 3px solid #333;
+}
+
+.howContainer span::before{
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
+}
+
+.howContainer span::after{
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
+}
+
+
 @media (max-width: 1200px) {
     .whatContainer .what, .whatContainer .categories{
         width: 100%;
     }
-    .whatContainer{
+
+    .scope2 .boxContainer .box, .scope3 .boxContainer .box{
+        width: 80%;
+    }
+
+    .whatContainer,.scope2 .boxContainer, .scope3 .boxContainer{
         flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -205,30 +294,29 @@
         width: 90%;
     }
 
-    .whatContainer{
-        flex-direction: column;
-    }
-
     .whatContainer .what, .whatContainer .categories{
         margin: 0;
+        padding: 0;
         border: none;
     }
 }
+
 @media (max-width: 768px) {
-    .GHG{
-        width: 95%;
-    }
-    .GHG h1{
-        font-size: 4vw;
+    html{
+        font-size: 14px;
     }
 
     .whyContainer .wrapper img{
         width: 100%;
     }
+
+    .scope2 .boxContainer .box, .scope3 .boxContainer .box{
+        width: 100%;
+    }
 }
 
-@media (max-width: 400px) {
-    .GHG h1{
-        font-size: 4.5vw;
+@media (max-width: 600px) {
+    html{
+        font-size: 13px;
     }
 }

@@ -20,7 +20,7 @@ let currentPage = 1;
 let allNews = [];
 
 async function fetchNewsList() {
-    const newsCollection = collection(db, 'news');
+    const newsCollection = collection(db, 'research');
     const newsSnapshot = await getDocs(newsCollection);
     allNews = newsSnapshot.docs.map(doc => ({
         id: doc.id,
@@ -46,7 +46,7 @@ function renderNewsList() {
                 <h3>${item.title || ''}</h3>
                 <div class="content-container">
                     <div class="wrapper">
-                        <a href="media.html?id=${item.id}">
+                        <a href="research.html?id=${item.id}">
                             <img src="${item.mainImage || '../src/background1.jpg'}" alt="${item.mainImageAlt || ''}">
                         </a>
                     </div>
@@ -149,12 +149,13 @@ async function generateNewsPage() {
     document.getElementById('news-container').style.display = 'none';
     document.getElementById('pagination').style.display = 'none';
 
-    const newsRef = doc(db, 'news', newsId);
+    const newsRef = doc(db, 'research', newsId);
     const newsSnap = await getDoc(newsRef);
 
     if (newsSnap.exists()) {
         const newsData = newsSnap.data();
         document.title = newsData.title;
+        console.log(newsData.content)
         
         let content = `
             <div class="title">
@@ -170,7 +171,7 @@ async function generateNewsPage() {
                 <a href="#" class="share-btn twitter">分享到 Twitter</a>
                 <a href="#" class="share-btn linkedin">分享到 LinkedIn</a>
             </div>
-            <a href="media.html" class="back-link">返回新聞列表</a>
+            <a href="../html/research.html" class="back-link">返回研究列表</a>
         `;
         const dynamicNewsContent = document.getElementById('dynamicNewsContent');
         dynamicNewsContent.innerHTML = content;
@@ -179,7 +180,7 @@ async function generateNewsPage() {
         const shareButtonsContainer = document.getElementById('share-buttons');
         shareButtonsContainer.addEventListener('click', handleShareButtonClick);
     } else {
-        document.getElementById('dynamicNewsContent').innerHTML = '<h1>新聞不存在</h1><a href="media.html" class="back-link">返回新聞列表</a>';
+        document.getElementById('dynamicNewsContent').innerHTML = '<h1>新聞不存在</h1><a href="../html/research.html" class="back-link">返回研究列表</a>';
     }
 }
 

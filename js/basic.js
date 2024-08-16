@@ -17,7 +17,7 @@ class Header extends HTMLElement{
               <div class="nav-container">
                   <nav class="nav-bar fixed-top bg-white">
                       <ul class="nav-list">
-                          <a class="navbar-logo nav-item steinluxLogo" href="../html/index.html"></a>
+                          <a class="navbar-logo steinluxLogo" href="../html/index.html"></a>
                           <a href="#" class="nav-link"><li class="nav-item">淨零顧問服務</li></a>
                           <a href="#" class="nav-link"><li class="nav-item">淨零解決方案</li></a>
                           <a href="#" class="nav-link"><li class="nav-item">永續服務</li></a>
@@ -160,8 +160,43 @@ class Header extends HTMLElement{
     }
   }
   
+  class Feedback extends HTMLElement{
+    connectedCallback(){
+        this.innerHTML = ` 
+        <section class="contact">
+            <div class="feedbackContainer mt-5 mb-5">
+                <div class="feedback">
+                    <div class="info">
+                        <h2>Contact Us</h2>
+                        <ul>
+                            <li>公司名稱: 楒騄綠資本有限公司 STEINLUX GREEN CAPITAL CO.,LTD</li>
+                            <li>Email: shih@steinlux.com.tw</li>
+                            <li>地址: 臺中市北屯區松竹五路二段88之9號1樓  </li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.893233460558!2d120.70979127534915!3d24.17547687838269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469181fd7477205%3A0xb57cdbe831245513!2zNDA25Y-w5Lit5biC5YyX5bGv5Y2A5p2-56u55LqU6Lev5LqM5q61ODjomZ8x!5e0!3m2!1szh-TW!2stw!4v1723635945029!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="feedbackForm">
+                        <form id="feedback-form">
+                            <label for="name">姓名</label><br>
+                            <input id="name" name="name" required><br><br>
+                            <label for="email">您的電子信箱</label><br>
+                            <input type="email" id="email" name="email" required><br><br>
+                            <label for="message">意見與回饋</label><br>
+                            <textarea id="message" name="message" rows="10" maxlength="500" required style="resize: none;"></textarea><br><br>
+                            <input type="submit" value="提交">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>`
+    }
+  }
+
   customElements.define('index-header', Header);//定義header
   customElements.define('index-footer', Footer);//定義footer
+  customElements.define('feed-back', Feedback);//定義feedback
   
   function topBtn(){
       window.scrollTo(0,0)

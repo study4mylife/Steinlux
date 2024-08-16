@@ -8,6 +8,8 @@
 .SBTi h1{
     position: relative;
     width: fit-content;
+    text-align: center;
+    font-size: 2rem;
     font-weight: 500;
     background-color: #707070;
     color: #fefefe;
@@ -44,6 +46,7 @@
 
 .SBTiContainer span{
     display: inline-block;
+    font-size: 1rem;
     line-height: 2.5;
     letter-spacing: 2.2px;
     margin-bottom: 30px;
@@ -67,11 +70,6 @@
     padding: 30px;
     border: solid 8px #97a68c;
     border-radius: 120px 30px 120px 30px;
-}
-
-.whatContainer .collab h2{
-    font-weight: 600;
-    color: #804a04;
 }
 
 .collabContainer{
@@ -170,6 +168,7 @@
     aspect-ratio: 4/1;
     padding: 5px 20px;
     text-align: center;
+    font-size: 1rem;
     background-color: #fefefe;
     border: 3px solid #777;
     transform: translateY(100%);
@@ -231,7 +230,7 @@
     left: -80px;
     content: ',,';
     color: #8fc268;
-    font-size: 64px;
+    font-size: 4rem;
 }
 
 .howContainer span::after{
@@ -240,17 +239,13 @@
     right: -80px;
     content: ',,';
     color: #8fc268;
-    font-size: 64px;
+    font-size: 4rem;
 }
 
 @media (max-width: 1200px) {
     .howContainer, .howSBTi{
         flex-direction: column;
     }
-}
-
-@media (max-width: 1024px) {
-
 }
 
 @media (max-width: 992px) {
@@ -282,12 +277,20 @@
     .advantageItems .item{
         width: 30%;
     }
+
+    .advantagePart span{
+        width: 100%;
+    }
+
+    .advantagePart i{
+        display: none;
+    }
     
 }
 
 @media (max-width: 768px) {
-    .SBTi h1{
-        font-size: 4vw;
+    html{
+        font-size: 14px;
     }
 
     .collapseItem{
@@ -302,13 +305,8 @@
         width: 40%;
         margin-bottom: 30px;
     }
-
-    .advantageItems .item .number{
-        font-size: 2.2rem;
-    }
     
     .advantageItems .item .box{
-        font-size: 1rem;
         padding: 5px;
     }
 
@@ -318,21 +316,15 @@
 }
 
 @media (max-width: 600px) {
+    html{
+        font-size: 13px;
+    }
+
     .advantageItems{
         flex-direction: column;
     }
 
     .advantageItems .item{
         width: 70%;
-    }
-
-    .advantageItems .item .number{
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .advantageItems .item .box{
-        font-size: 0.75rem;
     }
 }

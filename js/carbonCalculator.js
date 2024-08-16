@@ -73,6 +73,70 @@ var questions = {
     }
 };
 
+const coefficients = {
+    '飲食習慣': {
+        '葷食': {
+            '飲料': 0.032,
+            '酒精飲料': 0.013,
+            '宵夜': 0.32,
+            '三餐花費': 0.378
+        },
+        '素食': {
+            '飲料': 0.032,
+            '宵夜': 0.23,
+            '三餐花費': 0.271
+        }
+    },
+    '能源': {
+        '電力': {
+            '電費': 0.111,
+            '度數': 0.494
+        },
+        '天然氣': {
+            '天然氣費用': 0.209,
+            '度數': 2.36
+        },
+        '瓦斯': {
+            '總公斤數': 3.8 // Converting to kgCO2e from tCO2e
+        }
+    },
+    '水資源': {
+        '水資源': {
+            '水費': 0.0236,
+            '度數': 0.233
+        }
+    },
+    '旅行': {
+        '機車': {'公里數': 0.0951},
+        '電動機車': {'公里數': 0.0252},
+        '汽車': {'公里數': 0.115},
+        '電動汽車': {'公里數': 0.178},
+        '火車': {'公里數': 0.054},
+        '捷運': {'公里數': 0.0247},
+        '高鐵': {'公里數': 0.034},
+        '船': {'時數': 7}, // Converting to kgCO2e from tCO2e
+        '飛機': {'時數': 146} // Converting to kgCO2e from tCO2e
+    },
+    '交通': {
+        '機車': {
+            '汽油公升數': 151, // Converting to kgCO2e from tCO2e
+            '公里數': 0.0951
+        },
+        '電動機車': {'公里數': 0.0252},
+        '汽車': {
+            '汽油公升數': 2.92,
+            '公里數': 0.115
+        },
+        '電動汽車': {'公里數': 0.178},
+        '火車': {'公里數': 0.054},
+        '捷運': {'公里數': 0.0247},
+        '高鐵': {'公里數': 0.034}
+    },
+    '垃圾': {
+        '一般垃圾': {'垃圾袋容量': 0.095}
+    }
+};
+
 function showSection(sectionId) {
     document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
@@ -242,8 +306,9 @@ function nextCategory() {
     }
 }
 
-function nextSubCategory() {
+function nextSubCategory(totalFootprint) {
     saveAnswers();
+    console.log(totalFootprint)
 
     var category = selectedCategories[currentCategoryIndex];
     var subCategories = selectedSubCategories[category] || Object.keys(questions[category]);
@@ -265,10 +330,68 @@ function previousSubCategory() {
     }
 }
 
-function showResults() {
-    var carbonFootprint = 10; // This should be replaced with actual calculation
-    document.getElementById('carbonFootprint').textContent = carbonFootprint.toFixed(2);
-    showSection('resultPage');
+function calculateCarbonFootprint() {
+    let totalFootprint = 0;
+
+    for (let category in answers) {
+        for (let subCategory in answers[category]) {
+            const categoryCoefficients = coefficients[category][subCategory];
+            const categoryAnswers = answers[category][subCategory];
+
+            categoryAnswers.forEach((answer, index) => {
+                const question = questions[category][subCategory][index];
+                const value = parseFloat(answer);
+
+                if (!isNaN(value)) {
+                    if (category === '飲食習慣') {
+                        totalFootprint += value * categoryCoefficients[question.split('（')[0]] * 52; // Assuming weekly values, multiplying by 52 for yearly
+                    } else if (category === '能源' || category === '水資源') {
+                        totalFootprint += value * categoryCoefficients[question.split('（')[0]];
+                    } else if (category === '旅行' || category === '交通') {
+                        if (question.includes('公升')) {
+                            totalFootprint += value * categoryCoefficients['汽油公升數'] * 12; // Monthly values, multiplying by 12 for yearly
+                        } else if (question.includes('里程')) {
+                            totalFootprint += value * categoryCoefficients['公里數'];
+                        } else if (question.includes('小時')) {
+                            totalFootprint += value * categoryCoefficients['時數'];
+                        }
+                    } else if (category === '垃圾') {
+                        if (index === 0) {
+                            const capacity = value;
+                            const fillRate = parseFloat(categoryAnswers[1]) / 100;
+                            const frequency = parseFloat(categoryAnswers[2]);
+                            totalFootprint += capacity * fillRate * frequency * 52 * categoryCoefficients['垃圾袋容量'];
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    return totalFootprint;
 }
 
-displayCategories();
+function clearAnswers() {
+    answers = {};
+    selectedCategories = [];
+    selectedSubCategories = {};
+    currentCategoryIndex = 0;
+    currentSubCategoryIndex = 0;
+}
+
+function showResults() {
+    var carbonFootprint = calculateCarbonFootprint();
+    document.getElementById('carbonFootprint').textContent = carbonFootprint.toFixed(2);
+    showSection('resultPage');
+    
+    // 清理答案和重置相關變數
+    clearAnswers();
+    
+    // 清理輸入框
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = '';
+    });
+    
+    // 重新顯示類別選擇
+    displayCategories();
+}
