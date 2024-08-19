@@ -207,18 +207,22 @@
 .nav-item{
     position: relative;
     font-weight: 450;
-    text-shadow: 2px 2px 3px #40404060;;
+}
+
+.nav-link:hover{
+    text-shadow: 3pt 0 4pt #40404060;
 }
 
 .nav-item::after{
     position: absolute;
-    bottom: -5px;
+    bottom: -2pt;
     left: 0;
     content: ' ';
     width: 0;
     height: 2px;
     background-color: #333;
-    transition: 0.2s;
+    box-shadow: 3pt 0 4pt #40404060;;
+    transition: 0.25s;
 }
 
 .nav-link:hover .nav-item::after{
@@ -260,7 +264,6 @@
     font-size: 20px;
     color: #111;
     margin: 10px;
-    text-shadow: 2px 2px 3px #40404060;;
 }
 
 .product-card div a:hover{
@@ -273,7 +276,6 @@
     transform: translateX(8px);
     font-size: 28px;
     font-weight: 700;
-    text-shadow: 2px 2px 3px #7f7f7f50;;
 }
 
 .product-card div h2::after{
@@ -284,6 +286,7 @@
     width: 0;
     height: 3px;
     background-color: #333;
+    box-shadow: 3pt 0 4pt #40404060;;
     transition: 0.2s;
 }
 
@@ -294,6 +297,7 @@
 
 .product-card div h2:hover{
     cursor: pointer;
+    text-shadow: 3pt 0 4pt #40404060;
 }
 
 .background-dimmer {

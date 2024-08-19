@@ -73,7 +73,6 @@ class Header extends HTMLElement{
                           <div class="dropdown-content">
                               <a href="../html/media.html">媒體專區</a>
                               <a href="../html/research.html">研究報告 </a>
-                              <a href="../html/newsTemplate.html">新聞模板</a>
                           </div>
                       </div>
                      <div class="dropdown2">
@@ -100,47 +99,50 @@ class Header extends HTMLElement{
               <div>
                   <h4>碳淨零顧問</h4>
                   <ul>
-                      <li><a href="../html/sbti.html">SBTi目標設定/提交</a></li>
-                      <li><a href="../html/GHG.html">GHG Protocol Scope 3</a></li>
-                      <li><a href="../html/ISO14064-1.html">ISO 14064-1組織型</a></li>
-                      <li><a href="../html/ISO14067.html">ISO 14067 碳足跡</a></li>
+                    <li><a href="../html/sbti.html">SBTi目標設定/提交</a></li>
+                    <li><a href="../html/GHG.html">GHG Protocol Scope 3</a></li>
+                    <li><a href="../html/ISO14064-1.html">ISO 14064-1組織型</a></li>
+                    <li><a href="../html/ISO14067.html">ISO 14067 碳足跡</a></li>
                   </ul>
                   <h4>永續服務</h4>
                   <ul>
-                      <li><a href="../html/solarEnergy.html">太陽光電建置</a></li>
-                      <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
+                    <li><a href="../html/solarEnergy.html">太陽光電建置</a></li>
+                    <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
                   </ul>
               </div>
               <div>
                   <h4>淨零解決方案</h4>
                   <ul>
-                      <li><a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a></li>
-                      <li><a href="#">國內減量額度交易</a></li>
-                      <li><a href="#">國際自願性碳權採購</a></li>
+                    <li><a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
+                    <li>       <a href="../html/CPPA.html">國內購電協議(CPPA)</a>
+                    <li>       <a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
+                    <li><a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a></li>
+                    <li><a href="#">國內減量額度交易</a></li>
+                    <li><a href="#">國際自願性碳權採購</a></li>
                   </ul>
               </div>
               <div>
                   <h4>企業採購</h4>
                   <ul>
-                      <li><a href="">碳中和產品</a></li>
-                      <li><a href="">抵銷碳足跡</a></li>
+                    <li><a href="">碳中和產品</a></li>
+                    <li><a href="">抵銷碳足跡</a></li>
                   </ul>
                   <h4>聯絡我們</h4>
                   <ul>
-                      <li><a href="">shih@steinlux.com.tw</a></li>
-                      <li><a href="">品牌合作</a></li>
+                    <li><a href="">shih@steinlux.com.tw</a></li>
+                    <li><a href="">品牌合作</a></li>
                   </ul>
               </div>
               <div>
                   <h4>INSIGHT</h4>
                   <ul>
-                      <li><a href="../html/media.html">媒體專區</a></li>
-                      <li><a href="../html/research.html">研究報告</a></li>
+                    <li><a href="../html/media.html">媒體專區</a></li>
+                    <li><a href="../html/research.html">研究報告</a></li>
                   </ul>
                   <h4>關於我們</h4>
                   <ul>
-                      <li><a href="../html/vision.html">楒騄願景與承諾</a></li>
-                      <li><a href="../html/feedback.html">意見與回饋</a></li>
+                    <li><a href="../html/vision.html">楒騄願景與承諾</a></li>
+                    <li><a href="../html/feedback.html">意見與回饋</a></li>
                   </ul>
               </div>
           </div>
@@ -268,7 +270,6 @@ class Header extends HTMLElement{
           INSIGHT: [`<div>
                           <a href="../html/media.html">媒體專區</a>
                           <a href="../html/research.html">研究報告 </a>
-                          <a href="../html/newsTemplate.html">新聞模板</a>
                       </div>`],
           關於我們: [`<div>
                           <a href="../html/aboutUs.html">關於我們</a>

@@ -8,24 +8,24 @@ var answers = {};
 var questions = {
     '飲食習慣': {
         '葷食': [
-            '每週飲料消費（元）？',
-            '每週酒精飲料消費（元）？',
-            '每週宵夜消費（元）？',
-            '每週三餐花費（元）？'
+            '每週飲料消費？',
+            '每週酒精類消費？',
+            '每週宵夜消費？',
+            '每週三餐花費？'
         ],
         '素食': [
-            '每週飲料消費（元）？',
-            '每週宵夜消費（元）？',
-            '每週三餐花費（元）？'
+            '每週飲料消費？',
+            '每週宵夜消費？',
+            '每週三餐花費？'
         ]
     },
     '能源': {
         '電力': [
-            '年電費（元）？',
+            '年電費？',
             '年用電度數？'
         ],
         '天然氣': [
-            '年天然氣費用（元）？',
+            '年天然氣費用？',
             '年天然氣使用度數？'
         ],
         '瓦斯': [
@@ -34,7 +34,7 @@ var questions = {
     },
     '水資源': {
         '水資源': [
-            '年水費（元）？',
+            '年水費？',
             '年用水度數？'
         ]
     },
@@ -89,20 +89,20 @@ const coefficients = {
     },
     '能源': {
         '電力': {
-            '電費': 0.111,
+            '費用': 0.111,
             '度數': 0.494
         },
         '天然氣': {
-            '天然氣費用': 0.209,
+            '費用': 0.209,
             '度數': 2.36
         },
         '瓦斯': {
-            '總公斤數': 3.8 // Converting to kgCO2e from tCO2e
+            '總公斤數': 3.8
         }
     },
     '水資源': {
         '水資源': {
-            '水費': 0.0236,
+            '費用': 0.0236,
             '度數': 0.233
         }
     },
@@ -332,42 +332,80 @@ function previousSubCategory() {
 
 function calculateCarbonFootprint() {
     let totalFootprint = 0;
+    console.log('開始計算碳足跡');
 
     for (let category in answers) {
+        console.log(`處理類別: ${category}`);
         for (let subCategory in answers[category]) {
+            console.log(`  處理子類別: ${subCategory}`);
             const categoryCoefficients = coefficients[category][subCategory];
             const categoryAnswers = answers[category][subCategory];
 
             categoryAnswers.forEach((answer, index) => {
                 const question = questions[category][subCategory][index];
                 const value = parseFloat(answer);
+                console.log(`    問題: ${question}, 答案: ${answer}, 解析後的值: ${value}`);
 
                 if (!isNaN(value)) {
+                    let coefficient;
+                    let calculatedValue;
+
                     if (category === '飲食習慣') {
-                        totalFootprint += value * categoryCoefficients[question.split('（')[0]] * 52; // Assuming weekly values, multiplying by 52 for yearly
+                        if (question.includes('飲料')) {
+                            coefficient = categoryCoefficients['飲料'];
+                        } else if (question.includes('酒精類')){
+                            coefficient = categoryCoefficients['酒精飲料'];
+                        } else if (question.includes('宵夜')){
+                        coefficient = categoryCoefficients['宵夜'];
+                        }else if (question.includes('三餐花費')){
+                            coefficient = categoryCoefficients['三餐花費'];
+                        }
+                        calculatedValue = value * coefficient * 52;
                     } else if (category === '能源' || category === '水資源') {
-                        totalFootprint += value * categoryCoefficients[question.split('（')[0]];
+                        if (question.includes('費')) {
+                            coefficient = categoryCoefficients['費用'];
+                        } else if (question.includes('度')){
+                            coefficient = categoryCoefficients['度數'];
+                        } else if (question.includes('公斤')){
+                        coefficient = categoryCoefficients['總公斤數'];
+                        }
+                        calculatedValue = value * coefficient;
                     } else if (category === '旅行' || category === '交通') {
                         if (question.includes('公升')) {
-                            totalFootprint += value * categoryCoefficients['汽油公升數'] * 12; // Monthly values, multiplying by 12 for yearly
+                            coefficient = categoryCoefficients['汽油公升數'];
+                            calculatedValue = value * coefficient * 12;
                         } else if (question.includes('里程')) {
-                            totalFootprint += value * categoryCoefficients['公里數'];
+                            coefficient = categoryCoefficients['公里數'];
+                            calculatedValue = value * coefficient;
                         } else if (question.includes('小時')) {
-                            totalFootprint += value * categoryCoefficients['時數'];
+                            coefficient = categoryCoefficients['時數'];
+                            calculatedValue = value * coefficient;
                         }
                     } else if (category === '垃圾') {
                         if (index === 0) {
                             const capacity = value;
                             const fillRate = parseFloat(categoryAnswers[1]) / 100;
                             const frequency = parseFloat(categoryAnswers[2]);
-                            totalFootprint += capacity * fillRate * frequency * 52 * categoryCoefficients['垃圾袋容量'];
+                            coefficient = categoryCoefficients['垃圾袋容量'];
+                            calculatedValue = capacity * fillRate * frequency * 52 * coefficient;
                         }
                     }
+
+                    console.log(`      係數: ${coefficient}, 計算值: ${calculatedValue}`);
+                    if (!isNaN(calculatedValue)) {
+                        totalFootprint += calculatedValue;
+                        console.log(`      當前總碳足跡: ${totalFootprint}`);
+                    } else {
+                        console.log(`      警告: 計算值為 NaN`);
+                    }
+                } else {
+                    console.log(`      警告: 輸入值無效`);
                 }
             });
         }
     }
 
+    console.log(`最終碳足跡: ${totalFootprint}`);
     return totalFootprint;
 }
 

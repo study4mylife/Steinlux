@@ -278,8 +278,10 @@
 @media (max-width: 1200px) {
     .whatContainer .what, .whatContainer .categories{
         width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
     }
-
     .scope2 .boxContainer .box, .scope3 .boxContainer .box{
         width: 80%;
     }
@@ -293,12 +295,6 @@
 @media (max-width: 992px) {
     .GHGContainer section{
         width: 90%;
-    }
-
-    .whatContainer .what, .whatContainer .categories{
-        margin: 0;
-        padding: 0;
-        border: none;
     }
 }
 

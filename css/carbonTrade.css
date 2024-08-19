@@ -46,6 +46,10 @@
     opacity: 1;
 }
 
+.step3{
+    width: 100%;
+}
+
 .button-group {
     display: flex;
     flex-wrap: wrap;
@@ -132,6 +136,7 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .step-dot {
@@ -227,8 +232,11 @@ input[type="number"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+}
+
+.svgTW{
+    width: 370px;
+    height: 700px;
 }
 
 #county{
@@ -254,55 +262,103 @@ svg path:hover{
 .process{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    margin-bottom: auto;
+    background: linear-gradient(135deg,#ebf8e1,rgba(219,237,247),rgba(255,244,217));
+    width: 100%;
 }
 
 .processStepContainer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin: auto;
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     width: 90%;
 }
 
-.processStep {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
+.processStepContainer .type{
+    width: 25%;
+}
+
+.processStepContainer .type .wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.processStepContainer .type img{
+    width: 50%;
+}
+
+.processStepContainer .type3 img{
+    scale: 0.9;
+    transform: translateY(10px);
+}
+
+.processStepContainer .type h3{
     text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-size: 1.5rem;
+    color: #fefefe;
+    background-color: rgb(238, 203, 3);
+    width: 200px;
+    margin-bottom: 100px;
+    padding: 20px 0;
+    border-radius: 20px;
 }
 
-.processStep:hover{
-    cursor: pointer;
-    background-color: #eee;
-    transform: translateY(-5px);
+.processStepContainer .type p{
+    position: relative;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: 200px;
+    margin-bottom: 100px;
+    z-index: 1;
 }
 
-.processSteph2 {
-    color: #5c574b;
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-top: 0;
+.processStepContainer .type1 p::after{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    content: '01';
+    color: #fefefe90;
+    font-size: 140px;
+    z-index: -1;
 }
 
-.step-icon {
-    font-size: 3em;
-    color: #809d6c;
-    margin-bottom: 20px;
+.processStepContainer .type2 p::after{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    content: '02';
+    color: #fefefe90;
+    font-size: 140px;
+    z-index: -10;
 }
 
-.processStep p {
-    color: #666;
-    font-size: 1em;
+.processStepContainer .type3 p::after{
+    position: absolute;
+    top: 80px;
+    right: 0;
+    content: '03';
+    color: #fefefe90;
+    font-size: 140px;
+    z-index: -10;
 }
+
 
 @media (max-width: 992px) {
+    html{
+        font-size: 14px;
+    }
+
     #prev-button, #next-button, #calculate{
         scale: 0.8;
+    }
+
+    .svgTW{
+        width: 300px;
     }
 
     #county{
@@ -315,6 +371,14 @@ svg path:hover{
 
     .resultContainer {
         flex-direction: column;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .processStepContainer .type{
+        width: 60%;
+        margin-bottom: 50px;
     }
 }
 
