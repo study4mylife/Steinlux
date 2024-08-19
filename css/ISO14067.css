@@ -28,6 +28,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .ISO14067Container section{
@@ -159,6 +160,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
     margin-top: 100px;
 }
 
@@ -188,10 +190,6 @@
 }
 
 @media (max-width: 1200px) {
-    .ISO14067{
-        font-size: 0.9rem;
-    }
-
     .whatContainer .what, .whatContainer .scope{
         width: 100%;
     }
@@ -202,7 +200,15 @@
 }
 
 @media (max-width: 992px) {
+    .ISO14064Container section{
+        width: 90%;
+    }
 
+    .whatContainer .what, .whatContainer .scope{
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
 }
 
 @media (max-width: 768px) {

@@ -28,6 +28,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .SBTiContainer section{
@@ -121,11 +122,12 @@
     width: 100%;
     padding: 30px;
     background-color: #ffffff99;
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 
 .advantage span{
-    padding: 0 50px;
+    margin-bottom: 0;
 }
 
 .advantageContainer{
@@ -220,6 +222,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
     margin-top: 100px;
 }
 
@@ -252,6 +255,10 @@
     .howContainer, .howSBTi{
         flex-direction: column;
     }
+
+    .advantage{
+        bottom: 80px;
+}
 }
 
 @media (max-width: 992px) {
