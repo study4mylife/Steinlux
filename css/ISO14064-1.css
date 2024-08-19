@@ -8,25 +8,29 @@
 .ISO14064 h1{
     position: relative;
     width: fit-content;
+    text-align: center;
+    font-size: 2rem;
     font-weight: 500;
-    background-color: #606060;
+    background-color: #707070;
     color: #fefefe;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 3px 3px 5px #888;
 }
 
-.ISO14064 h1::first-letter{
+.ISO14064 h1::first-letter,.ISO14064 h2::first-letter{
     color: #8fc268;
     font-weight: 700;
 }
 
-.ISO14064 ul{
-    list-style: none;
-    margin-right: 10px;
+.ISO14064Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.ISO14064Container{
+.ISO14064Container section{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,17 +60,15 @@
 
 .whatContainer{
     display: flex; 
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
 }
 
 .whatContainer .what{
-    position: relative;
-    width: 50%;
+    margin-right: 30px;
 }
 
 .whatContainer .scope{
-    width: 40%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
@@ -85,11 +87,6 @@
     width: 100%;
     height: auto;
     object-fit: contain;
-}
-
-.whatContainer .scope h2{
-    font-weight: 600;
-    color: #804a04;
 }
 
 .whatContainer .scope a{
@@ -137,10 +134,10 @@
 .whyContainer .point span{
     position: relative;
     background-color: #ccc;
-    width: 70%;
+    width: 80%;
     height: 150px;
     margin-top: 30px;
-    padding: 10px 60px;
+    padding: 20px 60px;
     border-radius: 20px;
     z-index: -1;
 }
@@ -159,12 +156,35 @@
 
 .howContainer{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
+    margin-top: 100px;
 }
 
 .howContainer span{
-    width: 40%;
+    position: relative;
+    width: 80%;
+    padding: 10px;
+    border: 3px solid #333;
+}
+
+.howContainer span::before{
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
+}
+
+.howContainer span::after{
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
 }
 
 @media (max-width: 1200px) {
@@ -182,11 +202,15 @@
 }
 
 @media (max-width: 992px) {
+    .whyContainer .point .circle{
+        display: none;
+    }
 
+    .whyContainer .point span{
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 768px) {
-    .ISO14064 h1{
-        font-size: 4vw;
-    }
+
 }

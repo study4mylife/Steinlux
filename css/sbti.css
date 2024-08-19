@@ -103,6 +103,11 @@
     width: 100%;
 }
 
+.imageWrapper h1{
+    max-width: fit-content;
+    width: 80%;
+}
+
 .imageWrapper section{
     width: 90%;
 }
@@ -212,6 +217,7 @@
 
 .howContainer{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
@@ -257,8 +263,9 @@
         flex-direction: column;
     }
 
-    .whatContainer .what, .whatContainer .collab{
+    .whatContainer .what, .whatContainer .collab, .advantage{
         margin: 0;
+        padding: 0;
         border: none;
     }
     
@@ -289,10 +296,6 @@
 }
 
 @media (max-width: 768px) {
-    html{
-        font-size: 14px;
-    }
-
     .collapseItem{
         flex-direction: column;
     }
@@ -316,10 +319,6 @@
 }
 
 @media (max-width: 600px) {
-    html{
-        font-size: 13px;
-    }
-
     .advantageItems{
         flex-direction: column;
     }
