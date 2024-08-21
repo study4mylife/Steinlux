@@ -1,23 +1,214 @@
 .T-REC{
-    width: 80%;
-    color: #333;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.T-REC h1{
+    position: relative;
+    width: fit-content;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    background-color: #707070;
+    color: #fefefe;
     padding: 20px;
-    line-height: 2.5;
-    letter-spacing: 2px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 5px #888;
 }
 
-section{
-    margin: 30px 0;
+.T-REC h1::first-letter,.T-REC h2::first-letter{
+    color: #8fc268;
+    font-weight: 700;
 }
 
-h1, h2 {
+.T-RECContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.T-RECContainer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.T-RECContainer strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #db8c5f;
+}
+
+.T-RECContainer span{
     display: inline-block;
-    color: #2c3e50;
+    line-height: 2.5;
+    letter-spacing: 2.2px;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.what{
+    padding: 50px;
+    border: solid 8px #97a68c;
+    border-radius: 20px 80px 20px 80px;
+}
+
+.whatContainer{
+    display: flex; 
+    align-items: start;
+    justify-content: space-between;
+}
+
+.whatContainer .what{
+    margin-right: 30px;
+}
+
+.whatContainer .scope{
+    padding: 40px;
+    border: solid 8px #97a68c;
+    border-radius: 120px 20px 120px 20px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.whatContainer .scope img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.whatContainer .scope a{
+    display: inline-block;
+    text-decoration: none;
+    color: #97a68c;
+    padding: 0px 20px;
+    border: 3px solid #bdbdbd;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.whatContainer .scope a:hover{
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.whyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.whyContainer .point{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whyContainer .point .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    background-color: #fff;
+    border: 5px solid #8fc268;
+    border-radius: 100%;
+}
+
+.whyContainer .point span{
+    position: relative;
+    background-color: #ccc;
+    width: 80%;
+    height: 150px;
+    margin-top: 30px;
+    padding: 20px 60px;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.whyContainer .point span p{
+    line-height: 1.8;
+}
+
+.whyContainer .pointLeft span{
+    transform: translateX(-50px);
+}
+
+.whyContainer .pointRight span{
+    transform: translateX(50px);
+}
+
+.howContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.howContainer span{
+    position: relative;
+    width: 80%;
+    padding: 10px;
+    border: 3px solid #333;
+}
+
+.howContainer span::before{
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
+}
+
+.howContainer span::after{
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    content: ',,';
+    color: #8fc268;
+    font-size: 4rem;
 }
 
 @media (max-width: 1200px) {
+    .whatContainer .what, .whatContainer .scope{
+        width: 100%;
+    }
+    .whatContainer{
+        flex-direction: column;
+    }
 
+}
+
+@media (max-width: 992px) {
+    .T-RECContainer section{
+        width: 90%;
+    }
+
+    .whatContainer .what, .whatContainer .scope{
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
 }
 
 @media (max-width: 768px) {

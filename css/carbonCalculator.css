@@ -84,8 +84,9 @@ section{
 }
 
 .buttonGroup button{
+    min-width: fit-content;
     padding: 10px 30px;
-    margin: 20px;
+    margin: 20px 5px;
     border-radius: 20px;
 }
 
@@ -94,9 +95,12 @@ section{
     transition: 0.3s;
 }
 
+#startPage h1{
+    font-size: 2.5rem;
+}
 
 #startPage p{
-    font-size: 32px;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #333;
 }
@@ -142,8 +146,8 @@ section{
     align-items: center;
     background-color:#ddd;
     width: 20%;
-    aspect-ratio: 1.4 / 1;
-    margin: 50px;
+    aspect-ratio: 1 / 1;
+    margin: 30px;
     border: 5px solid transparent;
     border-radius: 20px;
     box-shadow: 0 0 15px #999;
@@ -322,4 +326,16 @@ footer p{
         display: flex;
         flex-direction: column;
     }
+}
+
+@media (max-width: 768px) {
+    html{
+        font-size: 14px;
+    }
+
+    .category-box{
+        width: 40%;
+        margin: 10px;
+    }
+
 }

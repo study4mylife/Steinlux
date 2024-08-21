@@ -19,12 +19,12 @@
 .feedback{
     display: flex;
     align-items: start;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
 }
 
 .info{
-    width: 60%;
+    width: 55%;
 }
 
 .info h2{

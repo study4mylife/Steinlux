@@ -251,6 +251,14 @@
     font-size: 4rem;
 }
 
+.howContainer .wrapper{
+    width: 100%;
+}
+
+.howContainer .wrapper img{
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     .howContainer, .howSBTi{
         flex-direction: column;
@@ -303,6 +311,10 @@
 }
 
 @media (max-width: 768px) {
+    html{
+        font-size: 14px;
+    }
+    
     .collapseItem{
         flex-direction: column;
     }

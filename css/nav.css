@@ -342,13 +342,11 @@
 
 .sidenav {
     position: fixed;
-    height: 100%;
-    width: 0;
+    height: 0;
+    width: 100%;
     top: 0;
-    right: 0;
     background-color:#fff;
     transition: 0.5s;
-    padding-top: 60px;
     overflow: scroll;
     text-overflow: ellipsis;
     z-index: 100000;
@@ -357,7 +355,7 @@
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.5rem;
     color: #818181;
     display: block;
     transition: 0.3s;

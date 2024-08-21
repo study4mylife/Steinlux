@@ -14,6 +14,16 @@
     }
 }
 
+.videoWrapper{
+    width: 100%;
+    backdrop-filter:grayscale(5px);
+    -webkit-backdrop-filter: grayscale(5px);
+}
+
+.videoWrapper video{
+    width: 100%;
+}
+
 main{
     text-align: center;
 }
@@ -25,6 +35,8 @@ main .title h1{
     text-decoration: underline;
     text-underline-offset: 8px;
 }
+
+
 
 .newsContainer{
     display: flex;
@@ -56,7 +68,7 @@ main .title h1{
 
 .rightbox .title a{
     text-decoration: none;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 500;
     color: #555;
 }

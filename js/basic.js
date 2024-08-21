@@ -63,7 +63,6 @@ class Header extends HTMLElement{
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">永續服務<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
-                              <a href="../html/solarEnergy.html">太陽光電建置</a>
                               <a href="../html/carbonTrade.html">太陽光電計算機</a>
                               <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                           </div>
@@ -79,7 +78,6 @@ class Header extends HTMLElement{
                           <a href="#" class="dropbtn">關於我們<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
                           <a href="../html/aboutUs.html" class="dropbtn">關於我們</a>
-                          <a href="../html/feedback.html">意見與回饋</a>
                           </div>
                       </div>
                   </div>
@@ -106,7 +104,7 @@ class Header extends HTMLElement{
                   </ul>
                   <h4>永續服務</h4>
                   <ul>
-                    <li><a href="../html/solarEnergy.html">太陽光電建置</a></li>
+                    <li><a href="../html/carbonTrade.html">太陽光電計算機</a></li>
                     <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
                   </ul>
               </div>
@@ -142,7 +140,6 @@ class Header extends HTMLElement{
                   <h4>關於我們</h4>
                   <ul>
                     <li><a href="../html/vision.html">楒騄願景與承諾</a></li>
-                    <li><a href="../html/feedback.html">意見與回饋</a></li>
                   </ul>
               </div>
           </div>
@@ -263,7 +260,6 @@ class Header extends HTMLElement{
                               <a href="#">國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
-                          <a href="../html/solarEnergy.html">太陽光電建置</a>
                           <a href="../html/carbonTrade.html">太陽光電計算機</a>
                           <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                       </div>`],
@@ -273,7 +269,6 @@ class Header extends HTMLElement{
                       </div>`],
           關於我們: [`<div>
                           <a href="../html/aboutUs.html">關於我們</a>
-                          <a href="../html/feedback.html">意見與回饋</a>
                       </div>`]
       };
   
@@ -369,11 +364,11 @@ class Header extends HTMLElement{
   });
   
   function openNav() {
-      document.getElementById("mySidenav").style.width = "100%";
+      document.getElementById("mySidenav").style.height = "100%";
   }
   
   function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").style.height = "0";
   }
   
   // 為下拉菜單添加切換功能
