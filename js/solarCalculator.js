@@ -1,16 +1,4 @@
 const paths = document.querySelectorAll('svg path');
-const countyText = document.getElementById('countyText');
-
-// 為每個 path 綁定事件
-paths.forEach(path => {
-    path.addEventListener('mouseover', () => {
-        countyText.textContent = `縣市: ${path.getAttribute('data-name')}`;
-    });
-
-    path.addEventListener('mouseout', () => {
-        countyText.textContent = '縣市';
-    });
-});
 
  // 取得 path 元素的中心位置
 function getPathCenter(path) {
@@ -107,7 +95,6 @@ let currentStep = 1;
 
     setupButtonGroup('buildModeGroup');
     setupButtonGroup('installationTypeGroup');
-    setupButtonGroup('areaUnitGroup');
 
     const svgContainer = document.getElementById('svgContainer');
     const regions = svgContainer.querySelectorAll('path');
@@ -116,7 +103,8 @@ let currentStep = 1;
             svgContainer.querySelector('.selected')?.classList.remove('selected');
             this.classList.add('selected');
             const regionName = this.getAttribute('name');
-            document.getElementById('selected-region').textContent = `選擇的地區: ${regionName}`;
+            document.getElementById('selected-region').textContent = `${regionName}!`;
+            document.getElementById('selected-region-solar').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
         });
     });
 
@@ -198,19 +186,16 @@ function calculate() {
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
     const region = svgContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
-    const area = parseFloat(document.getElementById('area').value);
-    const areaUnit = document.querySelector('#areaUnitGroup .active')?.dataset.value;
+    const areaPing = parseFloat(document.getElementById('area').value);
     
-    if (!buildMode || !installationType || region === '未選擇' || isNaN(area) || !areaUnit) {
-        alert('請填寫所有必要資訊');
-        return;
+    if (!buildMode || !installationType || region === '未選擇' || isNaN(areaPing)) {
+      alert('請填寫所有必要資訊');
+      return;
     }
 
     document.getElementById(`step${currentStep}`).style.display = 'none';
     document.getElementById('prev-button').style.display = 'none';
     document.getElementById('calculate').style.display = 'none';
-
-    let areaInPing = convertToPing(area, areaUnit);
 
     const capacityPerPing = {
         'agriculture': 1/2.73,
@@ -219,12 +204,12 @@ function calculate() {
         'roofFlat': 1/1.82
     };
 
-    const capacity = areaInPing * capacityPerPing[installationType];
+    const capacity = areaPing * capacityPerPing[installationType];
 
     const sunHours = getSunHours(region);
     const annualOutput = capacity * sunHours * 365;
 
-    document.getElementById('baseArea').textContent = areaInPing.toFixed(2);
+    document.getElementById('baseArea').textContent = areaPing
     document.getElementById('installType').textContent = getInstallationTypeName(installationType);
     document.getElementById('capacity').textContent = capacity.toFixed(2);
     document.getElementById('city').textContent = region;
@@ -273,16 +258,31 @@ function calculate() {
     document.querySelector('.navigation').style.display = 'none'
 }
 
-function convertToPing(value, unit) {
-    switch(unit) {
-        case 'm2': return value / 3.3058;
-        case 'ping': return value;
-        case 'hectare': return value * 302.5;
-        case 'mu': return value * 60.5;
-        case 'jia': return value * 2934;
-        default: return value;
-    }
-}
+function convertFromPing(ping) {
+    return {
+      m2: ping * 3.3058,
+      hectare: ping * 0.0003305785,
+      mu: ping * 0.0165289,
+      jia: ping * 0.0003409
+    };
+  }
+
+  function updateAreaUnits() {
+    const pingArea = parseFloat(document.getElementById('area').value) || 0;
+    const conversions = convertFromPing(pingArea);
+    
+    document.getElementById('areaM2').value = conversions.m2.toFixed(2);
+    document.getElementById('areaHectare').value = conversions.hectare.toFixed(4);
+    document.getElementById('areaMu').value = conversions.mu.toFixed(2);
+    document.getElementById('areaJia').value = conversions.jia.toFixed(4);
+  }
+  
+  // 監聽面積輸入變化
+  document.getElementById('area').addEventListener('input', updateAreaUnits);
+  
+  // 初始化顯示
+  updateAreaUnits();
+  
 
 function getSunHours(region) {
     const sunHoursData = {

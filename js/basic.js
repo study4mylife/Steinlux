@@ -63,7 +63,7 @@ class Header extends HTMLElement{
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">永續服務<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
-                              <a href="../html/carbonTrade.html">太陽光電計算機</a>
+                              <a href="../html/solarCalculator.html">太陽光電計算機</a>
                               <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                           </div>
                       </div>
@@ -104,7 +104,7 @@ class Header extends HTMLElement{
                   </ul>
                   <h4>永續服務</h4>
                   <ul>
-                    <li><a href="../html/carbonTrade.html">太陽光電計算機</a></li>
+                    <li><a href="../html/solarCalculator.html">太陽光電計算機</a></li>
                     <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
                   </ul>
               </div>
@@ -260,7 +260,7 @@ class Header extends HTMLElement{
                               <a href="#">國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
-                          <a href="../html/carbonTrade.html">太陽光電計算機</a>
+                          <a href="../html/solarCalculator.html">太陽光電計算機</a>
                           <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                       </div>`],
           INSIGHT: [`<div>
