@@ -81,62 +81,83 @@ placeText('hsinchu', 'text21');
 placeText('chiayi', 'text22');
 
 let currentStep = 1;
-    const totalSteps = 4;
+const totalSteps = 4;
 
-    function setupButtonGroup(groupId) {
-        const group = document.getElementById(groupId);
-        group.addEventListener('click', function(e) {
-            if (e.target.tagName === 'BUTTON') {
-                group.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
-                e.target.classList.add('active');
+function updateElectricGroup(buildMode) {
+    const electricGroup = document.getElementById('electricGroup');
+    if (buildMode === 'selfUse') {
+        electricGroup.style.display = 'flex';
+    } else {
+        electricGroup.style.display = 'none';
+    }
+}
+
+function setupButtonGroup(groupId) {
+    const group = document.getElementById(groupId);
+    group.addEventListener('click', function(e) {
+        if (e.target.tagName === 'BUTTON') {
+            group.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            if (groupId === 'buildModeGroup') {
+                const buildMode = e.target.dataset.value;
+                updateElectricGroup(buildMode);
             }
-        });
-    }
-
-    setupButtonGroup('buildModeGroup');
-    setupButtonGroup('installationTypeGroup');
-
-    const svgContainer = document.getElementById('svgContainer');
-    const regions = svgContainer.querySelectorAll('path');
-    regions.forEach(region => {
-        region.addEventListener('click', function() {
-            svgContainer.querySelector('.selected')?.classList.remove('selected');
-            this.classList.add('selected');
-            const regionName = this.getAttribute('name');
-            document.getElementById('selected-region').textContent = `${regionName}!`;
-            document.getElementById('selected-region-solar').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
-        });
+        }
     });
+}
 
-    function showStep(step) {
-        document.getElementById(`step${currentStep}`).classList.remove('active');
-        document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.remove('active');
-        
-        currentStep = step;
-        
-        document.getElementById(`step${currentStep}`).classList.add('active');
-        document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.add('active');
-        
-        updateNavigationButtons();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const initialBuildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
+    updateElectricGroup(initialBuildMode);
+});
 
-    function nextStep() {
-        if (currentStep < totalSteps) {
-            showStep(currentStep + 1);
-        }
-    }
+setupButtonGroup('buildModeGroup');
+setupButtonGroup('installationTypeGroup');
 
-    function prevStep() {
-        if (currentStep > 1) {
-            showStep(currentStep - 1);
-        }
-    }
+const svgContainer = document.getElementById('svgContainer');
+const regions = svgContainer.querySelectorAll('path');
+regions.forEach(region => {
+    region.addEventListener('click', function() {
+        svgContainer.querySelector('.selected')?.classList.remove('selected');
+        this.classList.add('selected');
+        const regionName = this.getAttribute('name');
+        document.getElementById('selected-region').textContent = `${regionName}!`;
+        document.getElementById('selected-region-solar').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
+        document.getElementById('selected-region-2').textContent = `${regionName}!`;
+        document.getElementById('selected-region-solar-2').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
+    });
+});
 
-    function updateNavigationButtons() {
-        document.getElementById('prev-button').style.display = currentStep > 1 ? 'inline-block' : 'none';
-        document.getElementById('next-button').style.display = currentStep < totalSteps ? 'inline-block' : 'none';
-        document.getElementById('calculate').style.display = currentStep === totalSteps ? 'inline-block' : 'none';
+function showStep(step) {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.remove('active');
+    
+    currentStep = step;
+    
+    document.getElementById(`step${currentStep}`).classList.add('active');
+    document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.add('active');
+    
+    updateNavigationButtons();
+}
+
+function nextStep() {
+    if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
     }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        showStep(currentStep - 1);
+    }
+}
+
+function updateNavigationButtons() {
+    document.getElementById('prev-button').style.display = currentStep > 1 ? 'inline-block' : 'none';
+    document.getElementById('next-button').style.display = currentStep < totalSteps ? 'inline-block' : 'none';
+    document.getElementById('calculate').style.display = currentStep === totalSteps ? 'inline-block' : 'none';
+}
 
 updateNavigationButtons();
 
