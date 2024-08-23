@@ -123,20 +123,18 @@ regions.forEach(region => {
         this.classList.add('selected');
         const regionName = this.getAttribute('name');
         document.getElementById('selected-region').textContent = `${regionName}!`;
-        document.getElementById('selected-region-solar').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
+        document.getElementById('selected-region-solar').innerHTML = `<text>平均日照時數為:${getSunHours(regionName)}小時<p class = 'example'>（僅供參考）</p></text>`;
         document.getElementById('selected-region-2').textContent = `${regionName}!`;
-        document.getElementById('selected-region-solar-2').textContent = `平均日照時數為:${getSunHours(regionName)}小時（僅供參考）`;
+        document.getElementById('selected-region-solar-2').innerHTML = `<text>平均日照時數為:${getSunHours(regionName)}小時<p class = 'example'>（僅供參考）</p></text>`
     });
 });
 
 function showStep(step) {
     document.getElementById(`step${currentStep}`).classList.remove('active');
-    document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.remove('active');
     
     currentStep = step;
     
     document.getElementById(`step${currentStep}`).classList.add('active');
-    document.querySelector(`.step-dot:nth-child(${currentStep})`).classList.add('active');
     
     updateNavigationButtons();
 }

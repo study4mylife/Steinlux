@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import {getFirestore, collection, doc, getDoc, getDocs, query, where, orderBy, limit} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 var firebaseConfig = {
-    apiKey: "AIzaSyCt4zYdM1ap-GPSIzOLLfG1lB9aYKb06wE",
     authDomain: "test-c9a6e.firebaseapp.com",
     databaseURL: "https://test-c9a6e-default-rtdb.firebaseio.com",
     projectId: "test-c9a6e",

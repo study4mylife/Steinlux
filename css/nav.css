@@ -1,11 +1,55 @@
+@font-face {
+    font-family: 'GensenFont-B';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-B.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GensenFont-EL';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-EL.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GensenFont-H';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-H.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GensenFont-M';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-M.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GensenFont-L';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-L.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GensenFont-R';
+    src: url('../font/gensen-font-master/ttc/GenSenRounded-R.ttc') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: 'GensenFont-M';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     outline: none;
     border-style: none;
 }
+
+
 
 @keyframes slideInFromLeft {
     0% {
@@ -132,6 +176,7 @@
     position: relative;
     z-index: 1000000;
 }
+
 .menu-items {
     display: none;
     position: absolute;
@@ -191,11 +236,13 @@
 }
 
 .nav-list .nav-link {
+    font-family: 'GensenFont-M';
     display: flex;
     justify-content: center;
     align-items: center;
     color: #111;
     text-align: center;
+    font-size: 18px;
     letter-spacing: 3px;
     width: 100%;
     padding: 20px 0;
@@ -205,8 +252,9 @@
 }
 
 .nav-item{
+    font-family: 'GensenFont-L';
     position: relative;
-    font-weight: 450;
+    font-weight: 600;
 }
 
 .nav-link:hover{
@@ -220,8 +268,7 @@
     content: ' ';
     width: 0;
     height: 2px;
-    background-color: #333;
-    box-shadow: 3pt 0 4pt #40404060;;
+    background-color: #d9d9d950;
     transition: 0.25s;
 }
 
@@ -246,24 +293,23 @@
     display: flex;
     opacity: 0;
     height: 0;
-    transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .product-card div{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
-    height: 300px;  
-    margin: auto;
+    height: 250px;  
+    margin: 20px auto auto auto
 }
 
 .product-card div a{
     text-align: left;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 16px;
     color: #111;
-    margin: 10px;
+    margin: 15px;
 }
 
 .product-card div a:hover{
@@ -273,8 +319,8 @@
 .product-card div h2{
     text-decoration: none;
     width: fit-content;
-    transform: translateX(8px);
-    font-size: 28px;
+    transform: translateX(10px);
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -285,8 +331,7 @@
     content: ' ';
     width: 0;
     height: 3px;
-    background-color: #333;
-    box-shadow: 3pt 0 4pt #40404060;;
+    background-color: #CDC0B350;
     transition: 0.2s;
 }
 
@@ -459,7 +504,6 @@ footer a{
 footer p{
     font-size: 12px;
     color: #888;
-    
 }
 
 .footerCopyright p{

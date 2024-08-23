@@ -239,36 +239,36 @@ class Header extends HTMLElement{
       const products = {
           淨零顧問服務: [`<div>
                           <h2>供應鏈碳管理</h2>
-                          <a href="../html/sbti.html">SBTi目標設定/提交</a>
-                          <a href="../html/GHG.html">GHG Protocol Scope 3</a>
+                          <a href="../html/sbti.html">- SBTi目標設定/提交</a>
+                          <a href="../html/GHG.html">- GHG Protocol Scope 3</a>
                           </div>
                           <div>
                           <h2>溫室氣體盤查</h2>
-                          <a href="../html/ISO14064-1.html">ISO 14064-1組織型</a>
-                          <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
+                          <a href="../html/ISO14064-1.html">- ISO 14064-1組織型</a>
+                          <a href="../html/ISO14067.html">- ISO 14067 碳足跡</a>
                           </div>`],
           淨零解決方案: [`<div>
                              <h2>綠電解決方案</h2>
-                              <a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
-                              <a href="../html/CPPA.html">國內購電協議(CPPA)</a>
-                              <a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
+                              <a href="../html/T-REC.html">- 國內再生能源憑證(T-REC)</a>
+                              <a href="../html/CPPA.html">- 國內購電協議(CPPA)</a>
+                              <a href="../html/I-REC TIGR.html">- 國際再生能源憑證(I-REC/TIGR)</a>
                           </div>
                           <div>
                               <h2>碳權解決方案</h2>
-                              <a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a>
-                              <a href="#">國內減量額度交易</a>
-                              <a href="#">國際自願性碳權採購</a>
+                              <a href="../html/ISO14064-2.html">- ISO 14064-2專案開發</a>
+                              <a href="#">- 國內減量額度交易</a>
+                              <a href="#">- 國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
-                          <a href="../html/solarCalculator.html">太陽光電計算機</a>
-                          <a href="../html/carbonCalculator.html">碳足跡計算機</a>
+                          <a href="../html/solarCalculator.html">- 太陽光電計算機</a>
+                          <a href="../html/carbonCalculator.html">- 碳足跡計算機</a>
                       </div>`],
           INSIGHT: [`<div>
-                          <a href="../html/media.html">媒體專區</a>
-                          <a href="../html/research.html">研究報告 </a>
+                          <a href="../html/media.html">- 媒體專區</a>
+                          <a href="../html/research.html">- 研究報告 </a>
                       </div>`],
           關於我們: [`<div>
-                          <a href="../html/aboutUs.html">關於我們</a>
+                          <a href="../html/aboutUs.html">- 關於我們</a>
                       </div>`]
       };
   
@@ -290,7 +290,7 @@ class Header extends HTMLElement{
           }
   
           clearTimeout(timeout);
-          dropdownContainer.style.height = '300px';
+          dropdownContainer.style.height = '250px';
           dropdownContent.style.width = '100%';
           dropdownContent.style.display = 'block';
           backgroundDimmer.style.height = '100vh';

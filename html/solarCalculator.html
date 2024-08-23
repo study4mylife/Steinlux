@@ -22,15 +22,10 @@
     <main>
 
       <div class="stepContainer">
-        <div class="navigation" id="stepNavigation">
-            <div class="step-dot active" onclick="showStep(1)" title="步驟1"></div>
-            <div class="step-dot" onclick="showStep(2)" title="步驟2"></div>
-            <div class="step-dot" onclick="showStep(3)" title="步驟3"></div>
-            <div class="step-dot" onclick="showStep(4)" title="步驟4"></div>
-            <button class="stepButton" id="prev-button" onclick="prevStep()" style="display:none;"><i class="fa-solid fa-chevron-left fa-3x"></i></button>
-            <button class="stepButton" id="next-button" onclick="nextStep()"><i class="fa-solid fa-chevron-right fa-3x"></i></button>
-            <button class="stepButton" id="calculate" onclick="calculate()" style="display:none;">計算</button>
-        </div>
+        
+        <button class="stepButton" id="prev-button" onclick="prevStep()" style="display:none;"><i class="fa-solid fa-chevron-left fa-3x"></i></button>
+        <button class="stepButton" id="next-button" onclick="nextStep()"><i class="fa-solid fa-chevron-right fa-3x"></i></button>
+        <button class="stepButton" id="calculate" onclick="calculate()" style="display:none;">計算</button>
           
             <div id="step1" class="step active">
               <div class="button-group" id="buildModeGroup">
@@ -268,7 +263,7 @@
               <div class="text">
                 <h3 id="countyText">你選擇的縣市是</h3>
                 <p id="selected-region">口口縣/市!</p>
-                <text id="selected-region-solar">平均日照時數為:</text>
+                <text id="selected-region-solar" style="color: #003366;">平均日照時數為:</text>
                 <div class="wrapper">
                   <img src="../src/regionSelect.svg" alt="">
                 </div>
@@ -281,6 +276,7 @@
             <h2>輸入面積</h2>
             <div class="container">
               <div class="electricGroup" id="electricGroup">
+                <img class="electricPic" src="../src/electricPic.svg" alt="">
                 <h3>既有的台電購電成本</h3>
                 <div class="electric-item winter-item">
                   <span>冬季</span>
@@ -290,7 +286,7 @@
                   <span>夏季</span>
                   <input type="text" id="summer" readonly>
                 </div>
-                <text id="electricPrice">平均購電成本為$0.00/度！</text>
+                <text id="electricPrice" style="color: #003366;">平均購電成本為$0.00/度！</text>
               </div>
               <div class="unit-conversions">
                 <h3>預計的建物屋頂面積</h3>
@@ -322,7 +318,7 @@
               <div class="text">
                 <h3 id="countyText">你選擇的縣市是</h3>
                 <p id="selected-region-2">口口縣/市!</p>
-                <text id="selected-region-solar-2">平均日照時數為:</text>
+                <text id="selected-region-solar-2" style="color: #003366;">平均日照時數為:</text>
                 <div class="wrapper">
                   <img src="../src/regionSelect.svg" alt="">
                 </div>

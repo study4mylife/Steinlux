@@ -3,7 +3,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCt4zYdM1ap-GPSIzOLLfG1lB9aYKb06wE",
     authDomain: "test-c9a6e.firebaseapp.com",
     databaseURL: "https://test-c9a6e-default-rtdb.firebaseio.com",
     projectId: "test-c9a6e",
