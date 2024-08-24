@@ -1,3 +1,14 @@
+.input-container input::-webkit-outer-spin-button,
+.input-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-container input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
 .logo{
     position: fixed;
     width: 100%;
@@ -14,6 +25,12 @@
     margin: 20px 0
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .stepContainer{
     display: flex;
     justify-content: center;
@@ -22,28 +39,33 @@
     transform: translateY(80px);
 }
 
+.allstep{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .step{
     display: flex;
     justify-content: center;
     align-items: start;
     position: absolute;
     top: 0;
-    right: 0;
     bottom: 0;
-    left: 0;
     width: 100%;
-    min-height: 550px;
-    height: min-content;
+    height: none;
     padding-top: 10px;
     overflow: hidden;
     visibility: hidden;
-    border-radius: 10px;
     opacity: 0;
     transition: opacity 0.5s ease;
     background: linear-gradient(150deg,#D9F2D080 15%,#C1E5F590 25%,#FFF1D099 70%);
 }
 
 .step.active {
+    min-height: 87vh;
+    height: fit-content;
     visibility: visible;
     opacity: 1;
 }
@@ -63,6 +85,9 @@
 .step h3{
     color: #fefefe;
     background-color: rgb(255, 192, 0);
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
     font-family: 'GensenFont-M';
     font-size: 1.15rem;
     border: 2.5px solid #d1d1d1;
@@ -380,7 +405,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 450px;
+    height: 420px;
     scale: 1.2;
 }
 
@@ -401,6 +426,7 @@ svg path:hover{
 .svgContainer .text{
     display: flex;
     flex-direction: column;
+    align-items: start;
     margin-left: 150px;
     letter-spacing: 5px;
     width: 30%;
@@ -425,7 +451,7 @@ svg path:hover{
 
 .text .example, #step4 .example{
     display: inline;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 700;
 }
 
@@ -442,7 +468,7 @@ svg path:hover{
 
 #step4 .container{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: start;
     width: 100%;
 }
@@ -450,10 +476,9 @@ svg path:hover{
 .electricGroup{
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: start;
-    width: fit-content;
+    flex-direction: column;
+    width: 30%;
 }
 
 .electricPic{
@@ -462,28 +487,29 @@ svg path:hover{
     bottom: -200px;
 }
 
-.electricGroup .electric-item{
+.electricGroup .electric-item{   
     margin: 10px 0;
+}
+
+.electricGroup .electric-item span{   
+    padding: 5px 10px;
+    border: 3px solid rgb(209, 209, 209);
+    border-radius: 8px;
 }
 
 .winter-item span{
     background-color: rgb(178, 205, 210);
-    padding: 10px 20px;
-    border-radius: 12px;
 }
 
 .summer-item span{
     background-color: rgb(181, 207, 157);
-    padding: 10px 20px;
-    border-radius: 12px;
 }
 
 .unit-conversions{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: start;
-    width: 25%;
+    width: 30%;
 }
 
 .unit-conversions .input-group{
@@ -496,9 +522,10 @@ svg path:hover{
     position: relative;
     background-color: transparent;
     color: rgb(182, 176, 161);
+    text-align: right;
     width: fit-content;
     height: 40px;
-    padding: 0 20px;
+    padding: 0 18px;
     border: 3px solid rgb(209, 209, 209);
     border-radius: 8px;
 }
@@ -509,32 +536,40 @@ svg path:hover{
 
 .conversion-item span{
     text-align: center;
+    font-size: 0.9rem;
     display: inline-block;
     background: #999;
     width: 80px;
     height: 40px;
     line-height: 40px;
+    border: 2.5px solid #d1d1d1;
     border-radius: 8px;
+    letter-spacing: 2.5px;
 }
 
 .conversion-item input, .electricGroup input{
     background-color: transparent;
     text-align: center;
-    width: 160px;
+    color: rgb(182, 176, 161);
+    width: 130px;
     height: 40px;
     line-height: 40px;
     margin-left: 20px;
+    padding: 0 5px;
     border: 3px solid rgb(209, 209, 209);
     border-radius: 8px;
 }
 
 #step4 .text{
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 25%;
 }
 
 #step4 .text .wrapper{
-    width: 300px;
-    margin: 30px 0;
+    width: 100%;
+    margin: 20px 0;
 }
 
 #step4 .text .wrapper img{
@@ -542,12 +577,12 @@ svg path:hover{
 }
 
 @media (max-width: 1024px) {
-    .step{
-        height: fit-content;
-    }
-
     .step h2 {
         display: none;
+    }
+
+    .step.active {
+        min-height: 94vh;
     }
 }
 
@@ -560,36 +595,10 @@ svg path:hover{
         scale: 0.8;
     }
 
-    .svgContainer{
-        flex-direction: column;
+    .step.active {
+        min-height: 92vh;
     }
 
-    .svgWrapper{
-        width: 100%;
-    }
-
-    .svgContainer .text{
-        margin: 0;
-    }
-
-    #step4 .container{
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .unit-conversions, .electricGroup, #step4 .text, #step4 .text .wrapper,#step4 .input-group{
-        width: 100%;
-        align-items: center;
-        text-align: center;
-    }
-
-    .resultContainer {
-        flex-direction: column;
-    }
-}
-
-
-@media (max-width: 768px) {
     #buildModeGroup{
         flex-direction: column;
     }
@@ -618,6 +627,46 @@ svg path:hover{
         top: -30px;
     }
 
+    .svgWrapper{
+        width: 100%;
+    }
+
+    .svgContainer .text{
+        align-items: center;
+    }
+
+    .svgTW{
+        scale: 1;
+    }
+
+    .svgContainer .text{
+        width: 100%;
+        margin: 0;
+    }
+
+    #step3 .text .wrapper, #step4 .text .wrapper{
+        width: 200px;
+    }
+    
+    #step4 .container{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .unit-conversions, .electricGroup, #step3 .text, #step4 .text,#step4 .input-group{
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .resultContainer, .svgContainer{
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 768px) {
     #installationTypeGroup .install{
         width: 90%;
         margin: 10px 0;
@@ -631,5 +680,9 @@ svg path:hover{
 @media (max-width: 400px) {
     html{
         font-size: 12px;
+    }
+
+    #step3 .text .wrapper, #step4 .text .wrapper{
+        width: 200px;
     }
 }

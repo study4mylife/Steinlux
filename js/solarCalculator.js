@@ -102,6 +102,7 @@ function setupButtonGroup(groupId) {
             if (groupId === 'buildModeGroup') {
                 const buildMode = e.target.dataset.value;
                 updateElectricGroup(buildMode);
+                document.getElementById('step4Container').style.justifyContent = 'center'
             }
         }
     });
@@ -201,6 +202,13 @@ function getAdjustedWholesalePrice(region, capacity) {
     return adjustedPrice;
 }
 
+const winterPrice = 3.785
+const summerPrice = 4.595
+
+document.getElementById('winter').value = winterPrice
+document.getElementById('summer').value = summerPrice
+document.getElementById('avgPrice').textContent = `平均購電成本為${((winterPrice + summerPrice)/2).toFixed(2)}度！`
+
 function calculate() {
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
@@ -235,8 +243,12 @@ function calculate() {
     document.getElementById('sunHours').textContent = sunHours;
     document.getElementById('annualOutput').textContent = annualOutput.toFixed(2);
 
+    document.getElementById('selfUseResults').style.display = 'none';
+    document.getElementById('sellElectricityResults').style.display = 'none';
+    document.getElementById('rentRoofResults').style.display = 'none';
+
     if (buildMode === 'selfUse') {
-        const avgPrice = parseFloat(document.getElementById('avgPrice').value);
+        const avgPrice = (winterPrice + summerPrice)/2
         const annualSavings = annualOutput * avgPrice;
         const tRecCount = Math.floor(annualOutput / 1000);
         const greenCertificateIncome = tRecCount * 3000;
@@ -247,8 +259,6 @@ function calculate() {
         document.getElementById('greenCertificateIncome').textContent = greenCertificateIncome.toFixed(2);
 
         document.getElementById('selfUseResults').style.display = 'block';
-        document.getElementById('sellElectricityResults').style.display = 'none';
-        document.getElementById('rentRoofResults').style.display = 'none';
 
     } else if (buildMode === 'sellElectricity') {
         const adjustedWholesalePrice = getAdjustedWholesalePrice(region, capacity);
@@ -257,9 +267,7 @@ function calculate() {
         document.getElementById('wholesalePrice').textContent = adjustedWholesalePrice.toFixed(4);
         document.getElementById('annualIncome').textContent = annualIncome.toFixed(2);
 
-        document.getElementById('selfUseResults').style.display = 'none';
         document.getElementById('sellElectricityResults').style.display = 'block';
-        document.getElementById('rentRoofResults').style.display = 'none';
 
     } else if (buildMode === 'rentRoof') {
         const adjustedWholesalePrice = getAdjustedWholesalePrice(region, capacity);
@@ -267,18 +275,15 @@ function calculate() {
         const rentalIncome = annualIncome * 0.12;
 
         document.getElementById('rentalIncome').textContent = rentalIncome.toFixed(2);
-
-        document.getElementById('selfUseResults').style.display = 'none';
-        document.getElementById('sellElectricityResults').style.display = 'none';
         document.getElementById('rentRoofResults').style.display = 'block';
     }
 
     document.getElementById('results').style.display = 'flex';
-    document.querySelector('.navigation').style.display = 'none'
 }
 
 function convertFromPing(ping) {
     return {
+      ping: ping,
       m2: ping * 3.3058,
       hectare: ping * 0.0003305785,
       mu: ping * 0.0165289,
@@ -290,10 +295,11 @@ function convertFromPing(ping) {
     const pingArea = parseFloat(document.getElementById('area').value) || 0;
     const conversions = convertFromPing(pingArea);
     
-    document.getElementById('areaM2').value = conversions.m2.toFixed(2);
-    document.getElementById('areaHectare').value = conversions.hectare.toFixed(4);
-    document.getElementById('areaMu').value = conversions.mu.toFixed(2);
-    document.getElementById('areaJia').value = conversions.jia.toFixed(4);
+    document.getElementById('areaPing').value = conversions.ping.toFixed(4) + '坪';
+    document.getElementById('areaM2').value = conversions.m2.toFixed(4) + '平方米';
+    document.getElementById('areaHectare').value = conversions.hectare.toFixed(4) + '公頃';
+    document.getElementById('areaMu').value = conversions.mu.toFixed(4) + '畝';
+    document.getElementById('areaJia').value = conversions.jia.toFixed(4) + '甲';
   }
   
   // 監聽面積輸入變化

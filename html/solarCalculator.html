@@ -22,6 +22,7 @@
     <main>
 
       <div class="stepContainer">
+        <div class="allstep">
         
         <button class="stepButton" id="prev-button" onclick="prevStep()" style="display:none;"><i class="fa-solid fa-chevron-left fa-3x"></i></button>
         <button class="stepButton" id="next-button" onclick="nextStep()"><i class="fa-solid fa-chevron-right fa-3x"></i></button>
@@ -274,29 +275,28 @@
           
           <div id="step4" class="step">
             <h2>輸入面積</h2>
-            <div class="container">
+            <div class="container" id="step4Container">
               <div class="electricGroup" id="electricGroup">
                 <img class="electricPic" src="../src/electricPic.svg" alt="">
                 <h3>既有的台電購電成本</h3>
                 <div class="electric-item winter-item">
-                  <span>冬季</span>
-                  <input type="text" id="winter" readonly>
+                  <span style="background:rgb(178, 205, 210);">冬季</span>
+                  <input type="text" id="winter"  readonly>
                 </div>
                 <div class="electric-item summer-item">
-                  <span>夏季</span>
-                  <input type="text" id="summer" readonly>
+                  <span style="background:rgb(181, 207, 157);">夏季</span>
+                  <input type="text" id="summer"  readonly>
                 </div>
-                <text id="electricPrice" style="color: #003366;">平均購電成本為$0.00/度！</text>
+                <text id="avgPrice" style="color: #003366;"></text>
               </div>
               <div class="unit-conversions">
                 <h3>預計的建物屋頂面積</h3>
                 <div class="input-group">
                   <input type="number" id="area" step="0.01" min="0" value="1" placeholder="面積 (坪)">
-                  <span>坪</span>
                 </div>
-                <div class="input-group">
-                  <input type="number" id="avgPrice" step="0.01" min="0" value="3.5" placeholder="平均電價">
-                  <span>元/度</span>
+                <div class="conversion-item">
+                  <span>坪</span>
+                  <input type="text" id="areaPing" readonly>
                 </div>
                 <div class="conversion-item">
                   <span>平方米</span>
@@ -364,8 +364,8 @@
               </div>
             </div>
           </div>
+        </div>
       </div>
-
     </main>
     
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
