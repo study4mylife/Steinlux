@@ -35,7 +35,6 @@ class Header extends HTMLElement{
                   </div>
               </div>
                   <div id="mySidenav" class="sidenav">
-                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">淨零顧問服務<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
@@ -82,7 +81,7 @@ class Header extends HTMLElement{
                       </div>
                   </div>
   
-                  <span class="openbtn" onclick="openNav()">&#9776;</span>
+                  <span class="openbtn" onclick="toggleNav()">&#9776;</span>
               </ul>
           </header>
       `;
@@ -363,21 +362,20 @@ class Header extends HTMLElement{
     checkScroll(); // 初始化檢查
   });
   
-  function openNav() {
-      document.getElementById("mySidenav").style.height = "100%";
-  }
-  
-  function closeNav() {
-      document.getElementById("mySidenav").style.height = "0";
+  function toggleNav() {
+      document.getElementById("mySidenav").classList.toggle('open');
   }
   
   // 為下拉菜單添加切換功能
   document.addEventListener('DOMContentLoaded', function() {
-      var dropdowns = document.querySelectorAll('.dropdown2');
-      dropdowns.forEach(function(dropdown) {
-          dropdown.querySelector('.dropbtn').addEventListener('click', function(e) {
-              e.preventDefault();
-              this.parentElement.classList.toggle('active');
-          });
-      });
-  });
+    var dropdowns = document.querySelectorAll('.dropdown2');
+    dropdowns.forEach(function(dropdown) {
+        dropdown.addEventListener('mouseenter', function() {
+            this.classList.add('active');
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            this.classList.remove('active');
+        });
+    });
+});

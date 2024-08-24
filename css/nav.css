@@ -1,41 +1,41 @@
 @font-face {
     font-family: 'GensenFont-B';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-B.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-B.ttc');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GensenFont-EL';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-EL.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-EL.ttc');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GensenFont-H';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-H.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-H.ttc');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GensenFont-M';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-M.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-M.ttc');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GensenFont-L';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-L.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-L.ttc');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GensenFont-R';
-    src: url('../font/gensen-font-master/ttc/GenSenRounded-R.ttc') format('truetype');
+    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-R.ttc');
     font-weight: normal;
     font-style: normal;
 }
@@ -48,8 +48,6 @@
     outline: none;
     border-style: none;
 }
-
-
 
 @keyframes slideInFromLeft {
     0% {
@@ -148,7 +146,7 @@
     bottom: 20px;
     z-index: 1;
     background-color: #97a68c;
-    font-size: 24px;
+    font-size: 1.5rem;
     width: 60px;
     height: 60px;
     border-radius: 50px;
@@ -167,7 +165,7 @@
     height: 60px;
     border-radius: 50%;
     background-color: #333;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: white;
     display: flex;
     justify-content: center;
@@ -184,7 +182,7 @@
     right: 0;
     width: 60px;
     height: 60px;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .menu-item {
@@ -242,7 +240,7 @@
     align-items: center;
     color: #111;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.15rem;
     letter-spacing: 3px;
     width: 100%;
     padding: 20px 0;
@@ -307,7 +305,7 @@
 .product-card div a{
     text-align: left;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     color: #111;
     margin: 15px;
 }
@@ -385,22 +383,23 @@
     font-size: 1.5vw;
 }
 
-.sidenav {
+.sidenav{
+    display: none;
     position: fixed;
-    height: 0;
     width: 100%;
-    top: 0;
+    top: 76px;
     background-color:#fff;
-    transition: 0.5s;
-    overflow: scroll;
     text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out;
     z-index: 100000;
-  }
+}
   
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -411,11 +410,16 @@
     padding-left: 20px;
 }
 
+.dropdown-content h2{
+    font-size: 1.1rem;
+}
+
 .dropdown-content a {
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .dropdown2 i{
+    margin-left: 5px;
     transform: rotate(0);
     transition: transform 0.3s;
 }
@@ -431,22 +435,14 @@
 .dropdown2.active .dropbtn:after {
     transform: rotate(180deg);
 }
-  
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
 
 .openbtn{
     position: fixed;
-    top: 5px;
+    top: 10px;
     right: 25px;
     cursor:pointer;
     display: none;
-    font-size:40px;
+    font-size: 40px;
     transform: translateY(0px);
     z-index: 10000;
 }
@@ -481,7 +477,7 @@ footer{
 }
 
 .footerContainer h4{
-    font-size:16px;
+    font-size: 1rem;
     margin: 15px 0 10px 0;
 }
 
@@ -502,23 +498,23 @@ footer a{
 }
 
 footer p{
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #888;
 }
 
 .footerCopyright p{
     display: inline-block;
-    font-size: 10px;
+    font-size: 0.65rem;
     margin-right: 20px;
 }
 
 .footerCopyright h4{
     display: inline-block;
-    font-size: 10px;
+    font-size: 0.65rem;
     border-right: solid #222 1px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .navbar-logo{
         min-width: 140px;
         min-height: 30px;
@@ -533,8 +529,13 @@ footer p{
         scale: 0.8;
     }
 
-    .openbtn{
+    .openbtn, .sidenav{
         display: block;
+    }
+
+    .sidenav.open {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in-out;
     }
 
     .nav-bar .nav-list .nav-link{

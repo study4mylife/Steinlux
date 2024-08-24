@@ -197,6 +197,14 @@
     font-size: 4rem;
 }
 
+.howContainer .wrapper{
+    width: 100%;
+}
+
+.howContainer .wrapper img{
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     .ISO14064{
         font-size: 0.9rem;

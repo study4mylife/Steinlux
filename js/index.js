@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function getItemsPerView() {
         if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth > 480) return 2;
-        return 1;
+        if (window.innerWidth >= 768) return 2;
+        else return 1;
     }
 
     function updateCarousel() {

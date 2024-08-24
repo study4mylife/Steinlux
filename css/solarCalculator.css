@@ -1,10 +1,14 @@
-.input-container input::-webkit-outer-spin-button,
-.input-container input::-webkit-inner-spin-button {
+*{
+    font-family: 'GensenFont-L';
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.input-container input[type=number] {
+input[type=number] {
     appearance: textfield;
     -moz-appearance: textfield;
 }
@@ -36,7 +40,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
-    transform: translateY(80px);
+    transform: translateY(10vh);
 }
 
 .allstep{
@@ -54,8 +58,7 @@ main{
     top: 0;
     bottom: 0;
     width: 100%;
-    height: none;
-    padding-top: 10px;
+    padding-top: 20px;
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
@@ -64,8 +67,8 @@ main{
 }
 
 .step.active {
-    min-height: 87vh;
     height: fit-content;
+    min-height: calc(100vh - 70px);
     visibility: visible;
     opacity: 1;
 }
@@ -227,7 +230,6 @@ main{
     align-items: center;
     background-color: transparent;
     width: 30%;
-    padding: 20px;
 }
 
 .bulid:hover{
@@ -444,14 +446,14 @@ svg path:hover{
 }
 
 .text text ,#step4 text{
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 5px;
 }
 
 .text .example, #step4 .example{
     display: inline;
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     font-weight: 700;
 }
 
@@ -468,7 +470,7 @@ svg path:hover{
 
 #step4 .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: start;
     width: 100%;
 }
@@ -519,7 +521,6 @@ svg path:hover{
 }
 
 .input-group input{
-    position: relative;
     background-color: transparent;
     color: rgb(182, 176, 161);
     text-align: right;
@@ -576,13 +577,15 @@ svg path:hover{
     width: 100%
 }
 
+@media (min-height: 768px) {
+    .stepContainer{
+        transform: translateY(7vh);
+    }
+}
+
 @media (max-width: 1024px) {
     .step h2 {
         display: none;
-    }
-
-    .step.active {
-        min-height: 94vh;
     }
 }
 
@@ -593,10 +596,6 @@ svg path:hover{
 
     #prev-button, #next-button, #calculate{
         scale: 0.8;
-    }
-
-    .step.active {
-        min-height: 92vh;
     }
 
     #buildModeGroup{
