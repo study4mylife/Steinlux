@@ -6,16 +6,20 @@
 }
 
 .GHG h1{
-    position: relative;
     width: fit-content;
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
     background-color: #606060;
     color: #fefefe;
+    margin-bottom: 50px;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 3px 3px 5px #888;
+}
+
+.GHG h2{
+    margin-bottom: 30px;
 }
 
 .GHG h1::first-letter,.GHG h2::first-letter{
@@ -98,59 +102,28 @@
     align-items: center;
 }
 
-.scope2 .boxContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: start;
-    width: 100%;
-}
-
-.scope2 .boxContainer .box{
-    width: 50%;
-    margin-bottom: 20px;
-    padding: 10px;
-    box-shadow: 0 10px #5076ab;
-}
-
-.scope2 .boxContainer .box span{
-    padding: 20px;
-    border-top: 10px solid #5076ab;
-    border: 3px solid #333;
-    border-radius: 10px;
-}
-
-.scope2 .boxContainer .box span h2{
-    color: #fefefe;
-    font-size: 1.5rem;
-    background-color: #333;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.scope3 .boxContainer{
+.boxContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: start;
 }
 
-.scope3 .boxContainer .box{
+.boxContainer .box{
     width: 45%;
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0 10px #5076ab;
 }
 
-.scope3 .boxContainer .box span{
+.boxContainer .box span{
     padding: 20px;
     border-top: 10px solid #5076ab;
     border: 3px solid #333;
     border-radius: 10px;
 }
 
-.scope3 .boxContainer .box span h2{
+.boxContainer .box span h2{
     color: #fefefe;
     font-size: 1.5rem;
     background-color: #333;
@@ -159,8 +132,10 @@
     border-radius: 10px;
 }
 
-.whyContainer .wrapper img{
-    width: 100%;
+.boxContainer .box span p{
+    background-color: #eee;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .wrapper img{

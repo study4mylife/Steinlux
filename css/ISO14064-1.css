@@ -13,9 +13,14 @@
     font-weight: 500;
     background-color: #707070;
     color: #fefefe;
+    margin-bottom: 50px;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 3px 3px 5px #888;
+}
+
+.ISO14064 h2{
+    margin-bottom: 30px;
 }
 
 .ISO14064 h1::first-letter,.ISO14064 h2::first-letter{
@@ -66,10 +71,12 @@
 }
 
 .whatContainer .what{
+    width: 50%;
     margin-right: 30px;
 }
 
 .whatContainer .scope{
+    width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
@@ -85,7 +92,7 @@
 }
 
 .whatContainer .scope img{
-    width: 100%;
+    width: 80%;
     height: auto;
     object-fit: contain;
 }
@@ -230,18 +237,18 @@
         border: none;
     }
 
+
+}
+
+@media (max-width: 768px) {
     .whyContainer .point .circle{
         display: none;
     }
 
     .whyContainer .point span{
         transform: translateX(0);
-    }
-}
-
-@media (max-width: 992px) {
-    .whyContainer .point span{
         height: auto;
         padding: 10px;
     }
+
 }

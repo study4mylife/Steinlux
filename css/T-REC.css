@@ -13,9 +13,14 @@
     font-weight: 500;
     background-color: #707070;
     color: #fefefe;
+    margin-bottom: 50px;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 3px 3px 5px #888;
+}
+
+.T-REC h2{
+    margin-bottom: 30px;
 }
 
 .T-REC h1::first-letter,.T-REC h2::first-letter{
@@ -53,23 +58,22 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: solid 8px #97a68c;
-    border-radius: 20px 80px 20px 80px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: start;
     justify-content: space-between;
 }
 
-.whatContainer .what{
+.what{
+    width: 50%;
     margin-right: 30px;
+    padding: 30px;
+    border: solid 8px #97a68c;
+    border-radius: 20px 80px 20px 80px;
 }
 
-.whatContainer .scope{
+.whatContainer .difference{
+    width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
@@ -84,13 +88,16 @@
     width: 100%;
 }
 
-.whatContainer .scope img{
+.wrapper img{
     width: 100%;
-    height: auto;
-    object-fit: contain;
 }
 
-.whatContainer .scope a{
+.whatContainer .difference img{
+    width: 50%;
+    height: auto;
+}
+
+.whatContainer .difference a{
     display: inline-block;
     text-decoration: none;
     color: #97a68c;
@@ -100,7 +107,7 @@
     transition: transform 0.3s;
 }
 
-.whatContainer .scope a:hover{
+.whatContainer .difference a:hover{
     background-color: #e0e0e0;
     transform: translateY(-5px);
     transition: transform 0.3s;
@@ -161,7 +168,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 100px;
 }
 
 .howContainer span{
@@ -190,7 +196,7 @@
 }
 
 @media (max-width: 1200px) {
-    .whatContainer .what, .whatContainer .scope{
+    .whatContainer .what, .whatContainer .difference{
         width: 100%;
     }
     .whatContainer{
@@ -204,7 +210,7 @@
         width: 90%;
     }
 
-    .whatContainer .what, .whatContainer .scope{
+    .whatContainer .what, .whatContainer .difference{
         margin: 0;
         padding: 0;
         border: none;
