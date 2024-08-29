@@ -27,7 +27,6 @@
         <button class="stepButton" id="prev-button" onclick="prevStep()" style="display:none;"><i class="fa-solid fa-chevron-left fa-3x"></i></button>
         <button class="stepButton" id="next-button" onclick="nextStep()"><i class="fa-solid fa-chevron-right fa-3x"></i></button>
         <button class="stepButton" id="calculate" onclick="calculate()" style="display:none;">計算</button>
-          
             <div id="step1" class="step active">
               <div class="button-group" id="buildModeGroup">
                   <button class="bulid bulid-1" data-value="selfUse">
@@ -274,7 +273,7 @@
           </div>
           
           <div id="step4" class="step">
-            <h2>輸入面積</h2>
+            <h2 id="h2Input"></h2>
             <div class="container" id="step4Container">
               <div class="electricGroup" id="electricGroup">
                 <img class="electricPic" src="../src/electricPic.svg" alt="">
@@ -326,45 +325,134 @@
               </div>
             </div>
           </div>
+
           <div id="results" style="display:none;">
+            <h2>試算結果</h2>
             <div class="resultContainer">
-              <div class="basicInfo collage-item">
-                  <h3>基本資訊</h3>
-                  <p>基地面積: <span id="baseArea"></span> 坪</p>
-                  <p>建制類型: <span id="installType"></span></p>
-                  <p>裝置容量: <span id="capacity"></span> Kwp</p>
-                  <p>地區縣市: <span id="city"></span></p>
-                  <p>日照時數: <span id="sunHours"></span> 小時</p>
-                  <p>年發電量: <span id="annualOutput"></span> 度</p>
-              </div>
-          
-              <div id="selfUseResults" class="resultsPart" style="display:none;">
-                  <div class="collage-item">
-                      <h3>自用模式結果</h3>
-                      <p>平均電價: $<span id="avgElectricityPrice"></span>/度</p>
-                      <p>年節電費: $<span id="annualSavings"></span></p>
-                      <p>T-REC張數: <span id="tRecCount"></span> 張</p>
-                      <p>綠電憑證收益: $<span id="greenCertificateIncome"></span></p>
+              
+              <div class="basicInfo collageItem">
+                <span class="infoTitle">
+                  <h1 style="color: #003366; font-weight: 800;">你選擇的是<h3 id="infoType" style="height: fit-content; margin-top: 18px;">自發自用</h3></h1>
+                </span>
+                <div class="itemContainer">
+                  <div class="wrapper">
+                    <img src="../src/buildMode1.png" alt="">
                   </div>
+                  <h3>光電建置基本資訊</h3>
+                  <div class="basicItem">
+                    <span>建置面積:</span>
+                    <input type="text" id="baseArea"  readonly>
+                  </div>
+                  <div class="basicItem">
+                    <span>建置容量:</span>
+                    <input type="text" id="capacity"  readonly>
+                  </div>
+                  <div class="basicItem">
+                    <span>建置地點:</span>
+                    <input type="text" id="city"  readonly>
+                  </div>
+                  <div class="basicItem">
+                    <span>日照時數:</span>
+                    <input type="text" id="sunHour"  readonly>
+                  </div>
+                  <div class="basicItem">
+                    <span>年發電量:</span>
+                    <input type="text" id="annualOutput"  readonly>
+                  </div>
+                </div>
+
               </div>
+
+              <div class="electricInfo">
+                <div id="selfUseResults" class="resultsPart" style="display:none;">
+                  <div class="collageItem">
+                    <div class="itemContainer">
+                      <div class="wrapper wrapper1">
+                        <img src="../src/installType4.png" alt="">
+                      </div>
+                      <div class="resultItem">
+                        <h3>發電收益相關資訊</h3>
+                        <span style="background-color: rgb(178, 205, 210);">購電成本</span>
+                        <input type="text" id="avgElectricityPrice"  readonly>
+                      </div>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(178, 205, 210);">年節電費</span>
+                        <input type="text" id="annualSavings"  readonly>
+                      </div>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(139, 160, 171);">憑證數量</span>
+                        <input type="text" id="tRecCount"  readonly>
+                      </div>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(139, 160, 171);">憑證收益</span>
+                        <input type="text" id="greenCertificateIncome"  readonly>
+                      </div>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(151, 166, 140);">每度效益</span>
+                        <input type="text" id="avgElectricityIncome"  readonly>
+                      </div>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(151, 166, 140);">總計效益</span>
+                        <input type="text" id="totalIncome" readonly>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="tips tips1">
+                    <p>註一：以上為估算財務與效益，實際情況以專員評估提供報告為主。</p>
+                    <p>註二：T-REC憑證價格以$3,000/張估算</p>
+                    <p>註三：建置金額依現地評估後為主。</p>
+                  </div>
+                </div>
           
               <div id="sellElectricityResults" class="resultsPart" style="display:none;">
-                  <div class="collage-item">
-                      <h3>售電模式結果</h3>
-                      <p>躉售電價: $<span id="wholesalePrice"></span>/度</p>
-                      <p>售電年收: $<span id="annualIncome"></span></p>
+                <div class="collageItem">
+                  <div class="itemContainer">
+                    <div class="wrapper wrapper2">
+                      <img src="../src/installType3.png" alt="">
+                    </div>
+                    <h3>發電收益相關資訊</h3>
+                    <div class="resultItem">
+                      <span style="background-color: rgb(178, 205, 210);">躉售電價</span>
+                      <input type="text" id="wholesalePrice"  readonly>
+                    </div>
+                    <div class="resultItem">
+                      <span style="background-color: rgb(125, 143, 111);">售電年收</span>
+                      <input type="text" id="annualIncome"  readonly>
+                    </div>
                   </div>
+                </div>
+
+                <div class="tips tips2">
+                  <p>註一：以上為估算財務與效益，實際情況以專員評估提供報告為主。</p>
+                  <p>註二：建置金額依現地評估後為主。</p>
+                  <p>註三：另有轉供收益依實際評估後報價為主。</p>
+                </div>
+
               </div>
           
               <div id="rentRoofResults" class="resultsPart" style="display:none;">
-                  <div class="collage-item">
-                      <h3>出租模式結果</h3>
-                      <p>租金收益: $<span id="rentalIncome"></span></p>
+                  <div class="collageItem">
+                    <div class="itemContainer">
+                      <div class="wrapper wrapper3">
+                        <img src="../src/installType1.png" alt="">
+                      </div>
+                      <h3>發電收益相關資訊</h3>
+                      <div class="resultItem">
+                        <span style="background-color: rgb(125, 143, 111);">租金收益</span>
+                        <input type="text" id="rentalIncome" readonly>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="tips tips3">
+                    <p>註一：以上為估算財務與效益，實際情況以專員評估提供報告為主。</p>
+                    <p>註二：租金&建置方式依現地評估後為主。</p>
                   </div>
               </div>
             </div>
           </div>
-        </div>
+          </div>
       </div>
     </main>
     

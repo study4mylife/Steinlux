@@ -87,8 +87,10 @@ function updateElectricGroup(buildMode) {
     const electricGroup = document.getElementById('electricGroup');
     if (buildMode === 'selfUse') {
         electricGroup.style.display = 'flex';
+        document.getElementById('h2Input').innerText = '輸入電費'
     } else {
         electricGroup.style.display = 'none';
+        document.getElementById('h2Input').innerText = '輸入面積'
     }
 }
 
@@ -210,6 +212,7 @@ document.getElementById('summer').value = summerPrice
 document.getElementById('avgPrice').textContent = `平均購電成本為${((winterPrice + summerPrice)/2).toFixed(2)}度！`
 
 function calculate() {
+    const infoType = document.getElementById('infoType');
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
     const region = svgContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
@@ -236,36 +239,42 @@ function calculate() {
     const sunHours = getSunHours(region);
     const annualOutput = capacity * sunHours * 365;
 
-    document.getElementById('baseArea').textContent = areaPing
-    document.getElementById('installType').textContent = getInstallationTypeName(installationType);
-    document.getElementById('capacity').textContent = capacity.toFixed(2);
-    document.getElementById('city').textContent = region;
-    document.getElementById('sunHours').textContent = sunHours;
-    document.getElementById('annualOutput').textContent = annualOutput.toFixed(2);
+    // 更新基本信息
+    document.getElementById('baseArea').value = areaPing.toFixed(2) + ' 坪';
+    document.getElementById('capacity').value = capacity.toFixed(2) + ' kW';
+    document.getElementById('city').value = region;
+    document.getElementById('sunHour').value = sunHours + ' 小時';
+    document.getElementById('annualOutput').value = annualOutput.toFixed(2) + ' kWh';
 
     document.getElementById('selfUseResults').style.display = 'none';
     document.getElementById('sellElectricityResults').style.display = 'none';
     document.getElementById('rentRoofResults').style.display = 'none';
 
     if (buildMode === 'selfUse') {
-        const avgPrice = (winterPrice + summerPrice)/2
+        const avgPrice = (winterPrice + summerPrice) / 2;
         const annualSavings = annualOutput * avgPrice;
         const tRecCount = Math.floor(annualOutput / 1000);
         const greenCertificateIncome = tRecCount * 3000;
+        const totalIncome = annualSavings + greenCertificateIncome;
+        const avgElectricityIncome = totalIncome / annualOutput;
 
-        document.getElementById('avgElectricityPrice').textContent = avgPrice.toFixed(2);
-        document.getElementById('annualSavings').textContent = annualSavings.toFixed(2);
-        document.getElementById('tRecCount').textContent = tRecCount;
-        document.getElementById('greenCertificateIncome').textContent = greenCertificateIncome.toFixed(2);
+        document.getElementById('avgElectricityPrice').value = avgPrice.toFixed(2) + ' 元/度';
+        document.getElementById('annualSavings').value = annualSavings.toFixed(2) + ' 元';
+        document.getElementById('tRecCount').value = tRecCount + ' 張';
+        document.getElementById('greenCertificateIncome').value = greenCertificateIncome.toFixed(2) + ' 元';
+        document.getElementById('avgElectricityIncome').value = avgElectricityIncome.toFixed(2) + ' 元/度';
+        document.getElementById('totalIncome').value = totalIncome.toFixed(2) + ' 元';
 
+        infoType.textContent = '自發自用'
         document.getElementById('selfUseResults').style.display = 'block';
 
     } else if (buildMode === 'sellElectricity') {
         const adjustedWholesalePrice = getAdjustedWholesalePrice(region, capacity);
         const annualIncome = annualOutput * adjustedWholesalePrice;
 
-        document.getElementById('wholesalePrice').textContent = adjustedWholesalePrice.toFixed(4);
-        document.getElementById('annualIncome').textContent = annualIncome.toFixed(2);
+        infoType.textContent = '自建售電'
+        document.getElementById('wholesalePrice').value = adjustedWholesalePrice.toFixed(4) + ' 元/度';
+        document.getElementById('annualIncome').value = annualIncome.toFixed(2) + ' 元';
 
         document.getElementById('sellElectricityResults').style.display = 'block';
 
@@ -274,13 +283,12 @@ function calculate() {
         const annualIncome = annualOutput * adjustedWholesalePrice;
         const rentalIncome = annualIncome * 0.12;
 
-        document.getElementById('rentalIncome').textContent = rentalIncome.toFixed(2);
+        infoType.textContent = '出租屋頂'
+        document.getElementById('rentalIncome').value = rentalIncome.toFixed(2) + ' 元';
         document.getElementById('rentRoofResults').style.display = 'block';
     }
-
     document.getElementById('results').style.display = 'flex';
 }
-
 function convertFromPing(ping) {
     return {
       ping: ping,

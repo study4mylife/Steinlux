@@ -3,14 +3,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    authDomain: "test-c9a6e.firebaseapp.com",
-    databaseURL: "https://test-c9a6e-default-rtdb.firebaseio.com",
-    projectId: "test-c9a6e",
-    storageBucket: "test-c9a6e.appspot.com",
-    messagingSenderId: "903530691910",
-    appId: "1:903530691910:web:820ef02881c960492a7947",
-    measurementId: "G-6PDPPX4DBQ"
-};
+    apiKey: "AIzaSyBBQg9q-RjqlO3LSTc2p0hKwIgOBScrKBM",
+    authDomain: "steinlux.firebaseapp.com",
+    projectId: "steinlux",
+    storageBucket: "steinlux.appspot.com",
+    messagingSenderId: "61933345477",
+    appId: "1:61933345477:web:94767559db8d9ba68deeac"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -137,7 +136,7 @@ async function loadBrandImages() {
             const brandData = doc.data();
             brandImages.push(`
                 <div class="brand-item">
-                    <img src="${brandData.imageUrl}" alt="${brandData.name}">
+                    <img src="${brandData.image}" alt="${brandData.alt}">
                 </div>
             `);
         });

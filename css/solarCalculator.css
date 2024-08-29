@@ -73,19 +73,19 @@ main{
     opacity: 1;
 }
 
-.step h2 {
+.allstep h2 {
     display: flex;
     justify-content: flex-start;
     width: 10%;
     margin: 50px 0 0 100px;
     color: #bbb;
-    font-size: 5rem;
+    font-size: 5.5rem;
     text-shadow: 2px 2px  3px#666;
-    letter-spacing: 30px;
+    letter-spacing: 50px;
     writing-mode: vertical-lr;
 }
 
-.step h3{
+.allstep h3{
     color: #fefefe;
     background-color: rgb(255, 192, 0);
     text-align: justify;
@@ -140,80 +140,6 @@ main{
     top: 200px;
     right: 0;
     z-index: 10;
-}
-
-#results{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.resultContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    padding: 20px;
-}
-
-.collage-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transform: rotate(calc(var(--rotation) * 1deg));
-    transition: transform 0.3s ease;
-    max-width: 400px;
-    width: 100%;
-}
-
-.collage-item:hover {
-    cursor: pointer;
-    transform: rotate(0deg) scale(1.05);
-    z-index: 1;
-}
-
-.collage-item h3 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.2em;
-}
-
-.collage-item i {
-    display: block;
-    margin: 10px 0;
-    color: #4CAF50;
-}
-
-.collage-item p {
-    margin: 10px 0;
-    color: #666;
-}
-
-.collage-item span {
-    font-weight: bold;
-    color: #333;
-}
-
-.basicInfo {
-    --rotation: -2;
-    background-color: #e8f5e9;
-}
-
-#selfUseResults .collage-item {
-    --rotation: 1;
-    background-color: #e3f2fd;
-}
-
-#sellElectricityResults .collage-item {
-    --rotation: -1;
-    background-color: #fff3e0;
-}
-
-#rentRoofResults .collage-item {
-    --rotation: 2;
-    background-color: #fce4ec;
 }
 
 /* step1 */
@@ -538,6 +464,7 @@ svg path:hover{
 .conversion-item span{
     text-align: center;
     font-size: 0.9rem;
+    color: #fefefe;
     display: inline-block;
     background: #999;
     width: 80px;
@@ -575,6 +502,154 @@ svg path:hover{
 
 #step4 .text .wrapper img{
     width: 100%
+}
+
+/* result */
+
+#results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(150deg,#D9F2D080 15%,#C1E5F590 25%,#FFF1D099 70%);
+    width: 100%;
+    height: fit-content;
+    min-height: calc(100vh - 70px);
+}
+
+.resultContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.basicItem span, .resultItem span{
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fefefe;
+    display: inline-block;
+    background: #999;
+    width: 35%;
+    height: 40px;
+    margin: 8px 0;
+    line-height: 40px;
+    border: 2.5px solid #d1d1d1;
+    border-radius: 8px;
+    letter-spacing: 2.5px;
+}
+
+.basicItem input, .resultItem input{
+    background-color: transparent;
+    text-align: center;
+    color: rgb(182, 176, 161);
+    width: 55%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+    padding: 0 5px;
+    border: 3px solid rgb(209, 209, 209);
+    border-radius: 8px;
+}
+
+.resultContainer .infoTitle{
+    display: flex;
+    margin-bottom: 140px;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+}
+
+.resultContainer .infoTitle h3{
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    transform: translateY(5px);
+}
+
+.resultContainer .basicInfo{
+    width: 50%;
+}
+
+.resultContainer .electricInfo{
+    width: 50%;
+}
+
+.basicInfo .itemContainer{
+    position: relative;
+    width: 50%;
+}
+
+.basicInfo .itemContainer .wrapper{
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 70%;
+    z-index: -1;
+}
+
+.basicInfo .itemContainer .wrapper img{
+    width: 100%;
+}
+
+.electricInfo .resultsPart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.collageItem{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.tips{
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: #333;
+    width: 100%;
+}
+
+.tips1{
+    margin-top: 50px;
+}
+
+.tips2{
+    margin-top: 260px;
+}
+
+.tips3{
+    margin-top: 300px;
+}
+
+.electricInfo .itemContainer{
+    position: relative;
+    width: 50%;
+}
+
+.electricInfo .itemContainer .wrapper{
+    position: absolute;
+    width: 90%;
+    z-index: -1;
+}
+
+.electricInfo .itemContainer .wrapper1{
+    bottom: 0px;
+    right: -150px;
+}
+
+.electricInfo .itemContainer .wrapper2{
+    top: 180px;
+    right: -150px;
+}
+
+.electricInfo .itemContainer .wrapper3{
+    top: 200px;
+    right: -150px;
+}
+
+.electricInfo .itemContainer .wrapper img{
+    width: 100%;
 }
 
 @media (min-height: 768px) {
@@ -657,10 +732,6 @@ svg path:hover{
         align-items: center;
         text-align: center;
         margin: 20px 0;
-    }
-
-    .resultContainer, .svgContainer{
-        flex-direction: column;
     }
 }
 
