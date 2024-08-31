@@ -20,7 +20,7 @@
 
 .CPPA h1::first-letter,.CPPA h2::first-letter{
     color: #8fc268;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 .CPPAContainer{
@@ -53,12 +53,6 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: solid 8px #97a68c;
-    border-radius: 20px 80px 20px 80px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: start;
@@ -66,10 +60,15 @@
 }
 
 .whatContainer .what{
+    width: 50%;
     margin-right: 30px;
+    padding: 50px;
+    border: solid 8px #97a68c;
+    border-radius: 20px 80px 20px 80px;
 }
 
 .whatContainer .scope{
+    width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
@@ -82,12 +81,6 @@
     align-items: center;
     text-align: center;
     width: 100%;
-}
-
-.whatContainer .scope img{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
 }
 
 .whatContainer .scope a{

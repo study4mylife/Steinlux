@@ -20,7 +20,7 @@
 
 .ISO14067 h1::first-letter,.ISO14067 h2::first-letter{
     color: #8fc268;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 .ISO14067Container{
@@ -66,10 +66,13 @@
 }
 
 .whatContainer .what{
+    width: 50%;
     margin-right: 30px;
 }
 
 .whatContainer .scope{
+    text-align: center;
+    width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
@@ -85,9 +88,8 @@
 }
 
 .whatContainer .scope img{
-    width: 100%;
+    width: 80%;
     height: auto;
-    object-fit: contain;
 }
 
 .whatContainer .scope a{
@@ -128,19 +130,29 @@
     width: 180px;
     height: 180px;
     background-color: #fff;
-    border: 5px solid #8fc268;
+    border: 10px solid #8fc268;
     border-radius: 100%;
 }
 
 .whyContainer .point span{
     position: relative;
-    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #b87d55;
+    color: #fefefe;
     width: 80%;
     height: 150px;
     margin-top: 30px;
     padding: 20px 60px;
+    border: 5px solid #aaa;
     border-radius: 20px;
     z-index: -1;
+}
+
+.whyContainer .point span h5{
+    align-self: flex-start;
 }
 
 .whyContainer .point span p{
@@ -220,5 +232,14 @@
 }
 
 @media (max-width: 768px) {
+    .whyContainer .point .circle{
+        display: none;
+    }
+
+    .whyContainer .point span{
+        transform: translateX(0);
+        height: auto;
+        padding: 10px;
+    }
 
 }

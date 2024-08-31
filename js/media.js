@@ -41,7 +41,7 @@ function renderNewsList() {
         article.className = 'card';
         article.innerHTML = `
             <div class="content">
-                <h3>${item.title || ''}</h3>
+                <h3>${item.title || ''}<time>${item.date || ''}</time></h3>
                 <div class="content-container">
                     <div class="wrapper">
                         <a href="media.html?id=${item.id}">
@@ -54,7 +54,6 @@ function renderNewsList() {
                         </div>
                     </div>
                 </div>
-                <time>${item.date || ''}</time>
             </div>
         `;
         container.appendChild(article);
@@ -113,10 +112,6 @@ async function searchNews(searchTerm = '') {
 document.getElementById('searchButton').addEventListener('click', () => {
     const searchTerm = document.getElementById('searchInput').value;
     searchNews(searchTerm);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadRecentNews();
 });
 
 function setupPagination() {
@@ -248,7 +243,7 @@ function renderContent(contentArray) {
             case 'paragraph':
                 return `<p>${item.text}</p>`;
             case 'em':
-                return `<em>${item.text}</em>`
+                return `<em>-----${item.text}-----</em>`
             case 'image':
                 return `
                 <div class='wrapper'><img src="${item.url}" alt="${item.alt}"></div>`

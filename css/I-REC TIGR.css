@@ -20,7 +20,7 @@
 
 .I-REC h1::first-letter,.I-REC h2::first-letter{
     color: #8fc268;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 .I-RECContainer{

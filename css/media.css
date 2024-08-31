@@ -80,13 +80,12 @@
 }
 
 #news-container .wrapper{
-    width: 50%;
+    width: 60%;
 }
 
 #news-container .content h3{
     text-align: center;
     width: 100%;
-    padding-bottom: 10px;
 }
 
 #news-container .content a{
@@ -95,13 +94,14 @@
 
 #news-container .content img{
     width: 100%;
-    height: 150px;
-    object-fit: contain;
     border-radius: 10px;
 }
 
 #news-container .content .text{
     width: 100%;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #news-container .content h3{
@@ -110,19 +110,8 @@
     text-overflow: ellipsis;
 }
 
-#news-container .title p {
-    font-size: 16px;
-    display: -webkit-box;
-    line-clamp: 5;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 time{
     font-size: 12px;
-    margin-left: 80%;
 }
 
 #pagination button{
@@ -244,6 +233,7 @@ time{
 .newsContainer .content em{
     text-align: center;
     margin: 20px;
+    color: #454fd6;
 }
 
 .newsContainer .wrapper{

@@ -25,7 +25,7 @@
 
 .ISO14064 h1::first-letter,.ISO14064 h2::first-letter{
     color: #8fc268;
-    font-weight: 700;
+    font-weight: 550;
 }
 
 .ISO14064Container{
@@ -76,6 +76,7 @@
 }
 
 .whatContainer .scope{
+    text-align: center;
     width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
@@ -94,7 +95,6 @@
 .whatContainer .scope img{
     width: 80%;
     height: auto;
-    object-fit: contain;
 }
 
 .whatContainer .scope a{
@@ -135,7 +135,7 @@
     width: 180px;
     height: 180px;
     background-color: #fff;
-    border: 5px solid #8fc268;
+    border: 10px solid #8fc268;
     border-radius: 100%;
 }
 
@@ -145,11 +145,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ccc;
+    background-color: #b87d55;
+    color: #fefefe;
     width: 80%;
     height: 150px;
     margin-top: 30px;
     padding: 20px 60px;
+    border: 5px solid #aaa;
     border-radius: 20px;
     z-index: -1;
 }

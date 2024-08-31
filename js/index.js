@@ -1,9 +1,7 @@
-// Firebase initialization (keep this at the top)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBBQg9q-RjqlO3LSTc2p0hKwIgOBScrKBM",
     authDomain: "steinlux.firebaseapp.com",
     projectId: "steinlux",
     storageBucket: "steinlux.appspot.com",
