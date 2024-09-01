@@ -66,6 +66,7 @@
 }
 
 .whatContainer .what{
+    width: 50%;
     margin-right: 30px;
     padding: 40px;
     border: solid 8px #97a68c;
@@ -73,6 +74,7 @@
 }
 
 .whatContainer .collab{
+    width: 50%;
     padding: 30px;
     border: solid 8px #97a68c;
     border-radius: 120px 30px 120px 30px;
@@ -237,6 +239,7 @@
     width: 80%;
     padding: 10px;
     border: 3px solid #333;
+    border-radius: 12px;
 }
 
 .howContainer span::before{
@@ -266,6 +269,14 @@
 }
 
 @media (max-width: 1200px) {
+    .whatContainer .what, .whatContainer .collab{
+        width: 100%;
+    }
+    
+    .whatContainer{
+        flex-direction: column;
+    }
+
     .howContainer, .howSBTi{
         flex-direction: column;
     }
@@ -338,14 +349,21 @@
         padding: 5px;
     }
 
-    .howContainer span::before, .howContainer span::after{
-        display: none;
+    .howContainer span::before{
+        top: -100px;
+        left: -20px;
+    }
+    
+    .howContainer span::after{
+        top: -100px;
+        right: -20px;
     }
 }
 
 @media (max-width: 600px) {
     .advantageItems{
         flex-direction: column;
+        margin-top: 300px;
     }
 
     .advantageItems .item{

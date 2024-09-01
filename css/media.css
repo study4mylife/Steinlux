@@ -19,7 +19,7 @@
 #news-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -54,11 +54,13 @@
 
 .card{
     width: 45%;
-    margin: 10px;
+    border-radius: 8px;
+    margin: 20px auto
 }
 
 .verticle .card{
     width: 60%;
+    margin: 20px;
     border-radius: 8px;
 }
 
@@ -80,38 +82,37 @@
 }
 
 #news-container .wrapper{
-    width: 60%;
+    width: 80%;
+    height: 200px
 }
 
 #news-container .content h3{
-    text-align: center;
     width: 100%;
 }
 
 #news-container .content a{
     width: 100%;
+    height: 200px
 }
 
 #news-container .content img{
     width: 100%;
+    height: 100%;
     border-radius: 10px;
+    object-fit: contain;
 }
 
 #news-container .content .text{
     width: 100%;
-    font-size: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1rem;
 }
 
 #news-container .content h3{
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.25rem;
 }
 
 time{
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 
 #pagination button{
@@ -167,7 +168,6 @@ time{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 76px;
 }
 
 .newsContainer .news{
@@ -175,20 +175,19 @@ time{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 75%;
 }
 
-.newsContainer .title{
+.news .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-bottom: solid 1px #333;
 }
 
 .newsContainer .title h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 2px;
@@ -197,26 +196,30 @@ time{
 
 .newsContainer .title img{
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .newsContainer .title time{
-    font-size: 16px;
+    font-size: 1rem;
+    margin-left: 90%;
 }
 
 .newsContainer .content{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     letter-spacing: 1.5px;
     line-height: 30px;
+    padding-top: 20px;
+    border-top: solid 1px #333;
 }
 
 .newsContainer .content h2{
     position: relative;
     margin-right: auto;
-    font-size: 28px;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
@@ -231,20 +234,43 @@ time{
 }
 
 .newsContainer .content em{
+    position: relative;
     text-align: center;
-    margin: 20px;
-    color: #454fd6;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #97a68c;
+    color: #fefefe;
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px 30px;
+    border-radius: 8px;
 }
 
-.newsContainer .wrapper{
+.newsContainer .content em::before{
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    content: '---';
+}
+
+.newsContainer .content em::after{
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    right: 0;
+    content: '---';
+}
+
+.newsContainer .news .content .wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .newsContainer .news .content img{
-    width: 90%;
+    width: 80%;
+    margin: 20px 0;
 }
 
 .newsContainer .content .imgComment{
@@ -256,13 +282,18 @@ time{
 }
 
 #share-buttons a{
+    font-size: 2rem;
     text-decoration: none;
     color: #222;
-    margin: 0 10px;
+    margin: 0 30px;
 }
 
 #share-buttons a:hover{
-    color: #aaa;
+    color: rgb(24, 94, 207);
+}
+
+#share-buttons i:hover{
+    cursor: pointer;
 }
 
 .back-link{

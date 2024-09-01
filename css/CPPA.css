@@ -74,15 +74,6 @@
     border-radius: 120px 20px 120px 20px;
 }
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
 .whatContainer .scope a{
     display: inline-block;
     text-decoration: none;
@@ -99,6 +90,24 @@
     transition: transform 0.3s;
 }
 
+.electricImageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.electricImageContainer .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.electricImageContainer .wrapper img{
+    width: 40%;
+}
+
 .whyContainer{
     display: flex;
     flex-direction: column;
@@ -108,44 +117,17 @@
     margin-bottom: 100px;
 }
 
-.whyContainer .point{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.whyContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
 }
 
-.whyContainer .point .circle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 180px;
-    background-color: #fff;
-    border: 5px solid #8fc268;
-    border-radius: 100%;
-}
-
-.whyContainer .point span{
-    position: relative;
-    background-color: #ccc;
-    width: 80%;
-    height: 150px;
-    margin-top: 30px;
-    padding: 20px 60px;
-    border-radius: 20px;
-    z-index: -1;
-}
-
-.whyContainer .point span p{
-    line-height: 1.8;
-}
-
-.whyContainer .pointLeft span{
-    transform: translateX(-50px);
-}
-
-.whyContainer .pointRight span{
-    transform: translateX(50px);
+.whyContainer .solution{
+    background-color: #d5ddcf;
+    padding: 10px;
+    border-left: 10px solid #a1a99b;
+    border-radius: 8px;
 }
 
 .howContainer{
@@ -182,10 +164,20 @@
     font-size: 4rem;
 }
 
+
+.howContainer .wrapper{
+    width: 100%;
+}
+
+.howContainer .wrapper img{
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     .whatContainer .what, .whatContainer .scope{
         width: 100%;
     }
+    
     .whatContainer{
         flex-direction: column;
     }
@@ -205,6 +197,23 @@
 }
 
 @media (max-width: 768px) {
+    .electricImageContainer .wrapper{
+        flex-direction: column;
+    }
 
+    .electricImageContainer .wrapper img{
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .howContainer span::before{
+        top: -100px;
+        left: -20px;
+    }
+    
+    .howContainer span::after{
+        top: -100px;
+        right: -20px;
+    }
 }
 

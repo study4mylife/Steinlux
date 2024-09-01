@@ -13,9 +13,14 @@
     font-weight: 500;
     background-color: #707070;
     color: #fefefe;
+    margin-bottom: 50px;
     padding: 20px;
     border-radius: 16px;
     box-shadow: 3px 3px 5px #888;
+}
+
+.I-REC h2{
+    margin-bottom: 30px;
 }
 
 .I-REC h1::first-letter,.I-REC h2::first-letter{
@@ -53,12 +58,6 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: solid 8px #97a68c;
-    border-radius: 20px 80px 20px 80px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: start;
@@ -66,18 +65,22 @@
 }
 
 .whatContainer .what{
+    width: 50%;
     margin-right: 30px;
+    padding: 50px;
+    border: solid 8px #97a68c;
+    border-radius: 20px 80px 20px 80px;
 }
 
 .whatContainer .scope{
+    width: 50%;
     padding: 40px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
 }
 
-.wrapper{
+.whatContainer .scope .wrapper{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -85,25 +88,65 @@
 }
 
 .whatContainer .scope img{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 50%;
 }
 
-.whatContainer .scope a{
+.whatContainer a{
     display: inline-block;
     text-decoration: none;
     color: #97a68c;
-    padding: 0px 20px;
+    padding: 0px 10px;
     border: 3px solid #bdbdbd;
-    border-radius: 20px;
+    border-radius: 8px;
     transition: transform 0.3s;
 }
 
-.whatContainer .scope a:hover{
+.whatContainer a:hover{
     background-color: #e0e0e0;
     transform: translateY(-5px);
     transition: transform 0.3s;
+}
+
+.energyContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.energyContainer .energyItem{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 30%;
+    min-width: 300px;
+    margin: 20px 0;
+}
+
+.energyContainer .energyItem:hover p{
+    cursor: pointer;
+    background-color: #97a68c;
+    color: #fefefe;
+    transform: translateY(-10px);
+    transition: transform 0.5s ease ,color 0.5s ease, background-color 0.5s ease;
+}
+
+.energyContainer .energyItem p{
+    color: #666;
+    padding: 20px;
+    border: 3px solid #97a68c;
+    border-left: 25px solid #97a68c;
+    border-radius: 8px;
+    width: 90%;
+    transition: transform 0.5s ease ,color 0.5s ease, background-color 0.5s ease;
+}
+
+
+.energyContainer .energyItem i{
+    margin-left: 10px;
 }
 
 .whyContainer{
@@ -115,44 +158,10 @@
     margin-bottom: 100px;
 }
 
-.whyContainer .point{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.whyContainer .point .circle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 180px;
-    background-color: #fff;
-    border: 5px solid #8fc268;
-    border-radius: 100%;
-}
-
-.whyContainer .point span{
-    position: relative;
-    background-color: #ccc;
-    width: 80%;
-    height: 150px;
-    margin-top: 30px;
-    padding: 20px 60px;
-    border-radius: 20px;
-    z-index: -1;
-}
-
-.whyContainer .point span p{
-    line-height: 1.8;
-}
-
-.whyContainer .pointLeft span{
-    transform: translateX(-50px);
-}
-
-.whyContainer .pointRight span{
-    transform: translateX(50px);
+.whyContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
 }
 
 .howContainer{
@@ -169,6 +178,7 @@
     width: 80%;
     padding: 10px;
     border: 3px solid #333;
+    border-radius: 12px;
 }
 
 .howContainer span::before{

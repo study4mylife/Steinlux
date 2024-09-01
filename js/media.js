@@ -41,7 +41,7 @@ function renderNewsList() {
         article.className = 'card';
         article.innerHTML = `
             <div class="content">
-                <h3>${item.title || ''}<time>${item.date || ''}</time></h3>
+                <h3>${item.title || ''}</h3>
                 <div class="content-container">
                     <div class="wrapper">
                         <a href="media.html?id=${item.id}">
@@ -49,10 +49,11 @@ function renderNewsList() {
                         </a>
                     </div>
                     <div class="text mx-3">
-                        <div class="title">
-                            <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 100) + '...' : ''}</p>
-                        </div>
+                        <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 150) + '...' : ''}</p>
                     </div>
+                </div>
+                <div>
+                    <time>${item.date || ''}</time>
                 </div>
             </div>
         `;
@@ -86,7 +87,7 @@ async function searchNews(searchTerm = '') {
                 <div class="search-content-container">
                     <div class="wrapper">
                         <a href="media.html?id=${doc.id}">
-                            <img src="${newsData.mainImage || '../src/background1.jpgg'}" alt="${newsData.mainImageAlt || ''}">
+                            <img src="${newsData.mainImage || '../src/background1.jpg'}" alt="${newsData.mainImageAlt || ''}">
                         </a>
                     </div>
                     <span>
@@ -152,39 +153,38 @@ function updateLayout() {
     setupPagination();
 }
 
-//分享功能
-
-function shareToFacebook() {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+// 分享函數
+function shareToFacebook(url, title) {
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
 }
 
-function shareToTwitter() {
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(document.title);
-    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+function shareToTwitter(url, title) {
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
 }
 
-function shareToLinkedIn() {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(document.title);
-    window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`, '_blank');
+function shareToLinkedIn(url, title) {
+    window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank');
 }
 
+// 事件處理函數
 function handleShareButtonClick(event) {
     event.preventDefault();
-    const target = event.target;
-    if (target.classList.contains('share-btn')) {
+    const target = event.target.closest('.share-btn');
+    if (target) {
+        const url = window.location.href;
+        const title = document.title;
+
         if (target.classList.contains('facebook')) {
-            shareToFacebook();
+            shareToFacebook(url, title);
         } else if (target.classList.contains('twitter')) {
-            shareToTwitter();
+            shareToTwitter(url, title);
         } else if (target.classList.contains('linkedin')) {
-            shareToLinkedIn();
+            shareToLinkedIn(url, title);
         }
     }
 }
 
+// 生成新聞頁面函數
 async function generateNewsPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const newsId = urlParams.get('id');
@@ -196,44 +196,68 @@ async function generateNewsPage() {
     }
 
     // 隱藏新聞列表和分頁
-    document.getElementById('bannerContainer').style.display = 'none';
-    document.getElementById('news-container').style.display = 'none';
-    document.getElementById('pagination').style.display = 'none';
+    const bannerContainer = document.getElementById('bannerContainer');
+    const newsContainer = document.getElementById('news-container');
+    const pagination = document.getElementById('pagination');
 
-    const newsRef = doc(db, 'news', newsId);
-    const newsSnap = await getDoc(newsRef);
+    if (bannerContainer) bannerContainer.style.display = 'none';
+    if (newsContainer) newsContainer.style.display = 'none';
+    if (pagination) pagination.style.display = 'none';
 
-    if (newsSnap.exists()) {
-        const newsData = newsSnap.data();
-        document.title = newsData.title;
-        
-        let content = `
-        <a href="media.html" class="back-link">返回新聞列表</a>
-            <div class="title">
-                <h1>${newsData.title}</h1>
-                <time>${newsData.date}</time>
-                <div class='wrapper'><img src="${newsData.mainImage ||'../src/banner1.png'}" alt="${newsData.mainImageAlt || ''}">
-            </div>
-            <div class="content">
-                ${renderContent(newsData.content)}
-            </div>
-            <div id="share-buttons">
-                <a href="#" class="share-btn facebook">分享到 Facebook</a>
-                <a href="#" class="share-btn twitter">分享到 Twitter</a>
-                <a href="#" class="share-btn linkedin">分享到 LinkedIn</a>
-            </div>
-            <a href="media.html" class="back-link mb-5">返回新聞列表</a>
-        `;
+    try {
+        const newsRef = doc(db, 'news', newsId);
+        const newsSnap = await getDoc(newsRef);
+
+        if (newsSnap.exists()) {
+            const newsData = newsSnap.data();
+            document.title = newsData.title;
+            
+            let content = `
+            <a href="media.html" class="back-link">返回新聞列表</a>
+                <div class="title">
+                    <h1>${newsData.title}</h1>
+                    <time>${newsData.date}</time>
+                    <div class='wrapper'><img src="${newsData.mainImage || '../src/banner1.png'}" alt="${newsData.mainImageAlt || ''}">
+                    </div>
+                </div>
+
+                <div class="content">
+                    ${renderContent(newsData.content)}
+                </div>
+                <div id="share-buttons">
+                    <a href="#" class="share-btn facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="share-btn twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="share-btn linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="media.html" class="back-link mb-5">返回新聞列表</a>
+            `;
+            const dynamicNewsContent = document.getElementById('dynamicNewsContent');
+            if (dynamicNewsContent) {
+                dynamicNewsContent.innerHTML = content;
+
+                // 添加事件監聽器到包含分享按鈕的父元素
+                const shareButtonsContainer = document.getElementById('share-buttons');
+                if (shareButtonsContainer) {
+                    shareButtonsContainer.addEventListener('click', handleShareButtonClick);
+                }
+            }
+        } else {
+            const dynamicNewsContent = document.getElementById('dynamicNewsContent');
+            if (dynamicNewsContent) {
+                dynamicNewsContent.innerHTML = '<h1>新聞不存在</h1><a href="media.html" class="back-link">返回新聞列表</a>';
+            }
+        }
+    } catch (error) {
+        console.error("Error fetching news:", error);
         const dynamicNewsContent = document.getElementById('dynamicNewsContent');
-        dynamicNewsContent.innerHTML = content;
-
-        // 添加事件监听器到包含分享按钮的父元素
-        const shareButtonsContainer = document.getElementById('share-buttons');
-        shareButtonsContainer.addEventListener('click', handleShareButtonClick);
-    } else {
-        document.getElementById('dynamicNewsContent').innerHTML = '<h1>新聞不存在</h1><a href="media.html" class="back-link">返回新聞列表</a>';
+        if (dynamicNewsContent) {
+            dynamicNewsContent.innerHTML = '<h1>載入新聞時發生錯誤</h1><a href="media.html" class="back-link">返回新聞列表</a>';
+        }
     }
 }
+
+// 在頁面加載完成後初始化
+document.addEventListener('DOMContentLoaded', generateNewsPage);
 
 function renderContent(contentArray) {
     return contentArray.map(item => {
@@ -243,7 +267,7 @@ function renderContent(contentArray) {
             case 'paragraph':
                 return `<p>${item.text}</p>`;
             case 'em':
-                return `<em>-----${item.text}-----</em>`
+                return `<em>${item.text}</em>`
             case 'image':
                 return `
                 <div class='wrapper'><img src="${item.url}" alt="${item.alt}"></div>`
@@ -255,8 +279,6 @@ function renderContent(contentArray) {
 
 // 頁面載入時執行
 document.addEventListener('DOMContentLoaded', () => {
-    generateNewsPage();
-    
     const layoutToggle = document.getElementById('layoutToggle');
     layoutToggle.addEventListener('click', updateLayout);
 });
