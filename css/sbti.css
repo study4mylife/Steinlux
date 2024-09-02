@@ -109,7 +109,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-height: 1000px;
 }
 
 .imageWrapper h1{
@@ -189,29 +188,18 @@
     transform: translateY(100%);
 }
 
-.advantagePart{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #999;
-    color: #fefefe;
-    padding: 20px 50px;
-}
-
-.advantagePart i{
-    width: 20%;
-}
-
-.advantagePart span{
-    width: 70%;
-}
-
 .targetContainer{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.targetContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
 }
 
 .targetContainer .wrapper{
@@ -316,22 +304,9 @@
     .advantageItems .item{
         width: 30%;
     }
-
-    .advantagePart span{
-        width: 100%;
-    }
-
-    .advantagePart i{
-        display: none;
-    }
-    
 }
 
 @media (max-width: 768px) {
-    html{
-        font-size: 14px;
-    }
-    
     .collapseItem{
         flex-direction: column;
     }
@@ -363,10 +338,9 @@
 @media (max-width: 600px) {
     .advantageItems{
         flex-direction: column;
-        margin-top: 300px;
     }
 
     .advantageItems .item{
-        width: 70%;
+        width: 80%;
     }
 }

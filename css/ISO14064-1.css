@@ -58,12 +58,6 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: solid 8px #97a68c;
-    border-radius: 20px 80px 20px 80px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: start;
@@ -73,12 +67,15 @@
 .whatContainer .what{
     width: 50%;
     margin-right: 30px;
+    padding: 30px;
+    border: solid 8px #97a68c;
+    border-radius: 50px 80px 20px 80px;
 }
 
 .whatContainer .scope{
     text-align: center;
     width: 50%;
-    padding: 40px;
+    padding: 30px;
     border: solid 8px #97a68c;
     border-radius: 120px 20px 120px 20px;
 }
@@ -120,6 +117,12 @@
     justify-content: center;
     width: 100%;
     margin-bottom: 100px;
+}
+
+.whyContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
 }
 
 .whyContainer .point{
@@ -216,10 +219,6 @@
 }
 
 @media (max-width: 1200px) {
-    .ISO14064{
-        font-size: 0.9rem;
-    }
-
     .whatContainer .what, .whatContainer .scope{
         width: 100%;
     }
@@ -239,8 +238,6 @@
         padding: 0;
         border: none;
     }
-
-
 }
 
 @media (max-width: 768px) {
@@ -263,5 +260,4 @@
         top: -100px;
         right: -20px;
     }
-
 }

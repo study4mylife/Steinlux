@@ -216,6 +216,12 @@
     transition: 400ms grid-template-rows ease;
 }
 
+.whyContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
+}
+
 .howContainer{
     display: flex;
     flex-direction: column;
@@ -275,21 +281,17 @@
 }
 
 @media (max-width: 768px) {
-    html{
-        font-size: 14px;
-    }
-
-    .whyContainer .wrapper img{
-        width: 100%;
-    }
-
     .scope2 .boxContainer .box, .scope3 .boxContainer .box{
         width: 100%;
     }
-}
 
-@media (max-width: 600px) {
-    html{
-        font-size: 13px;
+    .howContainer span::before{
+        top: -100px;
+        left: -20px;
+    }
+    
+    .howContainer span::after{
+        top: -100px;
+        right: -20px;
     }
 }

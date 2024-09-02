@@ -38,7 +38,7 @@ function renderNewsList() {
 
     paginatedNews.forEach(item => {
         const article = document.createElement('article');
-        article.className = 'card';
+        article.className = 'cards';
         article.innerHTML = `
             <div class="content">
                 <h3>${item.title || ''}</h3>

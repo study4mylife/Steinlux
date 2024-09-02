@@ -149,6 +149,14 @@
     margin-left: 10px;
 }
 
+.whyContainer .wrapper, .howContainer .wrapper{
+    width: 100%;
+}
+
+.whyContainer .wrapper img, .howContainer .wrapper img{
+    width: 100%;
+}
+
 .whyContainer{
     display: flex;
     flex-direction: column;
@@ -220,8 +228,3 @@
         border: none;
     }
 }
-
-@media (max-width: 768px) {
-
-}
-
