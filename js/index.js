@@ -13,6 +13,63 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+async function fetchRandomNews() {
+    const newsCollection = collection(db, 'news');
+    const newsSnapshot = await getDocs(newsCollection);
+    const allNews = newsSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+
+    // Randomly select two articles
+    const randomNews = [];
+    while (randomNews.length < 2 && allNews.length > 0) {
+        const randomIndex = Math.floor(Math.random() * allNews.length);
+        randomNews.push(allNews.splice(randomIndex, 1)[0]);
+    }
+
+    return randomNews;
+}
+
+function renderRandomNews(newsItems) {
+    const container = document.getElementById('newsItem');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    newsItems.forEach(item => {
+        const article = document.createElement('article');
+        article.className = 'newsItem';
+        article.innerHTML = `
+            <div class="newsContent">
+                <div class="wrapper">
+                    <a href="media.html?id=${item.id}">
+                        <img src="${item.mainImage || '../src/background1.jpg'}" alt="${item.mainImageAlt || ''}">
+                    </a>
+                </div>
+                <div class="content">
+                    <h2>${item.title || ''}</h2>
+                    <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 150) + '...' : ''}</p>
+                </div>
+            </div>
+        `;
+        container.appendChild(article);
+    });
+}
+
+// Function to initialize random news display
+async function initRandomNewsDisplay() {
+    try {
+        const randomNews = await fetchRandomNews();
+        renderRandomNews(randomNews);
+    } catch (error) {
+        console.error("Error fetching random news:", error);
+    }
+}
+
+// Call this function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', initRandomNewsDisplay);
+
 // Function to fetch news items from Firebase
 async function fetchNewsItems() {
     const newsCollection = collection(db, 'carousel');

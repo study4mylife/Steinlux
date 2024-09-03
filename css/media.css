@@ -113,8 +113,9 @@ time{
 }
 
 #pagination button{
-    margin: 0 5px;
+    margin: 20px 5px;
     padding: 10px 20px;
+    border-radius: 4px;
 }
 
 #pagination button:hover{
@@ -166,7 +167,6 @@ time{
     .cards .content{
         display: flex;
         flex-direction: column;
-
         padding: 20px;
     }
 }

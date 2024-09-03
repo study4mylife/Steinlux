@@ -40,6 +40,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
     transform: translateY(10vh);
 }
 
@@ -48,6 +49,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
+    transform: translateY(-10px);
 }
 
 .step{
@@ -58,7 +60,7 @@ main{
     top: 0;
     bottom: 0;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 30px;
     overflow: hidden;
     visibility: hidden;
     opacity: 0;
@@ -76,8 +78,8 @@ main{
 .allstep h2 {
     display: flex;
     justify-content: flex-start;
-    width: 10%;
-    margin: 50px 0 0 100px;
+    width: 100px;
+    margin: 50px 0 0 5vw;
     color: #bbb;
     font-size: 5.5rem;
     text-shadow: 2px 2px  3px#666;
@@ -412,7 +414,6 @@ svg path:hover{
 
 .electricPic{
     position: absolute;
-    left: -50px;
     bottom: -200px;
 }
 
@@ -511,22 +512,27 @@ svg path:hover{
 #results{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:start;
     background: linear-gradient(150deg,#D9F2D080 15%,#C1E5F590 25%,#FFF1D099 70%);
     width: 100%;
     height: fit-content;
     min-height: calc(100vh - 70px);
+    padding-top: 20px;
 }
 
 .resultContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
 }
 
-.resultContainer .basicInfo, .resultContainer .electricInfo{
-    width: 45%;
+.resultContainer .basicInfo{
+    width: 400px;
+}
+
+.resultContainer .electricInfo{
+    width: 500px;
 }
 
 .resultContainer h3{
@@ -542,6 +548,7 @@ svg path:hover{
     border-radius: 8px;
     letter-spacing: 2.5px;
     padding: 7.5px 10px;
+    transform: translateY(-8px);
 }
 
 .basicItem, .resultItem{
@@ -581,7 +588,7 @@ svg path:hover{
     justify-content: start;
     align-items: center;
     width: 100%;
-    margin-bottom: 140px;
+    margin-bottom: 180px;
     font-size: 1rem;
     letter-spacing: 5px;
 }
@@ -611,7 +618,7 @@ svg path:hover{
 .basicInfo .itemContainer .wrapper{
     position: absolute;
     top: -120px;
-    right: 180px;
+    right: 0px;
     width: 200px;
     z-index: -1;
 }
@@ -645,7 +652,7 @@ svg path:hover{
 }
 
 .tips3{
-    margin-top: 300px;
+    margin-top: 360px;
 }
 
 .electricInfo .itemContainer{
@@ -678,15 +685,35 @@ svg path:hover{
     width: 100%;
 }
 
-@media (min-height: 768px) {
+@media (min-height: 992px) {
     .stepContainer{
-        transform: translateY(7vh);
+        transform: translateY(8vh);
     }
 }
 
-@media (max-width: 1024px) {
+@media (min-height: 1200px) {
+    .stepContainer{
+        transform: translateY(5vh);
+    }
+}
+
+@media (min-width: 1600px) {
+    #buildModeGroup, #svgContainer{
+        max-width: 1200px;
+    }
+    
+    #installationTypeGroup{
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1200px) {
     .step h2, #results h2 {
         display: none;
+    }
+
+    .resultContainer .basicInfo, .resultContainer .electricInfo{
+        width: 400px;
     }
 }
 
@@ -763,7 +790,7 @@ svg path:hover{
         position: absolute;
         width: 200px;
         top: 100px;
-        right: -50px;
+        right: 0px;
     }
 
     .basicInfo, .electricInfo{
@@ -784,7 +811,7 @@ svg path:hover{
     .electricInfo .itemContainer .wrapper2,
     .electricInfo .itemContainer .wrapper3{
         bottom: 0px;
-        right: -50px;
+        right: 0;
     }
 
     .electricInfo .itemContainer{
@@ -831,5 +858,9 @@ svg path:hover{
 
     #step3 .text .wrapper, #step4 .text .wrapper{
         width: 200px;
+    }
+
+    .resultContainer .basicInfo, .resultContainer .electricInfo{
+        width: 300px;
     }
 }

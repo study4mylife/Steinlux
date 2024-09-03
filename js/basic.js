@@ -56,7 +56,7 @@ class Header extends HTMLElement{
                               <h2>碳權解決方案</h2>
                               <a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a>
                               <a href="../html/emissionTrading.html">國內減量額度交易</a>
-                              <a href="#">國際自願性碳權採購</a>
+                              <a href="../html/carbonCreditPurchasing.html">國際自願性碳權採購</a>
                           </div>
                       </div>
                       <div class="dropdown2">
@@ -115,7 +115,7 @@ class Header extends HTMLElement{
                     <li><a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
                     <li><a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a></li>
                     <li><a href="../html/emissionTrading.html">國內減量額度交易</a></li>
-                    <li><a href="#">國際自願性碳權採購</a></li>
+                    <li><a href="../html/carbonCreditPurchasing.html">國際自願性碳權採購</a></li>
                   </ul>
               </div>
               <div>
@@ -256,7 +256,7 @@ class Header extends HTMLElement{
                               <h2>碳權解決方案</h2>
                               <a href="../html/ISO14064-2.html">- ISO 14064-2專案開發</a>
                               <a href="../html/emissionTrading.html">- 國內減量額度交易</a>
-                              <a href="#">- 國際自願性碳權採購</a>
+                              <a href="../html/carbonCreditPurchasing.html">- 國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
                           <a href="../html/solarCalculator.html">- 太陽光電計算機</a>

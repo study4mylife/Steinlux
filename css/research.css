@@ -19,33 +19,57 @@
 #news-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.card{
-    width: 40%;
-    margin: 20px;
-    box-shadow: 0 0 0 1px #111;
-    border-radius: 8px;
-    padding: 10px 0;
-}
-
-.verticle .card{
-    width: 60%;
-    box-shadow: 0 0 0 1px #111;
-    border-radius: 8px;
-    padding: 10px 0;
-}
-
-
-.content{
+.search-result-item{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px
+    max-width: 500px;
+}
+
+.search-content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-content-container span{
+    width: 50%;
+}
+
+.search-result-item .wrapper{
+    width: 50%;
+}
+
+.search-result-item img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.cards{
+    width: 45%;
+    margin: 20px auto
+}
+
+.verticle .cards{
+    width: 60%;
+    margin: 20px;
+}
+
+#news-container .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 8px;
 }
 
 .content-container{
@@ -56,54 +80,42 @@
 }
 
 #news-container .wrapper{
-    width: 50%;
+    width: 100%;
+    height: 180px;
 }
 
 #news-container .content h3{
-    text-align: center;
     width: 100%;
-    padding-bottom: 10px;
 }
 
 #news-container .content a{
     width: 100%;
+    height: 100%;
 }
 
 #news-container .content img{
     width: 100%;
-    height: 150px;
+    height: 100%;
     object-fit: contain;
-    border-radius: 10px;
 }
 
 #news-container .content .text{
     width: 100%;
+    font-size: 1rem;
 }
 
 #news-container .content h3{
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#news-container .title p {
-    font-size: 16px;
-    display: -webkit-box;
-    line-clamp: 5;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.25rem;
 }
 
 time{
-    font-size: 12px;
-    margin-left: 80%;
+    font-size: 0.8rem;
 }
 
 #pagination button{
-    margin: 0 5px;
+    margin: 20px 5px;
     padding: 10px 20px;
+    border-radius: 4px;
 }
 
 #pagination button:hover{
@@ -112,8 +124,8 @@ time{
 }
 
 @media (max-width: 1200px) {
-    .verticle .card, .card{
-    width: 80%;
+    .verticle .cards, .cards{
+    width: 75%;
 }
 }
 
@@ -133,6 +145,10 @@ time{
         margin-bottom: 20px;
     }
 
+    #news-container .content h3{
+        text-align: center;
+    }
+
     .content img{
         width: 100%;
         margin-bottom: 20px;
@@ -142,7 +158,13 @@ time{
         width: 100%;
     }
 
-    .card .content{
+    .cards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards .content{
         display: flex;
         flex-direction: column;
         padding: 20px;
@@ -154,7 +176,6 @@ time{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 76px;
 }
 
 .newsContainer .news{
@@ -162,20 +183,19 @@ time{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 75%;
 }
 
-.newsContainer .title{
+.news .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-bottom: solid 1px #333;
 }
 
 .newsContainer .title h1{
-    font-size: 50px;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 2px;
@@ -183,26 +203,31 @@ time{
 }
 
 .newsContainer .title img{
-    margin-bottom: 50px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .newsContainer .title time{
-    font-size: 16px;
+    font-size: 1rem;
+    margin-left: 90%;
 }
 
 .newsContainer .content{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     letter-spacing: 1.5px;
     line-height: 30px;
+    padding-top: 20px;
+    border-top: solid 1px #333;
 }
 
 .newsContainer .content h2{
     position: relative;
     margin-right: auto;
-    font-size: 28px;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
@@ -217,12 +242,43 @@ time{
 }
 
 .newsContainer .content em{
+    position: relative;
     text-align: center;
-    margin: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: #97a68c;
+    color: #fefefe;
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+
+.newsContainer .content em::before{
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    content: '---';
+}
+
+.newsContainer .content em::after{
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    right: 0;
+    content: '---';
 }
 
 .newsContainer .news .content .wrapper{
-    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsContainer .news .content img{
+    width: 80%;
+    margin: 20px 0;
 }
 
 .newsContainer .content .imgComment{
@@ -230,13 +286,27 @@ time{
 }
 
 #share-buttons{
-    margin-top: 100px;
+    margin: 50px 0
+}
+
+#share-buttons a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: #222;
+    margin: 0 30px;
+}
+
+#share-buttons a:hover{
+    color: rgb(24, 94, 207);
+}
+
+#share-buttons i:hover{
+    cursor: pointer;
 }
 
 .back-link{
     text-decoration: none;
     color: #333;
-    margin: 30px 0;
     padding: 10px;
     border: 3px solid #666;
 }
@@ -247,6 +317,6 @@ time{
 
 @media (max-width: 576px) {
     .newsContainer .news{
-        width: 100%;
+        width: 90%;
     }
 }
