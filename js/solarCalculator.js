@@ -259,11 +259,11 @@ function calculate() {
         const avgElectricityIncome = totalIncome / annualOutput;
 
         document.getElementById('avgElectricityPrice').value = avgPrice.toFixed(2) + ' 元/度';
-        document.getElementById('annualSavings').value = annualSavings.toFixed(2) + ' 元';
-        document.getElementById('tRecCount').value = tRecCount + ' 張';
-        document.getElementById('greenCertificateIncome').value = greenCertificateIncome.toFixed(2) + ' 元';
+        document.getElementById('annualSavings').value = annualSavings.toLocaleString() + ' 元';
+        document.getElementById('tRecCount').value = tRecCount.toLocaleString() + ' 張';
+        document.getElementById('greenCertificateIncome').value = greenCertificateIncome.toLocaleString() + ' 元';
         document.getElementById('avgElectricityIncome').value = avgElectricityIncome.toFixed(2) + ' 元/度';
-        document.getElementById('totalIncome').value = totalIncome.toFixed(2) + ' 元';
+        document.getElementById('totalIncome').value = totalIncome.toLocaleString() + ' 元';
 
         infoType.textContent = '自發自用'
         document.getElementById('selfUseResults').style.display = 'block';
@@ -274,7 +274,7 @@ function calculate() {
 
         infoType.textContent = '自建售電'
         document.getElementById('wholesalePrice').value = adjustedWholesalePrice.toFixed(4) + ' 元/度';
-        document.getElementById('annualIncome').value = annualIncome.toFixed(2) + ' 元';
+        document.getElementById('annualIncome').value = annualIncome.toLocaleString() + ' 元';
 
         document.getElementById('sellElectricityResults').style.display = 'block';
 
@@ -284,11 +284,12 @@ function calculate() {
         const rentalIncome = annualIncome * 0.12;
 
         infoType.textContent = '出租屋頂'
-        document.getElementById('rentalIncome').value = rentalIncome.toFixed(2) + ' 元';
+        document.getElementById('rentalIncome').value = rentalIncome.toLocaleString() + ' 元';
         document.getElementById('rentRoofResults').style.display = 'block';
     }
     document.getElementById('results').style.display = 'flex';
 }
+
 function convertFromPing(ping) {
     return {
       ping: ping,

@@ -7,7 +7,7 @@ class Header extends HTMLElement{
               </div>
   
               <div class="menu-container">
-                  <div class="menu-toggle">☰</div>
+                  <div class="menu-toggle"><i class="fa-regular fa-comments"></i></div>
                   <div class="menu-items">
                       <a href="https://www.instagram.com/steinlux.gc/" target="_blank" class="menu-item"><i class="fab fa-instagram"></i></a>
                       <a href="https://www.facebook.com/profile.php?id=61561277428728" target="_blank" class="menu-item"><i class="fab fa-facebook"></i></a>
@@ -169,11 +169,7 @@ class Header extends HTMLElement{
                         <ul>
                             <li>公司名稱: 楒騄綠資本有限公司 STEINLUX GREEN CAPITAL CO.,LTD</li>
                             <li>Email: shih@steinlux.com.tw</li>
-                            <li>地址: 臺中市北屯區松竹五路二段88之9號1樓  </li>
-                            <li></li>
-                            <li></li>
                         </ul>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.893233460558!2d120.70979127534915!3d24.17547687838269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469181fd7477205%3A0xb57cdbe831245513!2zNDA25Y-w5Lit5biC5YyX5bGv5Y2A5p2-56u55LqU6Lev5LqM5q61ODjomZ8x!5e0!3m2!1szh-TW!2stw!4v1723635945029!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="feedbackForm">
                         <form id="feedback-form">
@@ -289,7 +285,7 @@ class Header extends HTMLElement{
           }
   
           clearTimeout(timeout);
-          dropdownContainer.style.height = '250px';
+          dropdownContainer.style.height = '230px';
           dropdownContent.style.width = '100%';
           dropdownContent.style.display = 'block';
           backgroundDimmer.style.height = '100vh';

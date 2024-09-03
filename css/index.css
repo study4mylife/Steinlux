@@ -29,6 +29,17 @@ main .title h1{
     text-underline-offset: 8px;
 }
 
+.solution span h1{
+    color: rgb(181, 189, 152);
+}
+
+.solution span p{
+    line-height: 2.5;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
 .newsContainer{
     display: flex;
     justify-content: center;
@@ -86,6 +97,7 @@ main .title h1{
     display: flex;
     justify-content: start;
     align-items: center;
+    margin: 15px 0;
 }
 
 .newsContent .content{
@@ -121,16 +133,6 @@ main .title h1{
 
 .content i{
     font-size: 16px;
-}
-
-.solution span h1{
-    color: rgb(181, 189, 152);
-}
-
-.solution span p{
-    line-height: 2.5;
-    letter-spacing: 1.5px;
-    margin-bottom: 30px;
 }
 
 .serviceItem{
@@ -187,7 +189,7 @@ main .title h1{
 
 .carouselItem {
     flex: 0 0 33%;
-    padding: 0 80px;
+    padding: 0 40px;
     box-sizing: border-box;
 }
 
@@ -302,15 +304,24 @@ main .title h1{
     .serviceItem .item{
         width: 80%;
     }
-    
+
     .carouselItem {
         flex: 0 0 100%;
     }
 }
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .carouselItem {
+        padding: 0 150px;
+    }
+  }
 
 @media(max-width: 480px) {
     .eventItem .item{
         flex: 0 0 calc(100%);
     }
 
+    .carouselItem {
+        padding: 0 2px 
+    }
 }

@@ -1,25 +1,4 @@
 @font-face {
-    font-family: 'GensenFont-B';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-B.ttc');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GensenFont-EL';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-EL.ttc');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GensenFont-H';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-H.ttc');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'GensenFont-M';
     src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-M.ttc');
     font-weight: normal;
@@ -29,13 +8,6 @@
 @font-face {
     font-family: 'GensenFont-L';
     src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-L.ttc');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GensenFont-R';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-R.ttc');
     font-weight: normal;
     font-style: normal;
 }
@@ -256,7 +228,7 @@
 }
 
 .nav-link:hover{
-    text-shadow: 3pt 0 4pt #40404060;
+    text-shadow: 1.5pt 1.5pt 2pt #40404060;
 }
 
 .nav-item::after{
@@ -311,7 +283,7 @@
 }
 
 .product-card div a:hover{
-    color: #555;
+    color: #666;
 }
 
 .product-card div h2{
@@ -319,7 +291,7 @@
     width: fit-content;
     transform: translateX(10px);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .product-card div h2::after{
@@ -340,7 +312,7 @@
 
 .product-card div h2:hover{
     cursor: pointer;
-    text-shadow: 3pt 0 4pt #40404060;
+    text-shadow: 1.5pt 1.5pt 2pt #40404060;
 }
 
 .background-dimmer {
@@ -400,9 +372,13 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 1.2rem;
-    color: #818181;
+    color: #111;
     display: block;
     transition: 0.3s;
+}
+
+.sidenav a:hover{
+    color: #666;
 }
 
 .dropdown-content {

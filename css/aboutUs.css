@@ -140,6 +140,8 @@ main{
 }
 
 .content {
+    width: 270px;
+    height: auto;
     padding: 20px 30px;
     background-color: white;
     position: relative;

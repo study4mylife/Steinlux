@@ -29,7 +29,7 @@
         <button class="stepButton" id="calculate" onclick="calculate()" style="display:none;">計算</button>
             <div id="step1" class="step active">
               <div class="button-group" id="buildModeGroup">
-                  <button class="bulid bulid-1" data-value="selfUse">
+                  <button onclick="nextStep()" class="bulid bulid-1" data-value="selfUse">
                     <span>
                       <h3>我想自發自用</h3>
                       <p>自己出資持有光電板與發電收益！<br>除了節省電費，還可轉讓環境效益給市場買家(T-REC) ！
@@ -39,7 +39,7 @@
                       <img src="../src/buildMode1.png" alt="">
                     </div>
                   </button>
-                  <button class="bulid bulid-2" data-value="sellElectricity">
+                  <button onclick="nextStep()" class="bulid bulid-2" data-value="sellElectricity">
                     <span>
                       <h3>我想自建售電</h3>
                       <p>自己出資持有光電板與發電收益！<br>可由台電保證收購20年，也可由楒騄轉供給市場買家！
@@ -49,7 +49,7 @@
                       <img src="../src/buildMode2.png" alt="">
                     </div>
                   </button>
-                  <button class="bulid bulid-3" data-value="rentRoof">
+                  <button onclick="nextStep()" class="bulid bulid-3" data-value="rentRoof">
                     <span>
                       <h3>我想出租屋頂</h3>
                       <p>無需出資！每年穩定領取租金分潤！<br>由楒騄進行20年的管理與維運工作，確保發電穩定！
@@ -65,7 +65,7 @@
           <div id="step2" class="step">
               <h2>選擇形式</h2>
               <div class="button-group" id="installationTypeGroup">
-                  <button class="install install-1 mt-3" data-value="agriculture">
+                  <button onclick="nextStep()" class="install install-1 mt-3" data-value="agriculture">
                     <div class="installContainer">
                       <div class="wrapper">
                         <img src="../src/installType1.png" alt="">
@@ -77,7 +77,7 @@
                       </span>
                   </div>
                   </button>
-                  <button class="install install-2" data-value="roofFrame">
+                  <button onclick="nextStep()" class="install install-2" data-value="roofFrame">
                     <div class="installContainer">
                       <div class="wrapper">
                         <img src="../src/installType2.png" alt="">
@@ -89,7 +89,7 @@
                       </span>
                     </div>
                   </button>
-                  <button class="install install-3" data-value="roofGround">
+                  <button onclick="nextStep()" class="install install-3" data-value="roofGround">
                     <div class="installContainer">
                       <div class="wrapper">
                         <img src="../src/installType3.png" alt="">
@@ -101,7 +101,7 @@
                       </span>
                     </div>
                   </button>
-                  <button class="install install-4" data-value="roofFlat">
+                  <button onclick="nextStep()" class="install install-4" data-value="roofFlat">
                     <div class="installContainer">
                       <div class="wrapper">
                         <img src="../src/installType4.png" alt="">
