@@ -204,21 +204,27 @@ function getAdjustedWholesalePrice(region, capacity) {
     return adjustedPrice;
 }
 
-const winterPrice = 3.785
-const summerPrice = 4.595
+function updateAvgPrice() {
+    const winterPrice = parseFloat(document.getElementById('winter').value) || 0;
+    const summerPrice = parseFloat(document.getElementById('summer').value) || 0;
+    const avgPrice = (winterPrice + summerPrice) / 2;
+    document.getElementById('avgPrice').textContent = `平均購電成本為${avgPrice.toFixed(2)}元/度！`;
+}
 
-document.getElementById('winter').value = winterPrice
-document.getElementById('summer').value = summerPrice
-document.getElementById('avgPrice').textContent = `平均購電成本為${((winterPrice + summerPrice)/2).toFixed(2)}度！`
+// 為冬季和夏季電價輸入添加事件監聽器
+document.getElementById('winter').addEventListener('input', updateAvgPrice);
+document.getElementById('summer').addEventListener('input', updateAvgPrice);
 
 function calculate() {
+    const winterPrice = parseFloat(document.getElementById('winter').value);
+    const summerPrice = parseFloat(document.getElementById('summer').value);
     const infoType = document.getElementById('infoType');
     const buildMode = document.querySelector('#buildModeGroup .active')?.dataset.value;
     const installationType = document.querySelector('#installationTypeGroup .active')?.dataset.value;
     const region = svgContainer.querySelector('.selected')?.getAttribute('name') || '未選擇';
     const areaPing = parseFloat(document.getElementById('area').value);
     
-    if (!buildMode || !installationType || region === '未選擇' || isNaN(areaPing)) {
+    if (!buildMode || !installationType || region === '未選擇' || isNaN(areaPing) ||buildMode === 'selfUse' && !winterPrice ||buildMode === 'selfUse' && !summerPrice) {
       alert('請填寫所有必要資訊');
       return;
     }
@@ -251,6 +257,8 @@ function calculate() {
     document.getElementById('rentRoofResults').style.display = 'none';
 
     if (buildMode === 'selfUse') {
+        const winterPrice = parseFloat(document.getElementById('winter').value);
+        const summerPrice = parseFloat(document.getElementById('summer').value);
         const avgPrice = (winterPrice + summerPrice) / 2;
         const annualSavings = annualOutput * avgPrice;
         const tRecCount = Math.floor(annualOutput / 1000);
@@ -338,3 +346,40 @@ function getInstallationTypeName(type) {
     };
     return names[type] || type;
 }
+
+function restart() {
+    document.getElementById('results').style.display = 'none';
+    
+    for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById(`step${i}`).style.display = 'flex';
+        document.getElementById(`step${i}`).classList.remove('active');
+    }
+    
+    document.getElementById('step1').classList.add('active');
+    
+    currentStep = 1;
+    
+    updateNavigationButtons();
+    
+    document.getElementById('area').value = '';
+    document.getElementById('winter').value = '';
+    document.getElementById('summer').value = '';
+    document.getElementById('avgPrice').textContent = '平均購電成本為 0 元/度！';
+    
+    const selectedRegion = svgContainer.querySelector('.selected');
+    if (selectedRegion) {
+        selectedRegion.classList.remove('selected');
+    }
+    document.getElementById('selected-region').textContent = '口口縣/市!';
+    document.getElementById('selected-region-solar').innerHTML = '平均日照時數為:';
+    document.getElementById('selected-region-2').textContent = '口口縣/市!';
+    document.getElementById('selected-region-solar-2').innerHTML = '平均日照時數為:';
+    
+    document.querySelectorAll('#buildModeGroup button, #installationTypeGroup button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    updateElectricGroup(null);
+}
+
+document.getElementById('restartButton').addEventListener('click', restart);

@@ -256,17 +256,17 @@ time{
 
 .newsContainer .content em::before{
     position: absolute;
-    top: 20px;
-    bottom: 0;
+    top: 50%;
     left: 0;
+    transform: translate(0%, -50%);
     content: '---';
 }
 
 .newsContainer .content em::after{
     position: absolute;
-    top: 20px;
-    bottom: 0;
+    top: 50%;
     right: 0;
+    transform: translate(0%, -50%);
     content: '---';
 }
 

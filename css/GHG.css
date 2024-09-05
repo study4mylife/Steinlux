@@ -64,18 +64,18 @@
     list-style: none;
 }
 
-.what{
-    width: 50%;
-    margin-right: 30px;
-    padding: 50px;
-    border: solid 8px #8ca6a1;
-    border-radius: 120px 20px 75px 180px;
-}
-
 .whatContainer{
     display: flex;
     align-items: start;
     justify-content: space-between;
+}
+
+.whatContainer .what{
+    width: 50%;
+    margin-right: 30px;
+    padding: 50px;
+    border: solid 8px #97a68c;
+    border-radius: 50px 80px 20px 80px;
 }
 
 .whatContainer .categories{
@@ -83,8 +83,8 @@
     height: fit-content;
     width: 50%;
     padding: 50px;
-    border: solid 8px #8ca6a1;
-    border-radius: 20px 90px 180px 20px;
+    border: solid 8px #97a68c;
+    border-radius: 70px 40px 120px 30px;
 }
 
 .wrapper{

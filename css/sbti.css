@@ -70,14 +70,14 @@
     margin-right: 30px;
     padding: 40px;
     border: solid 8px #97a68c;
-    border-radius: 90px 120px 30px 180px;
+    border-radius: 50px 80px 20px 80px;
 }
 
 .whatContainer .collab{
     width: 50%;
     padding: 30px;
     border: solid 8px #97a68c;
-    border-radius: 120px 30px 120px 30px;
+    border-radius: 70px 40px 120px 30px;
 }
 
 .collabContainer{

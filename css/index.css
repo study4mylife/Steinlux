@@ -9,8 +9,6 @@
 
 .videoWrapper{
     width: 100%;
-    backdrop-filter:grayscale(5px);
-    -webkit-backdrop-filter: grayscale(5px);
 }
 
 .videoWrapper video{

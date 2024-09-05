@@ -1,22 +1,11 @@
-.logo{
-    width: 100%;
-    height: 80px;
-    background-color: #fefefe;
-    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.1);;
-    text-align: center;
-    
-}
-
-.steinluxLogo{
-    width: 180px;
-    height: 40px;
-    margin: 20px
-}
-
 main{
-    background:url('../src/banner1.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:url('../src/carbonFootprint_background.jpg');
     background-size: cover;
     width: 100%;
+    height: 100vh;
     padding: 96px 0;
 }
 
@@ -246,78 +235,6 @@ section{
 
 #questions .question input:focus{
     outline: none;
-}
-
-footer{
-    text-align: center;
-    width: 100%;
-    letter-spacing: 2px;
-    background-color: rgb(243, 243, 242);
-}
-
-.footerContainer{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 50px 0 10px 0;
-}
-
-.footerContainer div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    width: 25%;
-}
-
-.footerContainer h4{
-    text-align: left;
-    font-size:16px;
-    margin: 15px 0 10px 0;
-}
-
-.footerContainer ul{
-    margin: 0;
-    padding: 0;  
-}
-
-.footerContainer li{
-    font-size:12px;
-}
-
-footer a{
-    text-decoration: none;
-    color: #444; 
-    line-height: 30px;
-}
-
-footer p{
-    font-size: 12px;
-    color: #888;
-    
-}
-
-.footerCopyright p{
-    display: inline-block;
-    font-size: 10px;
-    margin-right: 20px;
-}
-
-.footerCopyright h4{
-    display: inline-block;
-    font-size: 10px;
-    border-right: solid #222 1px;
-}
-
-@media (max-width: 992px) {
-    .footerContainer div{
-        width: 50%;
-    }
-
-    .footerCopyright{
-        display: flex;
-        flex-direction: column;
-    }
 }
 
 @media (max-width: 768px) {

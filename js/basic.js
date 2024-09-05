@@ -359,7 +359,15 @@ class Header extends HTMLElement{
   });
   
   function toggleNav() {
-      document.getElementById("mySidenav").classList.toggle('open');
+    const backgroundDimmer = document.querySelector('.background-dimmer');
+        document.getElementById("mySidenav").classList.toggle('open');
+        if(document.getElementById("mySidenav").classList.contains('open')){
+        backgroundDimmer.style.height = '100vh';
+        backgroundDimmer.style.backgroundColor = 'rgba(256, 256, 256, .5)';
+    }
+        else{
+            backgroundDimmer.style.height = '0';
+    }
   }
   
   // 為下拉菜單添加切換功能
