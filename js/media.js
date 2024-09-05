@@ -61,60 +61,6 @@ function renderNewsList() {
     });
 }
 
-async function searchNews(searchTerm = '') {
-    const newsCollection = collection(db, 'news');
-    let q;
-
-    if (searchTerm) {
-        q = query(newsCollection, 
-            where('title', '>=', searchTerm), 
-            where('title', '<=', searchTerm + '\uf8ff'), 
-            orderBy('title'), 
-            limit(10)
-        );
-    } else {
-        q = query(newsCollection, orderBy('date', 'desc'), limit(10));
-    }
-
-    const querySnapshot = await getDocs(q);
-    let searchResultsHtml = '';
-
-    querySnapshot.forEach((doc) => {
-        const newsData = doc.data();
-        searchResultsHtml += `
-            <div class="search-result-item">
-                <h3><a href="media.html?id=${doc.id}">${newsData.title}</a></h3>
-                <div class="search-content-container">
-                    <div class="wrapper">
-                        <a href="media.html?id=${doc.id}">
-                            <img src="${newsData.mainImage || '../src/background1.jpg'}" alt="${newsData.mainImageAlt || ''}">
-                        </a>
-                    </div>
-                    <span>
-                        <p>${newsData.content[0].text.substring(0, 100)}...</p>
-                    </span>
-                </div>
-            </div>
-        `;
-    });
-
-    const searchResultsElement = document.getElementById('searchResults');
-    if (searchResultsHtml) {
-        searchResultsElement.innerHTML = searchResultsHtml;
-        searchResultsElement.style.display = 'block';
-    } else {
-        searchResultsElement.innerHTML = '<p>沒有符合的新聞</p>';
-        searchResultsElement.style.display = 'block';
-    }
-}
-
-
-
-document.getElementById('searchButton').addEventListener('click', () => {
-    const searchTerm = document.getElementById('searchInput').value;
-    searchNews(searchTerm);
-});
-
 function setupPagination() {
     const paginationContainer = document.getElementById('pagination');
     const itemsPerPage = 10
@@ -130,27 +76,6 @@ function setupPagination() {
         });
         paginationContainer.appendChild(button);
     }
-}
-
-function updateLayout() {
-    const cardContainer = document.querySelector('.cardContainer');
-    const cards = document.querySelectorAll('.card');
-    const layoutToggle = document.getElementById('layoutToggle');
-
-    cardContainer.classList.toggle('verticle');
-    cards.forEach(element => {
-        element.classList.toggle('verticle');
-    });
-
-    if (cardContainer.classList.contains('verticle')) {
-        layoutToggle.textContent = '切換到橫向布局';
-    } else {
-        layoutToggle.textContent = '切換到縱向布局';
-    }
-
-    currentPage = 1; // 重置到第一頁
-    renderNewsList();
-    setupPagination();
 }
 
 // 分享函數
@@ -213,7 +138,6 @@ async function generateNewsPage() {
             document.title = newsData.title;
             
             let content = `
-            <a href="media.html" class="back-link">返回新聞列表</a>
                 <div class="title">
                     <h1>${newsData.title}</h1>
                     <time>${newsData.date}</time>
@@ -276,9 +200,3 @@ function renderContent(contentArray) {
         }
     }).join('');
 }
-
-// 頁面載入時執行
-document.addEventListener('DOMContentLoaded', () => {
-    const layoutToggle = document.getElementById('layoutToggle');
-    layoutToggle.addEventListener('click', updateLayout);
-});

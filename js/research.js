@@ -78,27 +78,6 @@ function setupPagination() {
     }
 }
 
-function updateLayout() {
-    const cardContainer = document.querySelector('.cardContainer');
-    const cards = document.querySelectorAll('.card');
-    const layoutToggle = document.getElementById('layoutToggle');
-
-    cardContainer.classList.toggle('verticle');
-    cards.forEach(element => {
-        element.classList.toggle('verticle');
-    });
-
-    if (cardContainer.classList.contains('verticle')) {
-        layoutToggle.textContent = '切換到橫向布局';
-    } else {
-        layoutToggle.textContent = '切換到縱向布局';
-    }
-
-    currentPage = 1; // 重置到第一頁
-    renderNewsList();
-    setupPagination();
-}
-
 //分享功能
 
 function shareToFacebook() {
@@ -202,7 +181,4 @@ function renderContent(contentArray) {
 // 頁面載入時執行
 document.addEventListener('DOMContentLoaded', () => {
     generateNewsPage();
-    
-    const layoutToggle = document.getElementById('layoutToggle');
-    layoutToggle.addEventListener('click', updateLayout);
 });

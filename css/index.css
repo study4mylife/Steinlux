@@ -88,7 +88,7 @@ main .title h1{
 }
 
 .newsItems .newsItem:first-of-type {
-    border-bottom: 1px solid #666; /* 根據需要調整顏色和厚度 */
+    border-bottom: 1px solid #666;
 }
 
 .newsContent{

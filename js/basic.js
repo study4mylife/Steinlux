@@ -38,10 +38,10 @@ class Header extends HTMLElement{
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">淨零顧問服務<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
-                              <h2>供應鏈碳管理</h2>
+                              <a href="../html/carbonManagement.html"><h2>供應鏈碳管理</h2></a>
                               <a href="../html/sbti.html">SBTi目標設定/提交</a>
                               <a href="../html/GHG.html">GHG Protocol Scope 3</a>
-                              <h2>溫室氣體盤查</h2>
+                              <a href="../html/gasInterrogation.html"><h2>溫室氣體盤查</h2></a>
                               <a href="../html/ISO14064-1.html">ISO 14064-1組織型</a>
                               <a href="../html/ISO14067.html">ISO 14067 碳足跡</a>
                           </div>
@@ -49,11 +49,11 @@ class Header extends HTMLElement{
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">淨零解決方案<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
-                             <h2>綠電解決方案</h2>
+                              <a><h2>綠電解決方案</h2></a>
                               <a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
                               <a href="../html/CPPA.html">國內購電協議(CPPA)</a>
                               <a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
-                              <h2>碳權解決方案</h2>
+                              <a><h2>碳權解決方案</h2></a>
                               <a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a>
                               <a href="../html/emissionTrading.html">國內減量額度交易</a>
                               <a href="../html/carbonCreditPurchasing.html">國際自願性碳權採購</a>
@@ -233,26 +233,26 @@ class Header extends HTMLElement{
   
       const products = {
           淨零顧問服務: [`<div>
-                          <h2>供應鏈碳管理</h2>
+                         <a href="../html/carbonManagement.html"><h2>供應鏈碳管理</h2></a>                             
                           <a href="../html/sbti.html">- SBTi目標設定/提交</a>
                           <a href="../html/GHG.html">- GHG Protocol Scope 3</a>
                           </div>
                           <div>
-                          <h2>溫室氣體盤查</h2>
+                          <a href="../html/gasInterrogation.html"><h2>溫室氣體盤查</h2></a>
                           <a href="../html/ISO14064-1.html">- ISO 14064-1組織型</a>
                           <a href="../html/ISO14067.html">- ISO 14067 碳足跡</a>
                           </div>`],
           淨零解決方案: [`<div>
-                             <h2>綠電解決方案</h2>
-                              <a href="../html/T-REC.html">- 國內再生能源憑證(T-REC)</a>
-                              <a href="../html/CPPA.html">- 國內購電協議(CPPA)</a>
-                              <a href="../html/I-REC TIGR.html">- 國際再生能源憑證(I-REC/TIGR)</a>
+                            <a><h2>綠電解決方案</h2></a>
+                            <a href="../html/T-REC.html">- 國內再生能源憑證(T-REC)</a>
+                            <a href="../html/CPPA.html">- 國內購電協議(CPPA)</a>
+                            <a href="../html/I-REC TIGR.html">- 國際再生能源憑證(I-REC/TIGR)</a>
                           </div>
                           <div>
-                              <h2>碳權解決方案</h2>
-                              <a href="../html/ISO14064-2.html">- ISO 14064-2專案開發</a>
-                              <a href="../html/emissionTrading.html">- 國內減量額度交易</a>
-                              <a href="../html/carbonCreditPurchasing.html">- 國際自願性碳權採購</a>
+                            <a><h2>碳權解決方案</h2></a>
+                            <a href="../html/ISO14064-2.html">- ISO 14064-2專案開發</a>
+                            <a href="../html/emissionTrading.html">- 國內減量額度交易</a>
+                            <a href="../html/carbonCreditPurchasing.html">- 國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
                           <a href="../html/solarCalculator.html">- 太陽光電計算機</a>
@@ -364,6 +364,7 @@ class Header extends HTMLElement{
         if(document.getElementById("mySidenav").classList.contains('open')){
         backgroundDimmer.style.height = '100vh';
         backgroundDimmer.style.backgroundColor = 'rgba(256, 256, 256, .5)';
+        backgroundDimmer.style.zIndex = '2';
     }
         else{
             backgroundDimmer.style.height = '0';

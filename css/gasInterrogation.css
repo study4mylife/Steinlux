@@ -1,0 +1,20 @@
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.videoWrapper{
+    width: 100%;
+}
+
+.videoWrapper video{
+    width: 100%;
+}
+
+main{
+    text-align: center;
+}

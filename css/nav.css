@@ -271,7 +271,7 @@
     justify-content: start;
     flex-direction: column;
     height: 250px;  
-    margin: 20px auto auto auto
+    margin: 10px auto auto auto
 }
 
 .product-card div a{
@@ -279,7 +279,7 @@
     text-decoration: none;
     font-size: 1rem;
     color: #111;
-    margin: 15px;
+    margin: 12px;
 }
 
 .product-card div a:hover{
