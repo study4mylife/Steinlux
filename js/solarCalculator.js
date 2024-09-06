@@ -267,11 +267,11 @@ function calculate() {
         const avgElectricityIncome = totalIncome / annualOutput;
 
         document.getElementById('avgElectricityPrice').value = avgPrice.toFixed(2) + ' 元/度';
-        document.getElementById('annualSavings').value = annualSavings.toLocaleString() + ' 元';
+        document.getElementById('annualSavings').value = annualSavings.toFixed(0).toLocaleString() + ' 元';
         document.getElementById('tRecCount').value = tRecCount.toLocaleString() + ' 張';
-        document.getElementById('greenCertificateIncome').value = greenCertificateIncome.toLocaleString() + ' 元';
+        document.getElementById('greenCertificateIncome').value = greenCertificateIncome.toFixed(0).toLocaleString() + ' 元';
         document.getElementById('avgElectricityIncome').value = avgElectricityIncome.toFixed(2) + ' 元/度';
-        document.getElementById('totalIncome').value = totalIncome.toLocaleString() + ' 元';
+        document.getElementById('totalIncome').value = totalIncome.toFixed(0).toLocaleString() + ' 元';
 
         infoType.textContent = '自發自用'
         document.getElementById('selfUseResults').style.display = 'block';
@@ -282,7 +282,7 @@ function calculate() {
 
         infoType.textContent = '自建售電'
         document.getElementById('wholesalePrice').value = adjustedWholesalePrice.toFixed(4) + ' 元/度';
-        document.getElementById('annualIncome').value = annualIncome.toLocaleString() + ' 元';
+        document.getElementById('annualIncome').value = annualIncome.toFixed(0).toLocaleString() + ' 元';
 
         document.getElementById('sellElectricityResults').style.display = 'block';
 

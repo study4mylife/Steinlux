@@ -808,6 +808,11 @@ svg path:hover{
         align-items: center;
         width: 100%;
     }
+
+    .basicItem input, .resultItem input{
+        background-color: #fefefe90;
+        color: #666;
+    }
     
 }
 
