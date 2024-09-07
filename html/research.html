@@ -13,35 +13,28 @@
 </head>
 <body>
     <index-Header></index-Header>
-    
-    <div class="bannerContainer container-fluid px-0 position-relative" id="bannerContainer">
-        <img src="../src/banner1.png" alt="STEINLUX_Banner" class="banner">
-        <span>
-            <h1>永續，你我攜手</h1>
-            <h2>Build Sustainable Thinking & Achieve Positive Impact</h2>
-        </span>
-    </div>
 
-    <hr>
     <main>
-        <main>
-            <div class="cardContainer">
+        <div class="cardContainer">
+            <div class="topNews"></div>
+            <div class="mainNews">
                 <div id="news-container"></div>
-                <div id="pagination"></div>
+                <div id ="sideNews"></div>
             </div>
-    
-            <article class="newsContainer">
-                <div id="dynamicNewsContent" class="news">
-                    <!-- 動態內容將在這裡生成 -->
-                </div>
-            </article>
-        </main>
+            <div id="pagination"></div>
+        </div>
+
+        <article class="newsContainer">
+            <div id="dynamicNewsContent" class="news" >
+                <!-- 動態內容將在這裡生成 -->
+            </div>
+        </article>
     </main>
     <index-Footer></index-Footer>
     
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="../js/basic.js"></script>
+    <script type="module" src="../js/basic.js"></script>
     <script type="module" src="../js/research.js"></script>
 </body>
 </html>

@@ -169,69 +169,69 @@ async function generateNewsPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const newsId = urlParams.get('id');
     
-    if (!newsId) {
-        // 如果沒有指定 ID，顯示新聞列表
-        fetchNewsList();
-        return;
-    }
+    // Hide news list elements
+    const cardContainer = document.querySelector('.cardContainer');
+    const newsContainer = document.querySelector('.newsContainer');
+    
+    if (newsId) {
+        // If a specific news ID is provided, hide the news list and show the individual news
+        if (cardContainer) cardContainer.style.display = 'none';
+        if (newsContainer) newsContainer.style.display = 'flex';
 
-    // 隱藏新聞列表和分頁
-    const bannerContainer = document.getElementById('bannerContainer');
-    const newsContainer = document.getElementById('news-container');
-    const pagination = document.getElementById('pagination');
+        try {
+            const newsRef = doc(db, 'news', newsId);
+            const newsSnap = await getDoc(newsRef);
 
-    if (bannerContainer) bannerContainer.style.display = 'none';
-    if (newsContainer) newsContainer.style.display = 'none';
-    if (pagination) pagination.style.display = 'none';
-
-    try {
-        const newsRef = doc(db, 'news', newsId);
-        const newsSnap = await getDoc(newsRef);
-
-        if (newsSnap.exists()) {
-            const newsData = newsSnap.data();
-            document.title = newsData.title;
-            
-            let content = `
-                <div class="title">
-                    <h1>${newsData.title}</h1>
-                    <time>${newsData.date}</time>
-                    <div class='wrapper'><img src="${newsData.mainImage || '../src/banner1.png'}" alt="${newsData.mainImageAlt || ''}">
+            if (newsSnap.exists()) {
+                const newsData = newsSnap.data();
+                document.title = newsData.title;
+                
+                let content = `
+                    <div class="title">
+                        <h1>${newsData.title}</h1>
+                        <time>${newsData.date}</time>
+                        <div class='wrapper'><img src="${newsData.mainImage || '../src/banner1.png'}" alt="${newsData.mainImageAlt || ''}">
+                        </div>
                     </div>
-                </div>
 
-                <div class="content">
-                    ${renderContent(newsData.content)}
-                </div>
-                <div id="share-buttons">
-                    <a href="#" class="share-btn facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#" class="share-btn twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="share-btn linkedin"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-                <a href="media.html" class="back-link mb-5">返回新聞列表</a>
-            `;
-            const dynamicNewsContent = document.getElementById('dynamicNewsContent');
-            if (dynamicNewsContent) {
-                dynamicNewsContent.innerHTML = content;
+                    <div class="content">
+                        ${renderContent(newsData.content)}
+                    </div>
+                    <div id="share-buttons">
+                        <a href="#" class="share-btn facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="share-btn twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="share-btn linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="media.html" class="back-link mb-5">返回新聞列表</a>
+                `;
+                const dynamicNewsContent = document.getElementById('dynamicNewsContent');
+                if (dynamicNewsContent) {
+                    dynamicNewsContent.innerHTML = content;
 
-                // 添加事件監聽器到包含分享按鈕的父元素
-                const shareButtonsContainer = document.getElementById('share-buttons');
-                if (shareButtonsContainer) {
-                    shareButtonsContainer.addEventListener('click', handleShareButtonClick);
+                    // Add event listener to the parent element containing share buttons
+                    const shareButtonsContainer = document.getElementById('share-buttons');
+                    if (shareButtonsContainer) {
+                        shareButtonsContainer.addEventListener('click', handleShareButtonClick);
+                    }
+                }
+            } else {
+                const dynamicNewsContent = document.getElementById('dynamicNewsContent');
+                if (dynamicNewsContent) {
+                    dynamicNewsContent.innerHTML = '<h1>新聞不存在</h1><a href="media.html" class="back-link">返回新聞列表</a>';
                 }
             }
-        } else {
+        } catch (error) {
+            console.error("Error fetching news:", error);
             const dynamicNewsContent = document.getElementById('dynamicNewsContent');
             if (dynamicNewsContent) {
-                dynamicNewsContent.innerHTML = '<h1>新聞不存在</h1><a href="media.html" class="back-link">返回新聞列表</a>';
+                dynamicNewsContent.innerHTML = '<h1>載入新聞時發生錯誤</h1><a href="media.html" class="back-link">返回新聞列表</a>';
             }
         }
-    } catch (error) {
-        console.error("Error fetching news:", error);
-        const dynamicNewsContent = document.getElementById('dynamicNewsContent');
-        if (dynamicNewsContent) {
-            dynamicNewsContent.innerHTML = '<h1>載入新聞時發生錯誤</h1><a href="media.html" class="back-link">返回新聞列表</a>';
-        }
+    } else {
+        // If no specific news ID is provided, show the news list and hide the individual news container
+        if (cardContainer) cardContainer.style.display = 'flex';
+        if (newsContainer) newsContainer.style.display = 'none';
+        fetchNewsList();
     }
 }
 

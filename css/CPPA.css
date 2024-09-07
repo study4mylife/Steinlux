@@ -141,9 +141,11 @@
 
 .howContainer span{
     position: relative;
+    background-color: #97a68c;
+    color: #fefefe;
     width: 80%;
     padding: 10px;
-    border: 3px solid #333;
+    border-radius: 12px;
 }
 
 .howContainer span::before{
@@ -151,7 +153,7 @@
     top: -100px;
     left: -80px;
     content: ',,';
-    color: #8fc268;
+    color: #97a68c;
     font-size: 4rem;
 }
 
@@ -160,11 +162,9 @@
     top: -100px;
     right: -80px;
     content: ',,';
-    color: #8fc268;
+    color: #97a68c;
     font-size: 4rem;
 }
-
-
 .howContainer .wrapper{
     width: 100%;
 }

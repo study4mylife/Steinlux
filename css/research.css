@@ -1,23 +1,82 @@
+.nav-container{
+    margin-bottom: 50px;
+}
+
 /*新聞列表*/ 
 .cardContainer{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-bottom: 150px;
+    line-height: 2.2;
+    letter-spacing: 2px;
+}
+
+.topNews{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #666;
+}
+
+.top-news-card{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+}
+
+.top-news-card h2{
+    font-size: 2rem;
+}
+
+.top-news-card p{
+    font-size: 0.9rem;
+}
+
+
+.top-news-card .wrapper{
+    width: 55%;
+}
+
+.top-news-card .wrapper img{
+    width: 90%;
+}
+
+.top-news-card span{
+    width: 45%;
+}
+
+.top-news-card span a{
+    color: #000;
+    text-decoration: none;
+}
+
+.top-news-card span p{
+    color: #333;
+}
+
+.mainNews{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    padding-top: 50px;
 }
 
 #news-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    justify-content: start;
+    align-items: start;
+    width: 65%;
 }
 
-.cards{
-    width: 45%;
-    margin: 20px auto
+#news-container .cards{
+    width: 33%;
 }
 
 #news-container .content{
@@ -26,48 +85,81 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border: 2px solid #333;
-    border-radius: 8px;
 }
 
 .content-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
 #news-container .wrapper{
+    position: relative;
     width: 100%;
-    height: 180px;
+    padding-bottom: 57%;
+    margin-bottom: 18px;
 }
 
 #news-container .content h3{
-    width: 100%;
+    font-size: 1.2rem;
 }
 
 #news-container .content a{
     width: 100%;
-    height: 100%;
 }
 
 #news-container .content img{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center center;
 }
 
 #news-container .content .text{
     width: 100%;
-    font-size: 1rem;
-}
-
-#news-container .content h3{
-    font-size: 1.25rem;
-}
-
-time{
     font-size: 0.8rem;
+    padding: 10px 0;
+}
+
+#news-container .content .time{
+    width: 100%;
+    color: #555;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+#sideNews{
+    width: 25%;
+}
+
+#sideNews h3::first-letter{
+    color: #749a5a;
+    text-decoration-line: underline;
+    text-underline-offset: 5px
+}
+
+#sideNews a{
+    width: 100%;
+    text-decoration: none;
+    color: #000;  
+    margin: 50px 0;  
+}
+
+#sideNews h4{
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#sideNews time{
+    display: inline-block;
+    width: 100% ;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #666;
 }
 
 #pagination button{
@@ -83,43 +175,37 @@ time{
 
 @media (max-width: 1200px) {
     .cards{
-        width: 75%;
+    width: 75%;
     }
 }
 
-@media (max-width: 768px) {
-    #news-container .content-container{
+@media (max-width: 992px) {
+    .top-news-card{
         flex-direction: column;
     }
 
-    #news-container .content .wrapper{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    #news-container .content h3{
-        text-align: center;
-    }
-
-    .content img{
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    #news-container .content .text{
-        width: 100%;
-    }
-
-    .cards{
+    .top-news-card .wrapper{
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
     }
 
-    .cards .content{
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
+    .top-news-card span, .top-news-card .wrapper img{
+        width: 100%;
+    }
+    
+    #news-container{
+        width: 90%;
+    }
+
+    #news-container .cards{
+        width: 50%;
+    }
+
+    #sideNews{
+        display: none;
     }
 }
 
@@ -152,7 +238,6 @@ time{
     line-height: 1.5;
     letter-spacing: 2px;
     color: #333;
-    margin-top: 50px;
 }
 
 .newsContainer .title img{

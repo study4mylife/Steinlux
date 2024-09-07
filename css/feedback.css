@@ -5,7 +5,6 @@
     background-color: #97a68c;
     color: #fefefe;
     letter-spacing: 3px;
-    border-top: 3px solid #000;
 }
 
 .feedbackContainer{
@@ -25,6 +24,7 @@
 
 .info{
     width: 55%;
+    line-height: 3;
 }
 
 .info h2{
@@ -32,17 +32,15 @@
     font-weight: 700;
 }
 
-.info ul{
-    list-style: none;
-}
-
-.info li{
-    line-height: 3;
-}
-
-.info iframe{
+.info .wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: start;
     width: 100%;
-    height: 400px;
+}
+
+.info .wrapper img{
+    width: 70%;
 }
 
 .feedbackForm{

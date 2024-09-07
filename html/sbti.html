@@ -12,15 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
 </head>
-<body>
+<body id="SBTi">
     <index-Header></index-Header>
     
     <div class="bannerContainer container-fluid px-0 position-relative">
-        <img src="../src/banner1.png" alt="STEINLUX_Banner" class="banner">
-        <span>
-            <h1>SBTi目標設定/提交</h1>
-            <h2>Science Based Targets Initiatives</h2>
-        </span>
+        <img id="banner" src="../src/banner1.png" alt="STEINLUX_Banner" class="banner">
     </div>
 
     <hr>
@@ -29,23 +25,22 @@
         <article class="SBTi mt-5 mb-5">
             <div class="SBTiContainer">
                 <section class="whatSBTi hidden-element">  
-                    <h1>導入SBTi以實現策略性氣候行動</h1>
+                    <h1 id="mainTitle1"></h1>
                     <div class="whatContainer">
                         <span class="what">
-                            <h2>關於SBTi</h2>
-                            <p>科學基礎目標倡議（SBTi）是一個全球性組織，專注於推動企業和金融機構採取氣候行動。SBTi通過開發標準、工具和指導方針，幫助企業設定符合氣候科學的溫室氣體（GHG）減排目標，確保全球升溫控制在安全範圍內，並在2050年之前實現淨零排放。</p>
-                            <p>SBTi是一項旨在幫助企業設定和實現與氣候科學一致的減碳目標的倡議。這些目標基於最新的氣候科學研究，確保企業的減碳努力能夠支持全球將升溫控制在 <strong>1.5°C</strong> 或 <strong>2°C</strong> 以內的目標。SBTi提供了一個清晰的標準和指南，幫助企業在設定目標的過程中保持科學性和可行性。</p>
+                            <h2 id="aboutSBTiTitle1"></h2>
+                            <p id="aboutSBTip1"></p>
+                            <p id="aboutSBTip2"></p>
                         </span>
                         <span class="collab">
                             <div class="collabContainer">
-                                <h2>SBTi的合作夥伴</h2>
-                                <p>SBTi作為公益機構，並設有一家子公司專門提供目標驗證服務。SBTi的合作夥伴包括碳揭露專案（CDP）、聯合國全球契約（UNGC）、We Mean Business聯盟、世界資源研究所（WRI）和世界自然基金會（WWF）。
-                                </p>
+                                <h2 id="aboutSBTiTitle2"></h2>
+                                <p id="aboutSBTip3"></p>
                                 <div class="wrapper">
-                                    <img src="../src/CDP_logo.png" alt="">
-                                    <img src="../src/UNGC_logo.png" alt="">
-                                    <img src="../src/WRI_logo.svg" alt="">
-                                    <img src="../src/WWF_logo.png" alt="">
+                                    <img id="aboutSBTiImage1">
+                                    <img id="aboutSBTiImage2">
+                                    <img id="aboutSBTiImage3">
+                                    <img id="aboutSBTiImage4">
                                 </div>
                             </div>
                         </span>
@@ -55,40 +50,40 @@
 
                     </section>
                     <div class="imageWrapper hidden-element">
-                        <h1>設定SBTi科學基礎目標的優勢：</h1>
-                        <img src="../src/pexels-pixabay-259280.jpg" alt="">
+                        <h1 id="mainTitle2"></h1>
+                        <img id="advantageBackground">
                         <section class="advantage">
                             <div class="advantageContainer">
                                 <div class="advantageItems">
                                     <div class="item">
                                         <div class="number">
-                                            <p>102%</p>
+                                            <p id="advantageNumber1"></p>
                                         </div>
                                         <div class="box">
-                                            <p>制定SBTi之公司數量成長幅度</p>
+                                            <p id="advantagep1"></p>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="number">
-                                            <p>4205</p>
+                                            <p id="advantageNumber2"></p>
                                         </div>
                                         <div class="box">
-                                            <p>獲得 SBTi 的驗證公司數量</p>
+                                            <p id="advantagep2"></p>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <div class="number">
-                                            <p>39%</p>
+                                            <p id="advantageNumber3"></p>
                                         </div>
                                         <div class="box">
-                                            <p>擁有SBTi企業所涵蓋的全球市值</p>
+                                            <p id="advantagep3"></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         
                         <span>
-                            <p>在 2023 年的SBTi的監測報告中指出，制定SBTi的公司數量增長了 <strong>102%</strong> ，且擁有SBTi企業所涵蓋的全球市值達到了 <strong>39%</strong>，隨目標數量不斷增加，產業和市值持續成長。至 2023 年底， <strong>4205</strong> 家公司和金融機構的科學目標已獲得 SBTi 的驗證。</p>
+                            <p id="advantageArticle"></p>
                         </span>
     
                     </section>
@@ -96,28 +91,29 @@
                 
                 <section class="targetSBTi mt-5 hidden-element-left">
                     <div class="targetContainer">
-                        <span>
-                            <h2>SBTi的挑戰與目標</h2>
-                            <p>全球升溫需控制在1.5°C以內，以避免氣候變遷帶來的最壞影響。根據2015年巴黎協定，全球各國政府承諾將全球溫度升幅控制在工業化前水平以上2°C以內，並努力將升幅限制在1.5°C以內。2018年，聯合國政府間氣候變遷專門委員會（IPCC）警告，全球升溫不能超過1.5°C，否則將面臨災難性後果。為達成這一目標， <strong>全球溫室氣體排放必須在2030年前減半，並在2050年前降至淨零。</strong>
-                            </p>
-                        </span>
-                        <span>
-                            <p>SBTi的目標在動員私部門主導以應對氣候變遷的緊迫行動。SBTi幫助企業和金融機構認識到他們需要減少多少排放以及需要在多快的時間內達成目標，以防止氣候變遷帶來的最壞影響。針對特定行業，SBTi提供了量身定制的指導方針，包括森林、土地、農業和金融業等領域。企業在推動溫室氣體減排和建立具韌性的零排放經濟中發揮著至關重要的作用，這些行動必須基於 <strong>科學指引</strong> 。SBTi致力於推動企業成為減排行動的先鋒，從而帶動供應商、消費者和政府採取更具雄心的行動。
-                            </p>
-                        </span>
+                        <div class="paragraph1 mb-5">
+                            <span>
+                                <h2 id="targetTitle"></h2>
+                                <p id="targetp1"></p>
+                            </span>
                     
-                        <div class="wrapper">
-                            <img src="../src/SBTi image.png" alt="">
+                            <div class="wrapper">
+                                <img id="targetImage">
+                            </div>
                         </div>
+
+                        <span id="targetp2">
+                            <p></p>
+                        </span>
                     </div>
                 </section>
                     
                 <section class="howSBTi hidden-element-right">
                     <div class="howContainer">
-                        <span><em>透過與Steinlux楒騄合作，您的企業可以獲得在計算、減量、緩解、監測及揭露排放方面的高效支持——即使是來自如供應鏈這類具有挑戰性的來源——以達成您的短期和長期氣候行動目標。我們的全方位減碳解決方案是基於三範疇框架組織的，我們經驗豐富的團隊可以根據您的獨特需求制定採購策略。</em>
+                        <span id="summary">
                         </span>
                         <div class="wrapper">
-                          <img src="../src/GHG background.jpg" alt="">
+                          <img id="summaryImage">
                         </div>
                     </div>
                 </section>
@@ -131,7 +127,7 @@
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="../js/basic.js"></script>
+    <script type="module" src="../js/basic.js"></script>
     <script src="../js/feedback.js"></script>
 </body>
 </html>

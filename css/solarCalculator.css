@@ -9,10 +9,6 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-.nav-bar{
-    margin: 0 auto;
-}
-
 main{
     display: flex;
     justify-content: center;
@@ -705,10 +701,6 @@ svg path:hover{
 }
 
 @media (max-width: 992px) {
-    html{
-        font-size: 14px;
-    }
-
     .stepButton{
         scale: 0.8;
     }

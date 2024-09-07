@@ -53,12 +53,6 @@
     list-style: none;
 }
 
-.what{
-    padding: 50px;
-    border: solid 8px #97a68c;
-    border-radius: 20px 80px 20px 80px;
-}
-
 .whatContainer{
     display: flex; 
     align-items: start;
@@ -68,6 +62,9 @@
 .whatContainer .what{
     width: 50%;
     margin-right: 30px;
+    padding: 50px;
+    border: solid 8px #97a68c;
+    border-radius: 20px 80px 20px 80px;
 }
 
 .whatContainer .scope{
@@ -78,12 +75,7 @@
     border-radius: 120px 20px 120px 20px;
 }
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.whatContainer .scope .wrapper{
     width: 100%;
 }
 
@@ -123,54 +115,16 @@
     border-bottom: 3px solid #97a68c;
 }
 
-.whyContainer .point{
+.whyContainer .wrapper{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
-.whyContainer .point .circle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px;
-    height: 180px;
-    background-color: #fff;
-    border: 10px solid #8fc268;
-    border-radius: 100%;
-}
-
-.whyContainer .point span{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #b87d55;
-    color: #fefefe;
-    width: 80%;
-    height: 150px;
-    margin-top: 30px;
-    padding: 20px 60px;
-    border: 5px solid #aaa;
-    border-radius: 20px;
-    z-index: -1;
-}
-
-.whyContainer .point span h5{
-    align-self: flex-start;
-}
-
-.whyContainer .point span p{
-    line-height: 1.8;
-}
-
-.whyContainer .pointLeft span{
-    transform: translateX(-50px);
-}
-
-.whyContainer .pointRight span{
-    transform: translateX(50px);
+.whyContainer .wrapper img{
+    width: 20%;
 }
 
 .howContainer{
@@ -184,9 +138,10 @@
 
 .howContainer span{
     position: relative;
+    background-color: #97a68c;
+    color: #fefefe;
     width: 80%;
     padding: 10px;
-    border: 3px solid #333;
     border-radius: 12px;
 }
 
@@ -195,7 +150,7 @@
     top: -100px;
     left: -80px;
     content: ',,';
-    color: #8fc268;
+    color: #97a68c;
     font-size: 4rem;
 }
 
@@ -204,7 +159,7 @@
     top: -100px;
     right: -80px;
     content: ',,';
-    color: #8fc268;
+    color: #97a68c;
     font-size: 4rem;
 }
 
@@ -236,17 +191,16 @@
         padding: 0;
         border: none;
     }
+
+    .whyContainer .wrapper img{
+        width: 45%;
+        margin: 10px 0;
+    }
 }
 
 @media (max-width: 768px) {
-    .whyContainer .point .circle{
-        display: none;
-    }
-
-    .whyContainer .point span{
-        transform: translateX(0);
-        height: auto;
-        padding: 10px;
+    .whyContainer .wrapper img{
+        width: 80%;
     }
 
     .howContainer span::before{

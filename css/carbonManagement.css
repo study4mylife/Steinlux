@@ -15,6 +15,223 @@
     width: 100%;
 }
 
-main{
+.manage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.manage h1{
+    position: relative;
+    width: fit-content;
     text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    background-color: #707070;
+    color: #fefefe;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 5px #888;
+}
+
+.manage h2{
+    margin-bottom: 30px;
+}
+
+.manage h1::first-letter,.manage h2::first-letter{
+    color: #8fc268;
+    font-weight: 550;
+}
+
+.manageContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.manageContainer section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.manageContainer strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #db8c5f;
+}
+
+.manageContainer span{
+    display: inline-block;
+    line-height: 2.5;
+    letter-spacing: 2.2px;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.whatContainer{
+    display: flex; 
+    align-items: start;
+    justify-content: space-between;
+}
+
+.whatContainer .what{
+    width: 50%;
+    margin-right: 30px;
+    padding: 30px;
+    border: solid 8px #97a68c;
+    border-radius: 50px 80px 20px 80px;
+}
+
+.whatContainer .scope{
+    text-align: center;
+    width: 50%;
+    padding: 30px;
+    border: solid 8px #97a68c;
+    border-radius: 70px 40px 120px 20px;
+}
+
+.whatContainer .scope .wrapper{
+    width: 100%;
+}
+
+.whatContainer .scope img{
+    width: 80%;
+    height: auto;
+}
+
+.whatContainer .scope a{
+    display: inline-block;
+    text-decoration: none;
+    color: #97a68c;
+    padding: 0px 20px;
+    border: 3px solid #bdbdbd;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.whatContainer .scope a:hover{
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.whyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.whyContainer h2{
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #97a68c;
+}
+
+.whyContainer .wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.whyContainer .wrapper img{
+    width: 20%;
+}
+
+.howContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.howContainer span{
+    position: relative;
+    background-color: #97a68c;
+    color: #fefefe;
+    width: 80%;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.howContainer span::before{
+    position: absolute;
+    top: -100px;
+    left: -80px;
+    content: ',,';
+    color: #97a68c;
+    font-size: 4rem;
+}
+
+.howContainer span::after{
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    content: ',,';
+    color: #97a68c;
+    font-size: 4rem;
+}
+
+.howContainer .wrapper{
+    width: 100%;
+}
+
+.howContainer .wrapper img{
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .whatContainer .what, .whatContainer .scope{
+        width: 100%;
+    }
+    .whatContainer{
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .manageContainer section{
+        width: 90%;
+    }
+
+    .whatContainer .what, .whatContainer .scope{
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .whyContainer .wrapper img{
+        width: 45%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .whyContainer .wrapper img{
+        width: 80%;
+    }
+
+    .howContainer span::before{
+        top: -100px;
+        left: -20px;
+    }
+    
+    .howContainer span::after{
+        top: -100px;
+        right: -20px;
+    }
 }

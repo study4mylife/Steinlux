@@ -1,5 +1,5 @@
 (function() {
-    emailjs.init("wWZrf3vP-pvqOi17m");//Public Key
+    emailjs.init("DkSbB9bF-Rdk7QVrY");//Public Key
 })();
 
 document.getElementById('feedback-form').addEventListener('submit', function(event) {
@@ -13,7 +13,7 @@ document.getElementById('feedback-form').addEventListener('submit', function(eve
 
 
 
-    emailjs.send('service_w46pywn', 'template_8d97pyd', templateParams)//Service ID & Template ID
+    emailjs.send('service_dfrw7bo', 'template_azx7ayk', templateParams)//Service ID & Template ID
         .then(function(response) {
             alert('感謝您的意見與回饋！');
             const nameText = document.getElementById('name').value = ' '

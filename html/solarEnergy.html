@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/feedback.css">
     <link rel="stylesheet" href="../css/solarEnergy.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,106 +16,79 @@
     <index-Header></index-Header>
     
     <div class="bannerContainer container-fluid px-0 position-relative">
-        <img src="../src/solarEnergyBanner.jpg" alt="STEINLUX_Banner" class="banner">
-        <span>
-            <h1>太陽能建置</h1>
-            <h2>Installation of Solar Energy Equipment</h2>
-        </span>
+        <div class="videoWrapper">
+            <video preload="auto" loop autoplay muted playsinline>
+                <source src="../src/bannerVideo.mp4" alt="STEINLUX_Video"  >
+            </video>
+        </div>
     </div>
-
     <hr>
 
     <main>
-        <section class="process">
-            <div class="title">
-                <h1>太陽能建置申請流程</h1>
-                <h2>APPLICATION PROCEDURES</h2>
-            </div>
-            <div class="stepContainer mt-5 mb-5">
-                <div class="step">
-                    <h2>Step 1</h2>
-                    <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <h2>簽訂合約</h2>
-                    <p>簽定合約後，進行送件。約2週</p>
-                </div>
+        <article class="solarEnergy mt-5 mb-5 hidden-element">
+            <div class="solarEnergyContainer">
+                <section class="whatsolarEnergy mb-5">  
+                    <h1>solarEnergy-1 標準與國際接軌</h1>
+                    <div class="whatContainer">
+                        <span class="what">
+                            <span>
+                                <h2>關於solarEnergy-1 組織型</h2>
+                                <p>ISO 14064-1 是國際標準化組織 (ISO) 所發布的標準，專門針對組織層級的溫室氣體 (GHG) 排放量和移除量的量化與報告進行規範。該標準為企業和組織提供了一個系統化的方法，以準確計算和管理其溫室氣體排放，並確保其減排措施的有效性和透明度。</p>
+                            </span>
+                            <span>
+                                <p>ISO 14064-1 不僅適用於各種行業和規模的組織，還鼓勵企業採取積極的氣候行動，藉由定期報告其溫室氣體排放量，增強其在環境管理上的信譽和責任感。此外，通過這一標準，組織可以識別減少排放的機會，優化能源使用，從而達成可持續發展的目標。</p>
+                            </span>
+                        </span>
+                        <span class="scope">
+                            <h2>了解 ISO 國際標準化組織</h2>
+                            <div class="wrapper">
+                                <img src="../src/ISO_Logo.png" alt="">
+                            </div>
+                            <p>ISO（國際標準化組織，International Organization for Standardization）成立於1947年，由來自全球 <strong>160</strong> 多個國家的國家標準機構組成，旨在通過制定和推行全球性技術標準，促進各行各業的技術、貿易、經濟發展與合作。ISO標準涵蓋各個領域，如質量管理、環境管理、資訊安全、食品安全等。ISO標準的全球適用性使其成為跨國企業在全球市場中保持競爭力的重要工具。</p>
+                            <a target="_blank" href="https://www.iso.org/home.html">了解更多</a>
+                        </span>
+                    </div>
+                </section>
                 
-                <div class="step">
-                    <h2>Step 2</h2>
-                    <div class="step-icon"><i class="fas fa-search"></i></div>
-                    <h2>台電審查</h2>
-                    <p>取得台電審查意見書。約3~4週</p>
-                </div>
-                
-                <div class="step">
-                    <h2>Step 3</h2>
-                    <div class="step-icon"><i class="fas fa-file-alt"></i></div>
-                    <h2>同意備案</h2>
-                    <p>取得能源局同意備案。約2~4週</p>
-                </div>
-                
-                <div class="step">
-                    <h2>Step 4</h2>
-                    <div class="step-icon"><i class="fas fa-wrench"></i></div>
-                    <h2>進場施工</h2>
-                    <p>依案場大小，各案件施工期不同。約2~8週
-                        台電外線施作與台電掛錶試運轉作業，預計6-8週</p>
+                <section class="whysolarEnergy hidden-element">
+                    <h1>制定 solarEnergy-1 標準所帶來的效益</h1>
+                    <div class="whyContainer">
+                        <span>
+                            <h2>公開透明建立信任</h2>
+                            <p>ISO 14064-1 標準要求組織詳細記錄和報告溫室氣體排放數據，包括排放源、量測方法和計算過程。這種詳細的報告有助於提高企業運營的透明度，使內部和外部的利益相關者能夠清楚了解組織的環境影響和減排成效。透明的報告不僅能建立信任，還能促進合作與溝通，讓企業能夠更有效地管理和改善其環境績效。這對於提升公眾形象和維持良好的企業聲譽非常重要。</p>
+                        </span>
 
-                </div><div class="step">
-                    <h2>Step 5</h2>
-                    <div class="step-icon"><i class="fas fa-plug"></i></div>
-                    <h2>併聯試運轉</h2>
-                    <p>台電驗收，完成掛表後開始計費。約2~3週</p>
-                </div>
-                
-                <div class="step">
-                    <h2>Step 6</h2>
-                    <div class="step-icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h2>設備登記</h2>
-                    <p>台電驗收，完成掛表後開始計費。約2~3週</p>
-                </div>
-                
-                <div class="step">
-                    <h2>Step 7</h2>
-                    <div class="step-icon"><i class="fas fa-dollar-sign"></i></div>
-                    <h2>開始躉售</h2>
-                    <p>正式運轉。約4週</p>
-                </div>
-            </div>
-        </section>
+                        <span>
+                            <h2>多方合作開拓商機</h2>
+                            <p>符合 ISO 14064-1 標準的企業在環境管理方面顯示出其積極態度，這樣可以在市場上獲得顯著的競爭優勢。許多消費者和業界合作夥伴越來越重視企業的環保實踐，選擇那些致力於減少環境影響的公司。透過認證，企業能夠在招標和合作機會中脫穎而出，增強市場吸引力，並可能開拓新的商機和客戶群體，從而提升整體競爭力。</p>
+                        </span>
 
-        <section class="document">
-            <div class="title">
-                <h1>申請所需文件</h1>
-                <h2>REQUIRED DOCUMENT</h2>
-            </div>
-
-            <div class="paperContainer">
-                <div class="paper">
-                    <ul>
-                        <li>土地/建物所有權狀影本</li>
-                        <li>建物使用執照影本</li>
-                        <li>土地/建物所有權人身份證正反面影本</li>
-                        <li>最近一期電費帳單</li>
-                        <li>電費收入匯款帳戶</li>
-                        <li>土地/建物所有權人代刻印章同意書或印章</li>
-                    </ul>
-                    <ul>
-                        <li>台電-土地使用同意書&建物使用同意書 (四份)</li>
-                        <li>能源局-土地暨建物使用同意書 (三份)</li>
-                        <li>電表租約保證人印章或簽代刻同意書 (保證人與設置者不能同一人)</li>
-                        <li>電表租約保證人身份證正反面影本 (保證人與設置者不能同一人)</li>
-                        <li>公司變更事項登記表/印鑑證明 (8份)(針對公司戶)</li>
-                        <li>401/無欠稅證明 (可候補)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                        <div class="wrapper">
+                            <img src="https://images.pexels.com/photos/27566103/pexels-photo-27566103/free-photo-of-ruzgar-gulleri.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                            <img src="https://images.pexels.com/photos/27566103/pexels-photo-27566103/free-photo-of-ruzgar-gulleri.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                            <img src="https://images.pexels.com/photos/27566103/pexels-photo-27566103/free-photo-of-ruzgar-gulleri.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                            <img src="https://images.pexels.com/photos/27566103/pexels-photo-27566103/free-photo-of-ruzgar-gulleri.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">
+                        </div>
+                </section>
+                    
+                <section class="howsolarEnergy hidden-element">
+                    <div class="howContainer">
+                        <span><em>透過與Steinlux楒騄合作，您的企業可以獲得在計算、減量、緩解、監測及揭露排放方面的高效支持——即使是來自如供應鏈這類具有挑戰性的來源——以達成您的短期和長期氣候行動目標。我們的全方位減碳解決方案是基於三範疇框架組織的，我們經驗豐富的團隊可以根據您的獨特需求制定採購策略。</em>
+                        </span>
+                        <div class="wrapper">
+                          <img src="../src/GHG background.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>  
+        </article>
+        <feed-back></feed-back>
     </main>
 
     <index-Footer></index-Footer>
 
     <script src="https://kit.fontawesome.com/b2d002c21d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <script src="../js/basic.js"></script>
+    <script type="module" src="../js/basic.js"></script>
 </body>
 </html>

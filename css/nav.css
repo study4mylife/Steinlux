@@ -180,10 +180,13 @@
 .nav-list .nav-link:nth-child(4){ animation-delay: 0.2s; }
 .nav-list .nav-link:nth-child(5){ animation-delay: 0.1s; }
 
+.nav-container{
+    height: 76px;
+}
+
 .nav-bar{
     position: relative;
     width: 100vw;
-    height: 76px;
     z-index: 100000;
     box-shadow: 0 5px 6px #7f7f7f50;
 }
@@ -331,15 +334,11 @@
     z-index: -1;
 }
 
-.bannerContainer{
-    margin-top: 76px;
-}
-
 .bannerContainer span{
     text-align: center;
     width: 100%;
     position: absolute;
-    top: 45%;
+    top: 35%;
     left: 50%;
     color: #fefefe;
     transform: translate(-50%, -50%);
@@ -355,11 +354,18 @@
     font-size: 1.5vw;
 }
 
+.videoWrapper{
+    width: 100%;
+}
+
+.videoWrapper video{
+    width: 100%;
+}
+
 .sidenav{
     display: none;
     position: fixed;
     width: 100%;
-    top: 76px;
     background-color:#fff;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -531,5 +537,9 @@ footer p{
 @media (max-width: 768px) {
     html{
         font-size: 14px;
+    }
+
+    .bannerContainer span{
+        letter-spacing: 2.5px;
     }
 }

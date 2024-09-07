@@ -62,8 +62,8 @@ class Header extends HTMLElement{
                       <div class="dropdown2">
                           <a href="#" class="dropbtn">永續服務<i class="fa-solid fa-caret-up"></i></a>
                           <div class="dropdown-content">
+                              <a href="../html/solarEnergy.html">太陽能建置</a>
                               <a href="../html/solarCalculator.html">太陽光電計算機</a>
-                              <a href="../html/carbonCalculator.html">碳足跡計算機</a>
                           </div>
                       </div>
                       <div class="dropdown2">
@@ -103,8 +103,8 @@ class Header extends HTMLElement{
                   </ul>
                   <h4>永續服務</h4>
                   <ul>
+                    <li><a href="../html/solarEnergy.html">太陽能建置</a><li>
                     <li><a href="../html/solarCalculator.html">太陽光電計算機</a></li>
-                    <li><a href="../html/carbonCalculator.html">碳足跡計算機</a></li>
                   </ul>
               </div>
               <div>
@@ -121,13 +121,13 @@ class Header extends HTMLElement{
               <div>
                   <h4>企業採購</h4>
                   <ul>
-                    <li><a href="">碳中和產品</a></li>
-                    <li><a href="">抵銷碳足跡</a></li>
+                    <li><a href="../html/feedback.html">碳中和產品</a></li>
+                    <li><a href="../html/feedback.html">抵銷碳足跡</a></li>
                   </ul>
                   <h4>聯絡我們</h4>
                   <ul>
-                    <li><a href="">shih@steinlux.com.tw</a></li>
-                    <li><a href="">品牌合作</a></li>
+                    <li><a href="../html/feedback.html">shih@steinlux.com.tw</a></li>
+                    <li><a href="../html/feedback.html">品牌合作</a></li>
                   </ul>
               </div>
               <div>
@@ -166,10 +166,11 @@ class Header extends HTMLElement{
                 <div class="feedback">
                     <div class="info">
                         <h2>Contact Us</h2>
-                        <ul>
-                            <li>公司名稱: 楒騄綠資本有限公司 STEINLUX GREEN CAPITAL CO.,LTD</li>
-                            <li>Email: shih@steinlux.com.tw</li>
-                        </ul>
+                        <p><i class="fa-regular fa-building"></i> : 楒騄綠資本有限公司 STEINLUX GREEN CAPITAL CO.,LTD</p>
+                        <p><i class="fa-regular fa-envelope"></i> : shih@steinlux.com.tw</p>
+                        <div class="wrapper">
+                            <img src="../src/Contact_image.svg">
+                        </div>
                     </div>
                     <div class="feedbackForm">
                         <form id="feedback-form">
@@ -255,8 +256,8 @@ class Header extends HTMLElement{
                             <a href="../html/carbonCreditPurchasing.html">- 國際自願性碳權採購</a>
                           </div>`],
           永續服務: [`<div>
+                          <a href="../html/solarEnergy.html">- 太陽能建置</a>
                           <a href="../html/solarCalculator.html">- 太陽光電計算機</a>
-                          <a href="../html/carbonCalculator.html">- 碳足跡計算機</a>
                       </div>`],
           INSIGHT: [`<div>
                           <a href="../html/media.html">- 媒體專區</a>
@@ -384,3 +385,65 @@ class Header extends HTMLElement{
         });
     });
 });
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBBQg9q-RjqlO3LSTc2p0hKwIgOBScrKBM",
+    authDomain: "steinlux.firebaseapp.com",
+    projectId: "steinlux",
+    storageBucket: "steinlux.appspot.com",
+    messagingSenderId: "61933345477",
+    appId: "1:61933345477:web:94767559db8d9ba68deeac"
+  };
+
+// 初始化 Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// 獲取頁面內容
+async function getPageContent(pageName) {
+    try {
+        const docRef = doc(db, "pages", pageName);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            return docSnap.data();
+        } else {
+            console.log("No such document!");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error getting document:", error);
+        return null;
+    }
+}
+
+// 填充頁面內容
+function fillPageContent(content) {
+    if (!content) return;
+
+    // 遍歷內容對象的所有鍵
+    Object.keys(content).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) {
+            if (element.tagName === "IMG") {
+                element.src = content[key];
+                element.alt = content[key]
+            } else {
+                element.innerHTML = content[key];
+            }
+        }
+    });
+}
+
+// 主函數
+async function loadPageContent() {
+    const pageName = document.body.id; // 假設每個頁面的 body 標籤都有一個唯一的 id
+    const content = await getPageContent(pageName);
+    fillPageContent(content);
+}
+
+// 當 DOM 加載完成時執行
+document.addEventListener('DOMContentLoaded', loadPageContent);
