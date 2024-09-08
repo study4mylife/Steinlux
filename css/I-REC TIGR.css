@@ -91,6 +91,10 @@
     width: 50%;
 }
 
+.whatContainer .scope h5{
+    border-bottom: 3px solid #97a68c
+}
+
 .whatContainer a{
     display: inline-block;
     text-decoration: none;

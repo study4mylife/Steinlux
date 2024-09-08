@@ -75,11 +75,7 @@
     border-radius: 70px 40px 120px 20px;
 }
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.whatContainer .difference .wrapper{
     text-align: center;
     width: 100%;
 }

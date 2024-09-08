@@ -84,9 +84,25 @@ class Header extends HTMLElement{
                   <span class="openbtn" onclick="toggleNav()">&#9776;</span>
               </ul>
           </header>
-      `;
+      `
+            window.toggleNav = () => {
+                const backgroundDimmer = document.querySelector('.background-dimmer');
+                document.getElementById("mySidenav").classList.toggle('open');
+                if (document.getElementById("mySidenav").classList.contains('open')) {
+                    backgroundDimmer.style.height = '100vh';
+                    backgroundDimmer.style.backgroundColor = 'rgba(256, 256, 256, .8)';
+                    backgroundDimmer.style.zIndex = '2';
+                } else {
+                    backgroundDimmer.style.height = '0';
+                }
+            };
+
+            window.topBtn = () => {
+                window.scrollTo(0, 0);
+            };
+        };
     }
-  }
+  
   
   class Footer extends HTMLElement{
     connectedCallback(){
@@ -192,10 +208,7 @@ class Header extends HTMLElement{
   customElements.define('index-header', Header);//定義header
   customElements.define('index-footer', Footer);//定義footer
   customElements.define('feed-back', Feedback);//定義feedback
-  
-  function topBtn(){
-      window.scrollTo(0,0)
-  }
+
   
   const menuToggle = document.querySelector('.menu-toggle');
           const menuItems = document.querySelector('.menu-items');
@@ -428,16 +441,17 @@ function fillPageContent(content) {
     Object.keys(content).forEach(key => {
         const element = document.getElementById(key);
         if (element) {
-            if (element.tagName === "IMG") {
+            if (element.tagName === "IMG" ||element.tagName === 'VIDEO') {
                 element.src = content[key];
-                element.alt = content[key]
+                element.alt = content[key];
+            } else if (element.tagName === 'A') {
+                element.href = content[key];
             } else {
                 element.innerHTML = content[key];
             }
         }
     });
 }
-
 // 主函數
 async function loadPageContent() {
     const pageName = document.body.id; // 假設每個頁面的 body 標籤都有一個唯一的 id
