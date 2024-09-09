@@ -133,6 +133,77 @@
     width: 20%;
 }
 
+.event-carousel {
+    max-width: 75%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    height: 600px;
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carouselItem {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 150px;
+}
+
+.carouselItem .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding-bottom: 57%;
+}
+
+.carouselItem .image-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.carouselItem .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    height: 100%;
+    padding: 20px;
+}
+
+.carouselItem h3 {
+    margin-top: 0;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
 .howContainer{
     display: flex;
     flex-direction: column;
@@ -200,6 +271,11 @@
     .whyContainer .wrapper img{
         width: 45%;
         margin: 10px 0;
+    }
+
+    .event-carousel {
+        max-width: 100%;
+        height: 800px;
     }
 }
 

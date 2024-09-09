@@ -72,8 +72,8 @@ async function initRandomNewsDisplay() {
 document.addEventListener('DOMContentLoaded', initRandomNewsDisplay);
 
 // Function to fetch news items from Firebase
-async function fetchNewsItems() {
-    const newsCollection = collection(db, 'carousel');
+async function fetchCarouselItems() {
+    const newsCollection = collection(db, 'indexCarousel');
     const newsSnapshot = await getDocs(newsCollection);
     return newsSnapshot.docs.map(doc => ({
         id: doc.id,
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     let currentIndex = 0;
 
     // Fetch items from Firebase
-    const items = await fetchNewsItems();
+    const items = await fetchCarouselItems();
 
     function createCarouselItem(item) {
         const div = document.createElement('div');
@@ -95,8 +95,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         div.innerHTML = `
             <a href="${item.link}" target="_blank">
                 <img src="${item.image}" alt="${item.title}">
-                <h3>${item.title || ''}</h3>
-                <p>${item.description || ''}</p>
             </a>
         `;
         return div;
