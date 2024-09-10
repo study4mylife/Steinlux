@@ -130,6 +130,70 @@
 
 .whyContainer .wrapper img{
     width: 20%;
+    aspect-ratio: 1/1;
+}
+
+.exampleContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.example{
+    background-color: #fff5e8;
+    width: 30%;
+    height: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #666;
+}
+
+.example .wrapper{
+    position: relative;
+    width: 100%;
+    padding-bottom: 60%;
+    margin-bottom: 18px;
+}
+
+.example .wrapper img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.example .content{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    padding: 10px;
+}
+
+.example .content h5{
+    width: 100%;
+    border-bottom: 3px solid #dba75f;
+
+}
+
+.example .content .text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.example .content .text p{
+    width: 50%;
 }
 
 .howContainer{
@@ -197,6 +261,10 @@
         border: none;
     }
 
+    .example{
+        width: 45%;
+    }
+
     .whyContainer .wrapper img{
         width: 45%;
         margin: 10px 0;
@@ -206,6 +274,10 @@
 @media (max-width: 768px) {
     .whyContainer .wrapper img{
         width: 80%;
+    }
+
+    .example{
+        width: 70%;
     }
 
     .howContainer span::before{

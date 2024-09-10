@@ -683,13 +683,6 @@ svg path:hover{
     width: 100%;
 }
 
-@media (min-width: 1600px) {
-    .nav-list, .nav-bar, #results, .step{
-        max-width: 1600px;
-    }
-    
-}
-
 @media (max-width: 1200px) {
     .step h2, #results h2 {
         display: none;

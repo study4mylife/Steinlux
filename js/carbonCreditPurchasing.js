@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const carousel = document.querySelector('.carousel-container');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
+    const dotsContainer = document.querySelector('.carousel-dots');
     let currentIndex = 0;
 
     // Fetch items from Firebase
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const div = document.createElement('div');
         div.className = 'carouselItem';
         div.innerHTML = `
+        <div class="content-wrapper">
             <div class="image-wrapper">
                 <img src="${item.image}">
             </div>
@@ -42,17 +44,30 @@ document.addEventListener('DOMContentLoaded', async function() {
                 <h3>${item.title}</h3>
                 <p>${item.content}</p>
             </div>
+        </div>
         `;
         return div;
+    }
+
+    function createDot(index) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+        return dot;
     }
 
     function initCarousel() {
         // Clear existing content
         carousel.innerHTML = '';
+        dotsContainer.innerHTML = '';
 
         // Add items to carousel
-        items.forEach(item => {
+        items.forEach((item, index) => {
             carousel.appendChild(createCarouselItem(item));
+            dotsContainer.appendChild(createDot(index));
         });
 
         updateCarousel();
@@ -60,6 +75,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function updateCarousel() {
         carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
     }
 
     prevButton.addEventListener('click', () => {
@@ -71,9 +89,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         currentIndex = (currentIndex + 1) % items.length;
         updateCarousel();
     });
-
-    // Reinitialize carousel on window resize
-    window.addEventListener('resize', initCarousel);
 
     // Initialize carousel
     initCarousel();

@@ -210,15 +210,15 @@
 }
 
 .targetContainer .wrapper img{
-    width: 80%;
+    width: 100%;
 }
 
-.targetContainer .paragraph1{
+.targetContainer .paragraph{
     display: flex;
     justify-content: space-around;
 }
 
-.targetContainer .paragraph1 span{
+.targetContainer .paragraph span{
     width: 50%;
 }   
 
@@ -314,6 +314,18 @@
     .advantageItems .item{
         width: 30%;
     }
+
+    .targetContainer .paragraph{
+        flex-direction: column;
+    }
+
+    .targetContainer .paragraph2{
+        flex-direction: column-reverse;
+    }
+
+    .targetContainer .wrapper, .targetContainer .paragraph span{
+        width: 100%;
+    }   
 
     .howContainer span::before{
         top: -100px;

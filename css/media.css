@@ -125,6 +125,11 @@
     padding: 10px 0;
 }
 
+#news-container .content .text a{
+    text-decoration: none;
+    color: #333;
+}
+
 #news-container .content .time{
     width: 100%;
     color: #555;
@@ -165,6 +170,7 @@
     margin: 20px 5px;
     padding: 10px 20px;
     border-radius: 4px;
+    color: #111;
 }
 
 #pagination button:hover{

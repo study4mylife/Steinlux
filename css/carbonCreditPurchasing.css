@@ -131,20 +131,24 @@
 
 .whyContainer .wrapper img{
     width: 20%;
+    aspect-ratio: 1/1;
 }
 
 .event-carousel {
-    max-width: 75%;
+    min-width: 75%;
+    aspect-ratio: 1/0.8;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    height: 600px;
 }
 
 .carousel-container {
     display: flex;
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     transition: transform 0.5s ease;
 }
 
@@ -152,16 +156,24 @@
     flex: 0 0 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 150px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.carouselItem .content-wrapper {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .carouselItem .image-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     width: 100%;
-    padding-bottom: 57%;
+    height: 60%;
+    position: relative;
+    overflow: hidden;
 }
 
 .carouselItem .image-wrapper img {
@@ -170,21 +182,26 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 16px;
     object-fit: cover;
     object-position: center center;
 }
 
 .carouselItem .text-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    height: 100%;
+    width: 100%;
+    height: 40%;
     padding: 20px;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .carouselItem h3 {
     margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.carouselItem p {
+    font-size: 1rem
 }
 
 .carousel-controls {
@@ -198,12 +215,42 @@
 }
 
 .carousel-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
+    font-size: 18px;
 }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #999;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #111;
+}
+
 .howContainer{
     display: flex;
     flex-direction: column;
@@ -251,6 +298,7 @@
     .whatContainer .what, .whatContainer .scope{
         width: 100%;
     }
+    
     .whatContainer{
         flex-direction: column;
     }
@@ -272,16 +320,39 @@
         width: 45%;
         margin: 10px 0;
     }
-
-    .event-carousel {
-        max-width: 100%;
-        height: 800px;
-    }
 }
 
 @media (max-width: 768px) {
     .whyContainer .wrapper img{
         width: 80%;
+    }
+
+    .event-carousel {
+        min-width: 100%;
+    }
+
+    .carouselItem .content-wrapper {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .carouselItem h3 {
+        font-size: 20px;
+    }
+
+    .carouselItem p {
+        font-size: 14px;
+    }
+
+    .carousel-button {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 3px;
     }
 
     .howContainer span::before{

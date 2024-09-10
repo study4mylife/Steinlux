@@ -84,8 +84,8 @@ function renderNewsList() {
                         </a>
                     </div>
                     <div class="text">
-                        <h3>${item.title || ''}</h3>
-                        <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 50) + '...' : ''}</p>
+                        <h3><a href="media.html?id=${item.id}">${item.title || ''}</h3>
+                        <p>${item.content && item.content[0] && item.content[0].text ? item.content[0].text.substring(0, 50) + '...' : ''}</a></p>
                     </div>
                 </div>
                 <div class="time">
