@@ -97,5 +97,5 @@ document.addEventListener('DOMContentLoaded', async function() {
     setInterval(() => {
         currentIndex = (currentIndex + 1) % items.length;
         updateCarousel();
-    }, 5000);
+    }, 7500);
 });

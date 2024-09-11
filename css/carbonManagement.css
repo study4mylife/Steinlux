@@ -20,29 +20,37 @@
     justify-content: center;
     align-items: center;
     text-align: justify;
+    color: #404040;
 }
 
 .manage h1{
     position: relative;
-    width: fit-content;
-    text-align: center;
+    text-align: left;
     font-size: 2rem;
-    font-weight: 500;
-    background-color: #707070;
-    color: #fefefe;
+    width: 98%;
     margin-bottom: 50px;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 3px 3px 5px #888;
+}
+
+.manage h1::before{
+    position: absolute;
+    left: -10px;
+    top: -15px;
+    content: ' ';
+    width: 5px;
+    height: 50px;
+    background-color: #A3C0D0;
+}
+
+.manage h1::first-letter{
+    color: #376092;
 }
 
 .manage h2{
     margin-bottom: 30px;
 }
 
-.manage h1::first-letter,.manage h2::first-letter{
-    color: #8fc268;
-    font-weight: 550;
+.manage h2::first-letter{
+    color: #77933c;
 }
 
 .manageContainer{

@@ -3,28 +3,37 @@
     justify-content: center;
     align-items: center;
     text-align: justify;
+    color: #404040;
 }
 
 .GHG h1{
-    width: fit-content;
-    text-align: center;
+    position: relative;
+    text-align: left;
     font-size: 2rem;
-    font-weight: 500;
-    background-color: #606060;
-    color: #fefefe;
+    width: 98%;
     margin-bottom: 50px;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 3px 3px 5px #888;
+}
+
+.GHG h1::before{
+    position: absolute;
+    left: -10px;
+    top: -15px;
+    content: ' ';
+    width: 5px;
+    height: 50px;
+    background-color: #A3C0D0;
+}
+
+.GHG h1::first-letter{
+    color: #376092;
 }
 
 .GHG h2{
     margin-bottom: 30px;
 }
 
-.GHG h1::first-letter,.GHG h2::first-letter{
-    color: #8fc268;
-    font-weight: 550;
+.GHG h2::first-letter{
+    color: #77933c;
 }
 
 .GHGContainer{

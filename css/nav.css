@@ -220,6 +220,7 @@
     width: 100%;
     padding: 20px 0;
     margin: auto;
+    cursor: pointer;
     opacity: 0;
     animation: slideInFromLeft 0.8s ease forwards;
 }

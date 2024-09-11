@@ -12,9 +12,9 @@ main{
 }
 
 main .title h1{
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 700;
-    margin-top: 40px;
+    margin-top: 20px;
     text-decoration: underline;
     text-underline-offset: 8px;
 }
@@ -121,10 +121,6 @@ main .title h1{
     font-size: 1.2rem;
 }
 
-.content i{
-    font-size: 16px;
-}
-
 .serviceItem{
     display: flex;
     flex-wrap: wrap;
@@ -214,11 +210,6 @@ main .title h1{
     padding: 0 0 1vw 0;
     background-color: white;
     z-index: -10;
-}
-
-.brand-nav h1 {
-    font-size: calc(16px + 1vw);
-    font-weight: 700;
 }
 
 .brand-container {

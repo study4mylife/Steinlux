@@ -18,10 +18,10 @@ class Header extends HTMLElement{
                   <nav class="nav-bar fixed-top bg-white">
                       <ul class="nav-list">
                           <a class="navbar-logo steinluxLogo" href="../html/index.html"></a>
-                          <a href="#" class="nav-link"><li class="nav-item">淨零顧問服務</li></a>
-                          <a href="#" class="nav-link"><li class="nav-item">淨零解決方案</li></a>
-                          <a href="#" class="nav-link"><li class="nav-item">永續服務</li></a>
-                          <a href="#" class="nav-link"><li class="nav-item">INSIGHT</li></a>
+                          <a class="nav-link"><li class="nav-item">淨零顧問服務</li></a>
+                          <a class="nav-link"><li class="nav-item">淨零解決方案</li></a>
+                          <a class="nav-link"><li class="nav-item">永續服務</li></a>
+                          <a class="nav-link"><li class="nav-item">INSIGHT</li></a>
                           <a href="../html/aboutUs.html" class="nav-link"><li class="nav-item">關於我們</li></a>
                       </ul>
                   </nav>
@@ -202,6 +202,32 @@ class Header extends HTMLElement{
                 </div>
             </div>
         </section>`
+         // 初始化 emailjs
+         emailjs.init("DkSbB9bF-Rdk7QVrY");
+
+         // 表單提交邏輯
+         document.getElementById('feedback-form').addEventListener('submit', function(event) {
+             event.preventDefault();
+ 
+             var templateParams = {
+                 name: document.getElementById('name').value,
+                 email: document.getElementById('email').value,
+                 message: document.getElementById('message').value
+             }; // 取得 input 內容
+ 
+             // 使用 EmailJS 服務發送郵件
+             emailjs.send('service_dfrw7bo', 'template_azx7ayk', templateParams)
+                 .then(function(response) {
+                     alert('感謝您的意見與回饋！');
+ 
+                     // 清除表單資料
+                     document.getElementById('name').value = '';
+                     document.getElementById('email').value = '';
+                     document.getElementById('message').value = '';
+                 }, function(error) {
+                     alert('發送失敗，請重新發送。');
+                 });
+         });
     }
   }
 

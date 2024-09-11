@@ -290,3 +290,14 @@
         right: -20px;
     }
 }
+
+@media (max-width: 500px) {
+    .example .content .text{
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .example .content .text p{
+        width: 100%;
+    }
+}

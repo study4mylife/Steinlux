@@ -174,16 +174,18 @@ const highEffectPrice20to50 = 0.2622
 const highEffectPrice50to100 = 0.2511
 const highEffectPrice100to500 = 0.2350
 const highEffectPrice500toInfinite = 0.2311
-const engineeringPrice50to100 = 0.0668//設備工程費
-const engineeringPrice100toinfinite = 0.0964
+const engineeringPrice50to100 = 0.0668 //設備工程費
+const engineeringPrice100to500 = 0.0964
+const engineeringPrice500toinfinite = 0.0413
+
 function getCapacityMultiplier(capacity) {
     const priceRanges = [
         { max: 10, multiplier: (5.7055 + highEffectPrice1to10) },
         { max: 20, multiplier: (5.5760 + highEffectPrice10to20) },
         { max: 50, multiplier: (4.36945 + engineeringPrice50to100 +  highEffectPrice20to50) },
         { max: 100, multiplier: (4.1848 + engineeringPrice50to100 + highEffectPrice50to100) },
-        { max: 500, multiplier: (3.9165 + engineeringPrice100toinfinite + highEffectPrice100to500) },
-        { max: Infinity, multiplier: (3.8510 + engineeringPrice100toinfinite + highEffectPrice500toInfinite) }
+        { max: 500, multiplier: (3.9165 + engineeringPrice100to500 + highEffectPrice100to500) },
+        { max: Infinity, multiplier: (3.8510 + engineeringPrice500toinfinite + highEffectPrice500toInfinite) }
     ];
 
     for (let range of priceRanges) {
