@@ -19,6 +19,18 @@ main .title h1{
     text-underline-offset: 8px;
 }
 
+.solution{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.solution span{
+    display: block;
+    width: 80%;
+}
+
 .solution span h1{
     color: rgb(181, 189, 152);
 }
@@ -27,7 +39,6 @@ main .title h1{
     line-height: 2.5;
     letter-spacing: 1.5px;
     margin-bottom: 30px;
-    padding: 0 20px;
 }
 
 .newsContainer{
@@ -222,17 +233,17 @@ main .title h1{
 
 .brand-scroll {
     display: flex;
-    animation: scroll 15s linear infinite;
+    animation: scroll 10s linear infinite;
 }
 
 .brand-item {
-    width: auto;
+    width: 150px;
     height: 100%;
     margin: 0 2vw;
 }
 
 .brand-item img {
-    width: 200px;
+    width: 100%;
     height: 100%;
     object-fit: contain;
 }

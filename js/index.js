@@ -195,12 +195,10 @@ async function loadBrandImages() {
             `);
         });
 
-        // 重复图片以确保无缝滚动
         brandScroll.innerHTML = brandImages.join('') + brandImages.join('');
     } catch (error) {
         console.error("Error loading brand images:", error);
     }
 }
 
-// 页面加载时获取品牌图片
 window.addEventListener('load', loadBrandImages);
