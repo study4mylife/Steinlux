@@ -11,6 +11,7 @@
     text-align: left;
     font-size: 2rem;
     width: 98%;
+    padding-left: 10px;
     margin-bottom: 50px;
 }
 
@@ -19,7 +20,7 @@
     left: -10px;
     top: -15px;
     content: ' ';
-    width: 5px;
+    width: 10px;
     height: 50px;
     background-color: #A3C0D0;
 }
@@ -111,28 +112,37 @@
 
 .boxContainer .box{
     width: 45%;
-    margin-bottom: 20px;
     padding: 10px;
-    box-shadow: 0 10px #97a68c;
 }
 
 .boxContainer .box span{
     padding: 20px;
-    border: 3px solid #333;
     border-radius: 10px;
 }
 
 .boxContainer .box span h2{
-    color: #fefefe;
+    position: relative;
     font-size: 1.5rem;
-    background-color: #333;
     width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
 }
 
+.boxContainer .box span h2::first-letter{
+    color: #9b7E67;
+}
+
+.boxContainer .box span h2::after{
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    content: '';
+    width: 50px;
+    height: 6px;
+    background-color: #b99172;
+}
+
+
 .boxContainer .box span p{
-    background-color: #eee;
+    background: linear-gradient(120deg, #F2C37220, #A2D8F020);
     padding: 10px 20px;
     border-radius: 10px;
 }

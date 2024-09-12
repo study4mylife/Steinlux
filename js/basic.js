@@ -216,7 +216,7 @@ class Header extends HTMLElement{
              }; // 取得 input 內容
  
              // 使用 EmailJS 服務發送郵件
-             emailjs.send('service_dfrw7bo', 'template_azx7ayk', templateParams)
+             emailjs.send('service_scjhw1v','template_azx7ayk', templateParams)
                  .then(function(response) {
                      alert('感謝您的意見與回饋！');
  

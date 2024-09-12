@@ -23,28 +23,6 @@
     color: #404040;
 }
 
-.gasInterrogation h1{
-    position: relative;
-    text-align: left;
-    font-size: 2rem;
-    width: 98%;
-    margin-bottom: 50px;
-}
-
-.gasInterrogation h1::before{
-    position: absolute;
-    left: -10px;
-    top: -15px;
-    content: ' ';
-    width: 5px;
-    height: 50px;
-    background-color: #A3C0D0;
-}
-
-.gasInterrogation h1::first-letter{
-    color: #376092;
-}
-
 .gasInterrogation h2{
     margin-bottom: 30px;
 }

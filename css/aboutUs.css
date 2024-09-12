@@ -2,6 +2,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(150deg,#D9F2D080 15%,#C1E5F590 25%,#FFF1D099 70%);
 }
 
 .mainContainer{
@@ -26,7 +27,7 @@ main{
 }
 
 .aboutUs h3 p::first-letter{
-    color: #749a5a;
+    color: #77933c;
 }
 
 .aboutUs h3::first-letter{
@@ -68,23 +69,23 @@ main{
 .timeline {
     position: relative;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .timeline::after {
     content: '';
     position: absolute;
     width: 6px;
-    background-color: #3498db;
+    background-color: #98A58C;
     top: 0;
     bottom: 0;
     left: 50%;
     margin-left: -3px;
+    z-index: -1;
 }
-
 .container {
     padding: 10px 40px;
     position: relative;
-    background-color: inherit;
     width: 50%;
 }
 
@@ -93,12 +94,12 @@ main{
     position: absolute;
     width: 25px;
     height: 25px;
-    right: -17px;
-    background-color: #3498db;
-    border: 4px solid #3498db;
+    background-color: #b99172;
     top: 15px;
+    left: 50%; /* 把圓點移到中間 */
+    margin-left: -12px; /* 調整圓點的水平位置，使其居中 */
     border-radius: 50%;
-    z-index: 1;
+    z-index: 100;
 }
 
 .left {
@@ -117,9 +118,8 @@ main{
     width: 0;
     z-index: 1;
     right: 30px;
-    border: medium solid #3498db;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #3498db;
+    border-color: transparent transparent transparent #9DBCCD;
 }
 
 .right::before {
@@ -132,12 +132,9 @@ main{
     left: 30px;
     border: medium solid #3498db;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #3498db transparent transparent;
+    border-color: transparent #9DBCCD transparent transparent;
 }
 
-.right::after {
-    left: -13px;
-}
 
 .content {
     width: 270px;
