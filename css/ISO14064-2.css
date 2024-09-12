@@ -53,12 +53,6 @@
     width: 80%;
 }
 
-.ISO14064-2Container strong{
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #db8c5f;
-}
-
 .ISO14064-2Container span{
     display: inline-block;
     line-height: 2.5;

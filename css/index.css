@@ -233,13 +233,13 @@ main .title h1{
 
 .brand-scroll {
     display: flex;
-    animation: scroll 10s linear infinite;
+    animation: scroll linear infinite;
 }
 
 .brand-item {
-    width: 150px;
+    width: 200px;
     height: 100%;
-    margin: 0 2vw;
+    margin: 0 3vw;
 }
 
 .brand-item img {
@@ -254,6 +254,7 @@ main .title h1{
     bottom: 0;
     width: 150px;
     pointer-events: none;
+    z-index: 1;
 }
 
 .blur-left {

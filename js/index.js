@@ -195,7 +195,14 @@ async function loadBrandImages() {
             `);
         });
 
-        brandScroll.innerHTML = brandImages.join('') + brandImages.join('');
+        // 重複圖片組以實現無縫循環
+        const doubledBrandImages = brandImages.concat(brandImages);
+        brandScroll.innerHTML = doubledBrandImages.join('');
+
+        // 調整動畫持續時間
+        const scrollWidth = brandScroll.scrollWidth;
+        const animationDuration = scrollWidth / 200; // 50px per second
+        brandScroll.style.animationDuration = `${animationDuration}s`;
     } catch (error) {
         console.error("Error loading brand images:", error);
     }

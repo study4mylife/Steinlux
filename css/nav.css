@@ -1,15 +1,11 @@
 @font-face {
     font-family: 'GensenFont-M';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-M.ttc');
-    font-weight: normal;
-    font-style: normal;
+    src: url('../font/woff/GenSenRoundedTW-M-01.woff') format('woff');
 }
 
 @font-face {
     font-family: 'GensenFont-L';
-    src: url('../font/gensen-font-master/gensen-font-master/ttc/GenSenRounded-L.ttc');
-    font-weight: normal;
-    font-style: normal;
+    src: url('../font/woff/GenSenRoundedTW-L-01.woff') format('woff');
 }
 
 *{
@@ -19,6 +15,12 @@
     box-sizing: border-box;
     outline: none;
     border-style: none;
+}
+
+strong{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #77933c;
 }
 
 @keyframes slideInFromLeft {

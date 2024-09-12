@@ -18,21 +18,13 @@ main{
     text-align: center;
 }
 
-
-.aboutUs h3 p{
-    display: inline-block;
-    letter-spacing: 1.5px;
-    text-align: center;
-    margin: 0 5px;
-}
-
-.aboutUs h3 p::first-letter{
+.aboutUs h3::first-letter{
     color: #77933c;
 }
 
 .aboutUs h3::first-letter{
     text-decoration-line: underline;
-    text-underline-offset: 10px
+    text-underline-offset: 6px
 }
 
 .aboutUs span p{
@@ -83,6 +75,7 @@ main{
     margin-left: -3px;
     z-index: -1;
 }
+
 .container {
     padding: 10px 40px;
     position: relative;
@@ -96,45 +89,33 @@ main{
     height: 25px;
     background-color: #b99172;
     top: 15px;
-    left: 50%; /* 把圓點移到中間 */
-    margin-left: -12px; /* 調整圓點的水平位置，使其居中 */
+    left: 50%;
+    margin-left: -12.5px;
     border-radius: 50%;
     z-index: 100;
 }
 
-.left {
-    left: -152px;
-}
-
-.right {
-    left: 148px;
-}
-
-.left::before {
+.left::before, .right::before {
     content: " ";
     height: 0;
     position: absolute;
     top: 22px;
     width: 0;
     z-index: 1;
-    right: 30px;
+    border: medium solid #3498db;
+}
+
+.left::before {
+    right: 180px;
     border-width: 10px 0 10px 10px;
     border-color: transparent transparent transparent #9DBCCD;
 }
 
 .right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid #3498db;
+    left: 180px;
     border-width: 10px 10px 10px 0;
     border-color: transparent #9DBCCD transparent transparent;
 }
-
 
 .content {
     width: 270px;
@@ -144,6 +125,16 @@ main{
     position: relative;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.left .content{
+    position: relative;
+    left: -150px;
+}
+
+.right .content{
+    position: relative;
+    right: -150px;
 }
 
 @media(max-width: 992px) {
@@ -161,21 +152,37 @@ main{
         grid-template-columns: 1fr;
     }
 
-    .container {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-        left: 0
-    }
-    .container::before{
+    .timeline::after{
         display: none;
     }
 
-    .container::after{
-        right: 284px;
+    .container {
+        padding: 80px 0;
     }
 
-    .timeline::after{
-        left: 0
+    .container::after, .right:last-of-type::before{
+        display: none;
+    }
+
+    .left::before, .right::before{
+        left: 45%;
+        top: 85%;
+    }
+
+    .left::before{
+        border-width: 60px 0 60px 60px;
+        transform: rotate(90deg);
+        bottom: -100px;
+    }
+
+    .right::before{
+        border-width: 60px 60px 60px 0;
+        transform: rotate(-90deg);
+    }
+
+    .left .content, .right .content {
+        width: 100%;
+        left: 0;
+        right: 0;
     }
 }

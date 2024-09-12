@@ -53,12 +53,6 @@
     width: 80%;
 }
 
-.T-RECContainer strong{
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #db8c5f;
-}
-
 .T-RECContainer span{
     display: inline-block;
     line-height: 2.5;

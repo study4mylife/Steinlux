@@ -51,7 +51,7 @@ function renderTopNews() {
         <div class="top-news-card">
             <div class="wrapper">
                 <a href="media.html?id=${latestNews.id}">
-                    <img src="${latestNews.mainImage || '../src/background1.jpg'}" alt="${latestNews.mainImageAlt || ''}">
+                    <img src="${latestNews.mainImage || '../src/background1.webp'}" alt="${latestNews.mainImageAlt || ''}">
                 </a>
             </div>
             <span>
