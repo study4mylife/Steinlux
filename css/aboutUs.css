@@ -61,7 +61,7 @@ main{
 .timeline {
     position: relative;
     margin: 0 auto;
-    z-index: 1;
+    z-index: 0;
 }
 
 .timeline::after {
@@ -92,7 +92,7 @@ main{
     left: 50%;
     margin-left: -12.5px;
     border-radius: 50%;
-    z-index: 100;
+    z-index: 1;
 }
 
 .left::before, .right::before {
@@ -165,7 +165,7 @@ main{
     }
 
     .left::before, .right::before{
-        left: 45%;
+        left: 100px;
         top: 85%;
     }
 

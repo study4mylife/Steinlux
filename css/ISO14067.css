@@ -78,9 +78,17 @@
 .whatContainer .scope{
     text-align: center;
     width: 50%;
-    padding: 40px;
+    padding: 30px;
     border: solid 8px #97a68c;
-    border-radius: 120px 20px 120px 20px;
+    border-radius: 70px 40px 120px 20px;
+}
+
+.whatContainer .scope h2{
+    text-align: left;
+}
+
+.whatContainer .scope p{
+    text-align: justify;
 }
 
 .whatContainer .scope .wrapper{
@@ -93,6 +101,7 @@
 }
 
 .whatContainer .scope a{
+    text-align: center;
     display: inline-block;
     text-decoration: none;
     color: #97a68c;
@@ -103,9 +112,10 @@
 }
 
 .whatContainer .scope a:hover{
-    background-color: #e0e0e0;
+    background-color: #97a68c;
+    color: #fefefe;
     transform: translateY(-5px);
-    transition: transform 0.3s;
+    transition: 0.4s;
 }
 
 .whyContainer{

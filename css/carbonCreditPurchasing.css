@@ -83,6 +83,14 @@
     border-radius: 70px 40px 120px 20px;
 }
 
+.whatContainer .scope h2{
+    text-align: left;
+}
+
+.whatContainer .scope p{
+    text-align: justify;
+}
+
 .whatContainer .scope .wrapper{
     width: 100%;
 }
@@ -91,22 +99,6 @@
     width: 40%;
     object-fit: contain;
     margin: 10px;
-}
-
-.whatContainer .scope a{
-    display: inline-block;
-    text-decoration: none;
-    color: #97a68c;
-    padding: 0px 20px;
-    border: 3px solid #bdbdbd;
-    border-radius: 20px;
-    transition: transform 0.3s;
-}
-
-.whatContainer .scope a:hover{
-    background-color: #e0e0e0;
-    transform: translateY(-5px);
-    transition: transform 0.3s;
 }
 
 .whyContainer{
@@ -193,7 +185,9 @@
 .carouselItem .text-wrapper {
     width: 100%;
     height: 40%;
-    padding: 20px;
+    vertical-align: bottom;
+    padding: 10px;
+    scrollbar-width: none;
     overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.8);
 }

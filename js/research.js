@@ -80,7 +80,7 @@ function renderNewsList() {
                 <div class="content-container">
                     <div class="wrapper">
                         <a href="research.html?id=${item.id}">
-                            <img src="${item.mainImage || '../src/background1.jpg'}" alt="${item.mainImageAlt || ''}">
+                            <img src="${item.mainImage || '../src/background1.webp'}" alt="${item.mainImageAlt || ''}">
                         </a>
                     </div>
                     <div class="text">

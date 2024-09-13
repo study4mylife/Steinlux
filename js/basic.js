@@ -126,9 +126,9 @@ class Header extends HTMLElement{
               <div>
                   <h4>淨零解決方案</h4>
                   <ul>
-                    <li><a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a>
-                    <li><a href="../html/CPPA.html">國內購電協議(CPPA)</a>
-                    <li><a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a>
+                    <li><a href="../html/T-REC.html">國內再生能源憑證(T-REC)</a></li>
+                    <li><a href="../html/CPPA.html">國內購電協議(CPPA)</a></li>
+                    <li><a href="../html/I-REC TIGR.html">國際再生能源憑證(I-REC/TIGR)</a></li>
                     <li><a href="../html/ISO14064-2.html">ISO 14064-2專案開發</a></li>
                     <li><a href="../html/emissionTrading.html">國內減量額度交易</a></li>
                     <li><a href="../html/carbonCreditPurchasing.html">國際自願性碳權採購</a></li>
@@ -383,7 +383,7 @@ class Header extends HTMLElement{
         ];
   
     function checkScroll() {
-        const triggerPoint = window.innerHeight / 2 * 1.1; // 視窗高度的55%
+        const triggerPoint = window.innerHeight / 1 * 0.6; // 視窗高度的60%
   
         hiddenElementsAll.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
